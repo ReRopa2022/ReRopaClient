@@ -76,7 +76,7 @@ const Signup = () => {
 
             <form className="w-full flex flex-col py-4" onSubmit={onSubmit}>
               <input
-                className="p-3 my-2 bg-gray-700 rounded"
+                className="p-3 my-2 bg-white-700 rounded text-gray-600"
                 type="text"
                 placeholder="First Name"
                 autoComplete="firstName"
@@ -86,7 +86,7 @@ const Signup = () => {
                 onChange={onChange}
               />
               <input
-                className="p-3 my-2 bg-gray-700 rounded"
+                className="p-3 my-2 bg-white-700 rounded text-gray-600"
                 type="text"
                 placeholder="Last Name"
                 autoComplete="lastName"
@@ -97,7 +97,7 @@ const Signup = () => {
               />
 
               <input
-                className="p-3 my-2 bg-gray-700 rounded"
+                className="p-3 my-2 bg-white-700 rounded text-gray-600"
                 type="email"
                 placeholder="email"
                 name="email"
@@ -106,7 +106,7 @@ const Signup = () => {
                 value={email}
               />
               <input
-                className="p-3 my-2 bg-gray-700 rounded"
+                className="p-3 my-2 bg-white-700 rounded text-gray-600"
                 type="password"
                 placeholder="Password"
                 name="password"
@@ -115,7 +115,7 @@ const Signup = () => {
                 value={password}
               />
               <input
-                className="p-3 my-2 bg-gray-700 rounded"
+                className="p-3 my-2 bg-white-700 rounded text-gray-600"
                 type="password"
                 placeholder="Confirm Password"
                 autoComplete="passwordConfirm"

@@ -17,13 +17,13 @@ const Login = () => {
 
             <form className="w-full flex flex-col py-4">
               <input
-                className="p-3 my-2 bg-white-700 rouded"
+                className="p-3 my-2 bg-white-700 rouded text-gray-600"
                 type="email"
                 placeholder="Email"
                 autoComplete="email"
               />
               <input
-                className="p-3 my-2 bg-white-700 rouded"
+                className="p-3 my-2 bg-white-700 rouded text-gray-600"
                 type="password"
                 placeholder="Password"
                 autoComplete="current-password"
