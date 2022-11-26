@@ -28,7 +28,6 @@ const Navbar = () => {
             About
           </button>
         </Link>
-
         {!user ? (
           <>
             <Link to="/login">
@@ -43,14 +42,21 @@ const Navbar = () => {
             </Link>
           </>
         ) : (
-          <Link to="/">
-            <button
-              onClick={onLogout}
-              className="bg-green-500 px-6 py-2 rounded cursor-pointer m-2 text-white"
-            >
-              Sign Out
-            </button>
-          </Link>
+          <>
+            <Link to="/donate">
+              <button className="bg-green-500 px-6 py-2 rounded cursor-pointer m-2 text-white">
+                Donate
+              </button>
+            </Link>
+            <Link to="/">
+              <button
+                onClick={onLogout}
+                className="bg-green-500 px-6 py-2 rounded cursor-pointer m-2 text-white"
+              >
+                Sign Out
+              </button>
+            </Link>
+          </>
         )}
       </div>
     </div>
