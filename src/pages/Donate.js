@@ -46,7 +46,7 @@ const Donate = () => {
                 id="sex"
                 name="sex"
               >
-                <option value="sex">Sex</option>
+                <option>Sex</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
               </select>

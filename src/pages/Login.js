@@ -37,6 +37,7 @@ const Login = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     const userData = { email, password };
+
     dispatch(login(userData));
   };
   return (
@@ -52,7 +53,7 @@ const Login = () => {
           <div className="max-w-[320px] mx-auto py-16">
             <h1 className="text-3xl font-bold">Sign In</h1>
 
-            <form onClick={onSubmit} className="w-full flex flex-col py-4">
+            <form className="w-full flex flex-col py-4">
               <input
                 className="p-3 my-2 bg-white-700 rouded text-gray-600"
                 type="email"
@@ -73,7 +74,10 @@ const Login = () => {
                 required
                 onChange={onChange}
               />
-              <button className="bg-green-500 py-3 my-6 rounded font-bold">
+              <button
+                onClick={onSubmit}
+                className="bg-green-500 py-3 my-6 rounded font-bold"
+              >
                 Sign In
               </button>
               <div className="flex justify-between items-center text-sm text-gray-600">
