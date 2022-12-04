@@ -69,16 +69,16 @@ const Signup = () => {
         alt="/"
       />
       <div className=" fixed top-0 left-0 w-ful"></div>
-      <div className="bg-white/60 absolute h-full w-full px-4 py-24 z-50">
+      <div className="bg-white/60 absolute h-full w-full px-4 py-1 z-50">
         <div className="max-w-[450px] h-[600px] mx-auto bg-black/75 text-white">
-          <div className="max-w-[320px] mx-auto py-16">
-            <h1 className="text-3xl font-bold">Sign Up</h1>
+          <div className="max-w-[320px] h-[340px] mx-auto py-14">
+            <h1 className="text-3xl font-bold text-center"> הרשמה</h1>
 
             <form className="w-full flex flex-col py-4" onSubmit={onSubmit}>
               <input
-                className="p-3 my-2 bg-white-700 rounded text-gray-600"
+                className="p-3 my-2 bg-white-700 rounded text-gray-600 text-right"
                 type="text"
-                placeholder="First Name"
+                placeholder="שם פרטי"
                 autoComplete="firstName"
                 value={firstName}
                 name="firstName"
@@ -86,9 +86,9 @@ const Signup = () => {
                 onChange={onChange}
               />
               <input
-                className="p-3 my-2 bg-white-700 rounded text-gray-600"
+                className="p-3 my-2 bg-white-700 rounded text-gray-600 text-right"
                 type="text"
-                placeholder="Last Name"
+                placeholder="שם משפחה"
                 autoComplete="lastName"
                 value={lastName}
                 name="lastName"
@@ -97,27 +97,27 @@ const Signup = () => {
               />
 
               <input
-                className="p-3 my-2 bg-white-700 rounded text-gray-600"
+                className="p-3 my-2 bg-white-700 rounded text-gray-600 text-right"
                 type="email"
-                placeholder="email"
+                placeholder="אימייל"
                 name="email"
                 autoComplete="email"
                 onChange={onChange}
                 value={email}
               />
               <input
-                className="p-3 my-2 bg-white-700 rounded text-gray-600"
+                className="p-3 my-2 bg-white-700 rounded text-gray-600 text-right"
                 type="password"
-                placeholder="Password"
+                placeholder="סיסמא"
                 name="password"
                 autoComplete="current-password"
                 onChange={onChange}
                 value={password}
               />
               <input
-                className="p-3 my-2 bg-white-700 rounded text-gray-600"
+                className="p-3 my-2 bg-white-700 rounded text-gray-600 text-right"
                 type="password"
-                placeholder="Confirm Password"
+                placeholder="אימות סיסמא"
                 autoComplete="passwordConfirm"
                 value={passwordConfirm}
                 name="passwordConfirm"
@@ -125,12 +125,12 @@ const Signup = () => {
                 onChange={onChange}
               />
               <button className="bg-green-500 py-3 my-6 rounded font-bold">
-                Sign Up
+                הירשם
               </button>
 
-              <p className="py-8">
-                <span className="text-green-500">Already registered?</span>{" "}
-                <Link to="/login">Sign In</Link>
+              <p className=" text-right">
+                <span className="text-green-500">כבר רשום?</span>{" "}
+                <Link to="/login">התחבר</Link>
               </p>
             </form>
           </div>

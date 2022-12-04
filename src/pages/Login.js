@@ -48,16 +48,16 @@ const Login = () => {
         alt="/"
       />
       <div className=" fixed top-0 left-0 w-full "></div>
-      <div className="bg-white/60 absolute h-full w-full px-4 py-24 z-50">
-        <div className="max-w-[450px] h-[600px] mx-auto bg-black/75 text-white">
+      <div className="bg-white/60 absolute h-full w-full px-4 pt-10 z-50">
+        <div className="max-w-[450px] h-[450px] mx-auto bg-black/75 text-white">
           <div className="max-w-[320px] mx-auto py-16">
-            <h1 className="text-3xl font-bold">Sign In</h1>
+            <h1 className="text-3xl font-bold text-center">התחברות</h1>
 
             <form className="w-full flex flex-col py-4">
               <input
-                className="p-3 my-2 bg-white-700 rouded text-gray-600"
+                className="p-3 my-2 bg-white-700 rouded text-gray-600 text-right"
                 type="email"
-                placeholder="Email"
+                placeholder="אימייל"
                 autoComplete="email"
                 value={email}
                 name="email"
@@ -65,9 +65,9 @@ const Login = () => {
                 onChange={onChange}
               />
               <input
-                className="p-3 my-2 bg-white-700 rouded text-gray-600"
+                className="p-3 my-2 bg-white-700 rouded text-gray-600 text-right"
                 type="password"
-                placeholder="Password"
+                placeholder="סיסמא"
                 autoComplete="current-password"
                 value={password}
                 name="password"
@@ -78,18 +78,12 @@ const Login = () => {
                 onClick={onSubmit}
                 className="bg-green-500 py-3 my-6 rounded font-bold"
               >
-                Sign In
+                התחבר
               </button>
-              <div className="flex justify-between items-center text-sm text-gray-600">
-                <p>
-                  <input className="mr-2" type="checkbox" />
-                  Remember me
-                </p>
-                <p>Need Help?</p>
-              </div>
-              <p className="py-8">
-                <span className="text-green-500">New to ReRopa?</span>{" "}
-                <Link to="/register">Sign Up</Link>
+
+              <p className="text-right">
+                <span className="text-green-500">עוד לא נרשמת?</span>{" "}
+                <Link to="/register">הירשם</Link>
               </p>
             </form>
           </div>

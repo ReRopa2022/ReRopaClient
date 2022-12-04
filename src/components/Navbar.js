@@ -23,29 +23,29 @@ const Navbar = () => {
       </Link>
 
       <div>
-        <Link to="/about">
+        <Link className="pl-2" to="/about">
           <button className="bg-green-500 px-6 py-2 rounded cursor-pointer text-white">
-            About
+            ?מי אנחנו
           </button>
         </Link>
         {!user ? (
           <>
-            <Link to="/login">
+            <Link className="pl-2" to="/login">
               <button className="bg-green-500 px-6 py-2 rounded cursor-pointer m-2 text-white">
-                Sign In
+                התחברות
               </button>
             </Link>
             <Link to="/register">
               <button className="bg-green-500 px-6 py-2 rounded cursor-pointer m-2 text-white">
-                Sign Up
+                הרשמה
               </button>
             </Link>
           </>
         ) : (
           <>
-            <Link to="/donate">
+            <Link className="pl-2" to="/donate">
               <button className="bg-green-500 px-6 py-2 rounded cursor-pointer m-2 text-white">
-                Donate
+                תרומה
               </button>
             </Link>
             <Link to="/">
@@ -53,7 +53,7 @@ const Navbar = () => {
                 onClick={onLogout}
                 className="bg-green-500 px-6 py-2 rounded cursor-pointer m-2 text-white"
               >
-                Sign Out
+                התנתק
               </button>
             </Link>
           </>
