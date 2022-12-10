@@ -3,6 +3,7 @@ import Select from "react-select";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { donate, reset } from "../features/donation/donationSlice";
+
 import {
   sizeOptions,
   sectorOptions,
@@ -26,6 +27,7 @@ const Donate = () => {
   const { donation, isSuccess, isError, message, isLoading } = useSelector(
     (state) => state.donation
   );
+  const { user } = useSelector((state) => state.auth);
 
   const labelExtractor = (e) => {
     return e.label;
@@ -57,6 +59,8 @@ const Donate = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+
+    const u_email = user.email;
     const types = selectedType.map(labelExtractor);
     const seasons = selectedSeason.map(labelExtractor);
     const genders = selectedGender.map(labelExtractor);
@@ -64,6 +68,7 @@ const Donate = () => {
     const sizes = selectedSize.map(labelExtractor);
 
     const donationData = {
+      user: u_email,
       types,
       seasons,
       genders,
@@ -111,7 +116,7 @@ const Donate = () => {
                 value={selectedType}
                 onChange={onSelectType}
                 isSearchable={true}
-                isMulti
+                isRtl
               />
               <Select
                 className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
@@ -121,6 +126,7 @@ const Donate = () => {
                 onChange={onSelectSeason}
                 isSearchable={true}
                 isMulti
+                isRtl
               />
               <Select
                 className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
@@ -129,7 +135,7 @@ const Donate = () => {
                 value={selectedGender}
                 onChange={onSelectGender}
                 isSearchable={true}
-                isMulti
+                isRtl
               />
               <Select
                 className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
@@ -139,6 +145,7 @@ const Donate = () => {
                 onChange={onSelectSector}
                 isSearchable={true}
                 isMulti
+                isRtl
               />
 
               <Select
@@ -149,10 +156,11 @@ const Donate = () => {
                 onChange={onSelectSize}
                 isSearchable={true}
                 isMulti
+                isRtl
               />
 
               <input
-                className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
+                className="rtl-grid p-3 my-2 bg-white-700 rouded text-gray-600  text-right flex flex-row-reverse"
                 type="number"
                 min={1}
                 value={quantity}
