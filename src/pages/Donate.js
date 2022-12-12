@@ -27,7 +27,6 @@ const Donate = () => {
   const { donation, isSuccess, isError, message, isLoading } = useSelector(
     (state) => state.donation
   );
-  const { user } = useSelector((state) => state.auth);
 
   const labelExtractor = (e) => {
     return e.label;
@@ -60,15 +59,13 @@ const Donate = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    const u_email = user.email;
-    const types = selectedType.map(labelExtractor);
+    const types = selectedType.label;
     const seasons = selectedSeason.map(labelExtractor);
-    const genders = selectedGender.map(labelExtractor);
+    const genders = selectedGender.label;
     const sectors = selectedSector.map(labelExtractor);
     const sizes = selectedSize.map(labelExtractor);
 
     const donationData = {
-      user: u_email,
       types,
       seasons,
       genders,
