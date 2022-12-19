@@ -18,7 +18,7 @@ import {
   donateOptions,
 } from "../optionsData";
 
-const Donate = () => {
+const Donate = (props) => {
   const [deficiencyIsShown, setDeficiencyIsShown] = useState(false);
 
   const showDeficiencyHandler = () => {
@@ -77,6 +77,7 @@ const Donate = () => {
     const sizes = selectedSize.map(labelExtractor);
 
     const donationData = {
+      user: props.user.email,
       types,
       seasons,
       genders,

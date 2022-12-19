@@ -30,7 +30,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Signup />} />
-          {user && <Route path="/donate" element={<Donate />} />}
+          {user && <Route path="/donate" element={<Donate user={user} />} />}
           {isManager && (
             <Route path="/donate-request" element={<DonateRequest />} />
           )}
