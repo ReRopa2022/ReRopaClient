@@ -19,9 +19,9 @@ const About = () => {
             <h2 className="text-2xl text-right text-gray-900 font-bold md:text-4xl">
               !ReRopaברוכים הבאים ל
             </h2>
-            <p className="mt-6 text-right text-gray-600">
-              .רירופה הוא פרויקט קהילתי שאפתני שמטרתו לקחת את עולם התרומות צעד
-              קדימה
+            <p className="mt-6 text-right text-gray-600 rtl-grid">
+              רירופה הוא פרויקט קהילתי שאפתני שמטרתו לקחת את עולם התרומות צעד
+              קדימה.
             </p>
             <p className="mt-4 text-right text-gray-600">
               .אנחנו מבטיחים שהתרומה שלך תגיע למקום שהכי זקוק לו

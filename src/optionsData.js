@@ -1,3 +1,14 @@
+export const organizationOptions = [
+  { label: "יד משהם" },
+  { label: "ארגון נוסף" },
+];
+
+export const urgentOptions = [
+  { label: "לא דחוף - חודש עד חודש וחצי" },
+  { label: "דחוף -שבועיים עד חודש" },
+  { label: "דחוף מאוד -עד שבוע" },
+];
+
 export const sizeOptions = [
   { value: "1-2", label: "עד גיל שנתיים/1-2" },
   { value: "2-3", label: "שנתיים עד לשלוש/2-3" },

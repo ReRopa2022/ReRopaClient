@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { toast } from "react-toastify";
+
 import Select from "react-select";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import GreenButton from "../components/GreenButton";
 import { donate, reset } from "../features/donation/donationSlice";
+import Deficiency from "../components/Deficiency";
+import Card from "../components/Card";
+import ImageUploader from "../components/ImageUploader";
 
 import {
   sizeOptions,
@@ -13,6 +19,15 @@ import {
 } from "../optionsData";
 
 const Donate = () => {
+  const [deficiencyIsShown, setDeficiencyIsShown] = useState(false);
+
+  const showDeficiencyHandler = () => {
+    setDeficiencyIsShown(true);
+  };
+
+  const hideDeficiencyHandler = () => {
+    setDeficiencyIsShown(false);
+  };
   const [selectedType, setSelectedType] = useState();
   const [selectedSeason, setSelectedSeason] = useState();
   const [selectedGender, setSelectedGender] = useState();
@@ -52,10 +67,6 @@ const Donate = () => {
     setQuantity(e.target.value);
   };
 
-  const onSelectImage = (e) => {
-    setImage(e.target.file);
-  };
-
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -80,34 +91,38 @@ const Donate = () => {
   };
   useEffect(() => {
     if (isError) {
-      console.log(message);
+      toast.error("תרומתך לא התקבלה עקב שגיאה ,נשמח אם תנסה שוב");
     }
     if (isSuccess) {
-      alert("Thank you for donation ,hope to see you again. ");
+      toast.success("תודה על תרומתך, מקווים לראותך שוב");
       navigate("/");
     }
     dispatch(reset());
-  }, [isError, isSuccess, donation, message, navigate, dispatch]);
+  }, [
+    isError,
+    isSuccess,
+    donation,
+    message,
+    navigate,
+    dispatch,
+    deficiencyIsShown,
+  ]);
 
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
   return (
-    <div className="w-full h-screen mb-3">
-      <img
-        className="hidden sm:block absolute w-full h-full object-cover"
-        src="https://media.istockphoto.com/photos/many-second-hand-clothes-are-on-sale-picture-id1248406700?k=20&m=1248406700&s=612x612&w=0&h=OH8eyoshszG0w08jVfaVRkuhpUNz92nRDsvxeuWdmy8="
-        alt="/"
-      />
-      <div className=" fixed top-0 left-0 w-full "></div>
-      <div className="bg-white/60 absolute h-full w-full px-4 py-18 z-50">
-        <div className="max-w-[450px] h-[600px] mx-auto bg-black/75 text-white">
-          <div className="max-w-[320px]  mx-auto ">
+    <Card>
+      <div className="max-w-[320px] h-[750x] mx-auto ">
+        {deficiencyIsShown ? (
+          <Deficiency onHideHandler={hideDeficiencyHandler} />
+        ) : (
+          <React.Fragment>
             <h1 className="text-3xl font-bold  text-center">תרומה</h1>
 
             <form className="w-full flex flex-col py-4">
               <Select
-                className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
+                className="p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
                 options={donateOptions}
                 placeholder="סוג תרומה"
                 value={selectedType}
@@ -116,7 +131,7 @@ const Donate = () => {
                 isRtl
               />
               <Select
-                className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
+                className="p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
                 options={seasonOptions}
                 placeholder="עונה"
                 value={selectedSeason}
@@ -126,7 +141,7 @@ const Donate = () => {
                 isRtl
               />
               <Select
-                className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
+                className="p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
                 options={genderOptions}
                 placeholder="מגדר"
                 value={selectedGender}
@@ -135,7 +150,7 @@ const Donate = () => {
                 isRtl
               />
               <Select
-                className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
+                className="p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
                 options={sectorOptions}
                 placeholder="מגזר"
                 value={selectedSector}
@@ -146,7 +161,7 @@ const Donate = () => {
               />
 
               <Select
-                className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
+                className="p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
                 options={sizeOptions}
                 placeholder="גיל/מידה"
                 value={selectedSize}
@@ -157,36 +172,27 @@ const Donate = () => {
               />
 
               <input
-                className="rtl-grid p-3 my-2 bg-white-700 rouded text-gray-600  text-right flex flex-row-reverse"
+                className="rtl-grid p-3 my-2 bg-white-700 rounded text-gray-600  text-right flex flex-row-reverse"
                 type="number"
                 min={1}
                 value={quantity}
                 placeholder="כמות בגדים"
                 onChange={onSelectQuantity}
               />
-              <label className="text-right" htmlFor="bag-image">
-                העלה תמונה
-              </label>
-              <input
-                className="p-3 ml-10 my-2 bg-white-700 rouded text-gray-600  text-right"
-                id="bag-image"
-                type="file"
-                value={image}
-                single
-                accept="image/*"
-                onChange={onSelectImage}
-              />
-              <button
-                onClick={onSubmit}
-                className="bg-green-500 py-3 my-6 rounded font-bold"
-              >
-                תרום
-              </button>
+              <ImageUploader image={image} setImage={setImage} />
+              <GreenButton buttonName="תרום" onClickButton={onSubmit} />
+
+              <p className="text-right">
+                <button onClick={showDeficiencyHandler} className="text-black">
+                  לרשימת חוסרים
+                </button>{" "}
+                <span className="text-green-500">?מה חסר לנו</span>
+              </p>
             </form>
-          </div>
-        </div>
+          </React.Fragment>
+        )}
       </div>
-    </div>
+    </Card>
   );
 };
 

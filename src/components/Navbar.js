@@ -1,13 +1,12 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout, reset } from "../features/auth/authSlice";
+import GreenButton from "./GreenButton";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  const { user } = useSelector((state) => state.auth);
 
   const onLogout = () => {
     dispatch(logout());
@@ -23,40 +22,35 @@ const Navbar = () => {
       </Link>
 
       <div>
-        <Link className="pl-2" to="/about">
-          <button className="bg-green-500 px-6 py-2 rounded cursor-pointer text-white">
-            ?מי אנחנו
-          </button>
-        </Link>
-        {!user ? (
+        {!props.isManager && (
+          <Link className="pl-2" to="/about">
+            <GreenButton buttonName="  ?מי אנחנו" />
+          </Link>
+        )}
+
+        {!props.isUser && (
           <>
             <Link className="pl-2" to="/login">
-              <button className="bg-green-500 px-6 py-2 rounded cursor-pointer m-2 text-white">
-                התחברות
-              </button>
+              <GreenButton buttonName="התחברות" />
             </Link>
             <Link to="/register">
-              <button className="bg-green-500 px-6 py-2 rounded cursor-pointer m-2 text-white">
-                הרשמה
-              </button>
+              <GreenButton buttonName="הרשמה" />
             </Link>
           </>
-        ) : (
-          <>
-            <Link className="pl-2" to="/donate">
-              <button className="bg-green-500 px-6 py-2 rounded cursor-pointer m-2 text-white">
-                תרומה
-              </button>
-            </Link>
-            <Link to="/">
-              <button
-                onClick={onLogout}
-                className="bg-green-500 px-6 py-2 rounded cursor-pointer m-2 text-white"
-              >
-                התנתק
-              </button>
-            </Link>
-          </>
+        )}
+
+        {props.isUser && !props.isManager && (
+          <Link className="pl-2" to="/donate">
+            <GreenButton buttonName="תרומה" />
+          </Link>
+        )}
+        {props.isUser && props.isManager && (
+          <Link className="pl-2" to="/donate-request">
+            <GreenButton buttonName="בקש תרומה" />
+          </Link>
+        )}
+        {props.isUser && (
+          <GreenButton buttonName="התנתק" onClickButton={onLogout} />
         )}
       </div>
     </div>
