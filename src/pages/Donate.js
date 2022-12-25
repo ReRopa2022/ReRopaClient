@@ -4,10 +4,10 @@ import { toast } from "react-toastify";
 import Select from "react-select";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import GreenButton from "../components/GreenButton";
+import GreenButton from "../components/ui/GreenButton";
 import { donate, reset } from "../features/donation/donationSlice";
 import Deficiency from "../components/Deficiency";
-import Card from "../components/Card";
+import Card from "../components/ui/Card";
 import ImageUploader from "../components/ImageUploader";
 
 import {

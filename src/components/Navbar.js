@@ -2,7 +2,8 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout, reset } from "../features/auth/authSlice";
-import GreenButton from "./GreenButton";
+import GreenButton from "./ui/GreenButton";
+import LoggedOffNav from "./navbars/LoggedOffNav";
 
 const Navbar = (props) => {
   const navigate = useNavigate();
@@ -22,22 +23,7 @@ const Navbar = (props) => {
       </Link>
 
       <div>
-        {!props.isManager && (
-          <Link className="pl-2" to="/about">
-            <GreenButton buttonName="  ?מי אנחנו" />
-          </Link>
-        )}
-
-        {!props.isUser && (
-          <>
-            <Link className="pl-2" to="/login">
-              <GreenButton buttonName="התחברות" />
-            </Link>
-            <Link to="/register">
-              <GreenButton buttonName="הרשמה" />
-            </Link>
-          </>
-        )}
+        {!props.isUser && <LoggedOffNav />}
 
         {props.isUser && !props.isManager && (
           <Link className="pl-2" to="/donate">
@@ -45,8 +31,8 @@ const Navbar = (props) => {
           </Link>
         )}
         {props.isUser && props.isManager && (
-          <Link className="pl-2" to="/donate-request">
-            <GreenButton buttonName="בקש תרומה" />
+          <Link className="pl-2" to="/manager-options">
+            <GreenButton buttonName="פעולות מנהל" />
           </Link>
         )}
         {props.isUser && (

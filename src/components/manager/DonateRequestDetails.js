@@ -6,14 +6,14 @@ import { toast } from "react-toastify";
 import {
   donateRequest,
   reset,
-} from "../features/donation/donationRequestSlice";
+} from "../../features/donation/donationRequestSlice";
 import {
   sizeOptions,
   sectorOptions,
   genderOptions,
   seasonOptions,
-} from "../optionsData";
-import GreenButton from "./GreenButton";
+} from "../../optionsData";
+import GreenButton from "../ui/GreenButton";
 
 const DonateRequestDetails = (props) => {
   const [selectedSeason, setSelectedSeason] = useState();

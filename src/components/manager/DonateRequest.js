@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import Select from "react-select";
 
-import { organizationOptions, urgentOptions } from "../optionsData";
-import Card from "../components/Card";
-import GreenButton from "../components/GreenButton";
-import DonateRequestDetails from "../components/DonateRequestDetails";
+import { organizationOptions, urgentOptions } from "../../optionsData";
+import Card from "../ui/Card";
+import GreenButton from "../ui/GreenButton";
+import DonateRequestDetails from "./DonateRequestDetails";
 
-const DonateRequest = () => {
+const DonateRequest = (props) => {
   const [donationDetailsIsShown, setDonationDetailsIsShown] = useState(false);
   const [needyData, setNeedyData] = useState();
   const [selectedOrganization, setSelectedOrganization] = useState();
@@ -112,6 +112,10 @@ const DonateRequest = () => {
               <GreenButton
                 buttonName="מעבר למילוי בקשה"
                 onClickButton={onSubmit}
+              />
+              <GreenButton
+                onClickButton={props.onClickHide}
+                buttonName="חזור"
               />
             </form>
           </>

@@ -1,5 +1,5 @@
 import React from "react";
-import GreenButton from "./GreenButton";
+import GreenButton from "./ui/GreenButton";
 
 const Deficiency = (props) => {
   return (

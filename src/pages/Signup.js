@@ -4,7 +4,8 @@ import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { register, reset } from "../features/auth/authSlice";
-import Card from "../components/Card";
+import Card from "../components/ui/Card";
+import GreenButton from "../components/ui/GreenButton";
 
 const Signup = () => {
   //const { emailRef, passwordRef } = useRef({});
@@ -119,13 +120,18 @@ const Signup = () => {
             required
             onChange={onChange}
           />
-          <button className="bg-green-500 py-3 my-6 rounded font-bold">
-            הירשם
-          </button>
+          <GreenButton buttonName="הירשם" />
 
           <p className=" text-right">
             <span className="text-green-500">כבר רשום?</span>{" "}
-            <Link to="/login">התחבר</Link>
+            <Link
+              className="hover:text-gray-500 hover:shadow-lg
+          focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0
+          active:bg-green-800 active:shadow-lg"
+              to="/login"
+            >
+              התחבר
+            </Link>
           </p>
         </form>
       </div>

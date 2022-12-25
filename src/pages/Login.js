@@ -3,7 +3,8 @@ import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { login, reset } from "../features/auth/authSlice";
-import Card from "../components/Card";
+import Card from "../components/ui/Card";
+import GreenButton from "../components/ui/GreenButton";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -69,16 +70,18 @@ const Login = () => {
             required
             onChange={onChange}
           />
-          <button
-            onClick={onSubmit}
-            className="bg-green-500 py-3 my-6 rounded font-bold"
-          >
-            התחבר
-          </button>
+          <GreenButton onClickButton={onSubmit} buttonName="התחבר" />
 
           <p className="text-right">
             <span className="text-green-500">עוד לא נרשמת?</span>{" "}
-            <Link to="/register">הירשם</Link>
+            <Link
+              className="hover:text-gray-500 hover:shadow-lg
+          focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0
+          active:bg-green-800 active:shadow-lg"
+              to="/register"
+            >
+              הירשם
+            </Link>
           </p>
         </form>
       </div>
