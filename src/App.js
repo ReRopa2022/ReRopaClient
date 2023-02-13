@@ -14,6 +14,8 @@ const Login = lazy(() => import("./pages/Login"));
 const Signup = lazy(() => import("./pages/Signup"));
 const About = lazy(() => import("./pages/About"));
 const Donate = lazy(() => import("./pages/Donate"));
+const DonateLocation = lazy(() => import("./pages/AddDonateLocation"));
+const AnonymousDonation = lazy(() => import("./pages/AnonymousDonation"));
 
 function App() {
   const { user } = useSelector((state) => state.auth);
@@ -38,6 +40,8 @@ function App() {
           )}
           <Route path="*" element={<NotFound />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/add-location" element={<DonateLocation />} />
+          <Route path="/anonymous-donate" element={<AnonymousDonation />} />
         </Routes>
       </Suspense>
       <Footer />
