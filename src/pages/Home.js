@@ -19,7 +19,7 @@ const Home = () => {
       </div>
       <div className=" bg-white w-full mt-6">
         <div className="flex justify-around">
-          <div>
+          <div className="flex justify-center">
             <button className="flex justify-center rounded-full px-5 py-5 shadow-md">
               <FaEnvira className="text-green-500 text-5xl " />
               <h1 className="text-green-500 text-3xl font-bold">סביבה</h1>
