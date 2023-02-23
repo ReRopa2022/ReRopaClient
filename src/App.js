@@ -5,17 +5,18 @@ import { ToastContainer } from "react-toastify";
 import Navbar from "./components/Navbar";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/Footer";
-import Contact from "./pages/Contact";
-import ManagerOptions from "./pages/manager/ManagerOptions";
 
 const Home = lazy(() => import("./pages/Home"));
+const ManagerHome = lazy(() => import("./pages/manager/ManagerHome"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Login = lazy(() => import("./pages/Login"));
 const Signup = lazy(() => import("./pages/Signup"));
 const About = lazy(() => import("./pages/About"));
 const Donate = lazy(() => import("./pages/Donate"));
-const DonateLocation = lazy(() => import("./pages/AddDonateLocation"));
+const DonateLocation = lazy(() => import("./pages/manager/AddDonateLocation"));
 const AnonymousDonation = lazy(() => import("./pages/AnonymousDonation"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Queries = lazy(() => import("./pages/manager/Queries"));
 
 function App() {
   const { user } = useSelector((state) => state.auth);
@@ -36,11 +37,15 @@ function App() {
           <Route path="/register" element={<Signup />} />
           {user && <Route path="/donate" element={<Donate user={user} />} />}
           {isManager && (
-            <Route path="manager-options" element={<ManagerOptions />} />
+            <>
+              <Route path="/manager-home" element={<ManagerHome />} />
+              <Route path="/add-location" element={<DonateLocation />} />
+              <Route path="/info-tables" element={<Queries />} />
+            </>
           )}
           <Route path="*" element={<NotFound />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/add-location" element={<DonateLocation />} />
+
           <Route path="/anonymous-donate" element={<AnonymousDonation />} />
         </Routes>
       </Suspense>
