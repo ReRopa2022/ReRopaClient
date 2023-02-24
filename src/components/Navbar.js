@@ -31,7 +31,7 @@ const Navbar = (props) => {
           </Link>
         )}
         {props.isUser && props.isManager && (
-          <Link className="pl-2" to="/manager-options">
+          <Link className="pl-2" to="/manager-home">
             <GreenButton buttonName="פעולות מנהל" />
           </Link>
         )}

@@ -1,24 +1,21 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import GreenButton from "../../components/ui/GreenButton";
+import Table from "../../components/manager/table/Table";
+import { columns } from "../../tableColumns";
 
 const API_URL = "https://reropaserver.azurewebsites.net/api/donate";
 //For locally running
 const LOCALHOST_API_URL = "http://localhost:5000/api/donate";
 
-const Queries = (props) => {
+const Queries = () => {
   const [data, setData] = useState();
   useEffect(() => {
     axios.get(LOCALHOST_API_URL).then((response) => {
-      setData(response.data[0]);
+      setData(response.data);
+      console.log(response.data);
     });
-  });
-  return (
-    <div>
-      {JSON.stringify(data)}
-      <GreenButton onClickButton={props.onClickHide} buttonName="חזור" />
-    </div>
-  );
+  }, []);
+  return <Table data={data} />;
 };
 
 export default Queries;

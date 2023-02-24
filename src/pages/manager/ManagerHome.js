@@ -1,15 +1,11 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { FaEnvira, FaHandsHelping, FaSearchLocation } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { FaHandsHelping } from "react-icons/fa";
 import { GiReceiveMoney } from "react-icons/gi";
 import { HiLocationMarker } from "react-icons/hi";
+import { BsTable } from "react-icons/bs";
 
 const ManagerHome = () => {
-  const navigate = useNavigate();
-
-  const onClickAddLocation = () => {
-    navigate("/add-location");
-  };
   return (
     <>
       <div className="text-center bg-green-500 h-48 ">
@@ -27,14 +23,14 @@ const ManagerHome = () => {
       <div className=" bg-white w-full mt-6">
         <div className="flex justify-around">
           <div className="flex justify-center">
-            <button
-              onClick={onClickAddLocation}
-              className="flex justify-center rounded-full px-5 py-5 shadow-md"
-            >
+            <button className="flex justify-center rounded-full px-5 py-5 shadow-md">
               <HiLocationMarker className="text-green-500 text-5xl " />
-              <h1 className="text-green-500 text-3xl font-bold">
+              <Link
+                to="/add-location"
+                className="text-green-500 text-3xl font-bold"
+              >
                 הוסף נקודת איסוף
-              </h1>
+              </Link>
             </button>
           </div>
           <div>
@@ -45,8 +41,13 @@ const ManagerHome = () => {
           </div>
           <div>
             <button className="flex justify-center rounded-full px-5 py-5 shadow-md">
-              <FaHandsHelping className="text-green-500 text-5xl " />
-              <h1 className="text-green-500 text-3xl font-bold">חברה</h1>
+              <BsTable className="text-green-500 text-5xl " />
+              <Link
+                to="/info-tables"
+                className="text-green-500 text-3xl font-bold"
+              >
+                טבלאות מידע
+              </Link>
             </button>
           </div>
         </div>
