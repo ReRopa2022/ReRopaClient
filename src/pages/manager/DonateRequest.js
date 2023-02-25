@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Select from "react-select";
 
 import { organizationOptions, urgentOptions } from "../../optionsData";
-import Card from "../ui/Card";
-import GreenButton from "../ui/GreenButton";
-import DonateRequestDetails from "./DonateRequestDetails";
+import Card from "../../components/ui/Card";
+import GreenButton from "../../components/ui/GreenButton";
+import DonateRequestDetails from "../../components/manager/DonateRequestDetails";
 
 const DonateRequest = (props) => {
   const [donationDetailsIsShown, setDonationDetailsIsShown] = useState(false);

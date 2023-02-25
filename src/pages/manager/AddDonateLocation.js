@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 //import Select from "react-select";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { donate, reset } from "../features/donation/donationSlice";
+import { donate, reset } from "../../features/donation/donationSlice";
 
 /**
   const [selectedCity, setSelectedCity] = useState();
