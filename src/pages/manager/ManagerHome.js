@@ -36,7 +36,12 @@ const ManagerHome = () => {
           <div>
             <button className="flex justify-center rounded-full px-5 py-5 shadow-md">
               <GiReceiveMoney className="text-green-500 text-5xl " />
-              <h1 className="text-green-500 text-3xl font-bold">חיסכון</h1>
+              <Link
+                to="/donate-request"
+                className="text-green-500 text-3xl font-bold"
+              >
+                חיסכון
+              </Link>
             </button>
           </div>
           <div>

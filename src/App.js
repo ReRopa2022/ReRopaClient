@@ -13,6 +13,7 @@ const Login = lazy(() => import("./pages/Login"));
 const Signup = lazy(() => import("./pages/Signup"));
 const About = lazy(() => import("./pages/About"));
 const Donate = lazy(() => import("./pages/Donate"));
+const DonateRequest = lazy(() => import("./pages/manager/DonateRequest"));
 const DonateLocation = lazy(() => import("./pages/manager/AddDonateLocation"));
 const AnonymousDonation = lazy(() => import("./pages/AnonymousDonation"));
 const Contact = lazy(() => import("./pages/Contact"));
@@ -40,6 +41,7 @@ function App() {
             <>
               <Route path="/manager-home" element={<ManagerHome />} />
               <Route path="/add-location" element={<DonateLocation />} />
+              <Route path="/donate-request" element={<DonateRequest />} />
               <Route path="/info-tables" element={<Queries />} />
             </>
           )}
