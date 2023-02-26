@@ -1,8 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import donationService from "./donationService";
+import donationRequestService from "./donationRequestService";
 import { extractErrorMessage } from "../../utils";
-
-// Get donation from local storage
 
 //Creating initial state cases
 const initialState = {
@@ -14,19 +12,19 @@ const initialState = {
 
 //donate a bag
 
-export const donate = createAsyncThunk(
-  "donation/donate",
-  async (donation, thunkAPI) => {
+export const donateRequest = createAsyncThunk(
+  "request/donateRequest",
+  async (donationRequest, thunkAPI) => {
     try {
-      return await donationService.donate(donation);
+      return await donationRequestService.donateRequest(donationRequest);
     } catch (error) {
       return thunkAPI.rejectWithValue(extractErrorMessage(error));
     }
   }
 );
 
-export const donationSlice = createSlice({
-  name: "donation",
+export const donationRequestSlice = createSlice({
+  name: "request",
   initialState,
   reducers: {
     reset: (state) => {
@@ -38,22 +36,22 @@ export const donationSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(donate.pending, (state) => {
+      .addCase(donateRequest.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(donate.fulfilled, (state, action) => {
+      .addCase(donateRequest.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.donation = action.payload;
+        state.request = action.payload;
       })
-      .addCase(donate.rejected, (state, action) => {
+      .addCase(donateRequest.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
-        state.donation = null;
+        state.request = null;
       });
   },
 });
 
-export const { reset } = donationSlice.actions;
-export default donationSlice.reducer;
+export const { reset } = donationRequestSlice.actions;
+export default donationRequestSlice.reducer;

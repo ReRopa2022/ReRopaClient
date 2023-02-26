@@ -1,14 +1,14 @@
 import axios from "axios";
 
 //Server Url
-const API_URL = "https://reropaserver.azurewebsites.net/api/users";
+const API_URL = "https://reropa-server.onrender.com/api/users";
 
 //For locally running
 const LOCALHOST_API_URL = "http://localhost:5000/api/users";
 
 //Register user
 const registerUser = async (userData) => {
-  const res = await axios.post(LOCALHOST_API_URL, userData);
+  const res = await axios.post(API_URL, userData);
   if (res.data) {
     localStorage.setItem("user", JSON.stringify(res.data));
   }

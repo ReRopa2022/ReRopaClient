@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import {
   donateRequest,
   reset,
-} from "../../features/donation/donationRequestSlice";
+} from "../../features/manager/donationRequestSlice";
 import {
   sizeOptions,
   sectorOptions,
@@ -22,9 +22,7 @@ const DonateRequestDetails = (props) => {
   const [selectedSize, setSelectedSize] = useState();
   const [quantity, setQuantity] = useState(0);
 
-  const { request, isSuccess, isError, message } = useSelector(
-    (state) => state.request
-  );
+  const { isSuccess, isError, message } = useSelector((state) => state.request);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -75,7 +73,7 @@ const DonateRequestDetails = (props) => {
       navigate("/");
     }
     dispatch(reset());
-  }, [isError, isSuccess, request, message, navigate, dispatch]);
+  }, [isError, isSuccess, message, navigate, dispatch]);
 
   return (
     <>

@@ -1,13 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import donationRequestService from "./donationRequestService";
+import addLocationService from "./addLocationService";
 import { extractErrorMessage } from "../../utils";
-
-// Get donation from local storage
-const donationRequest = JSON.parse(localStorage.getItem("donationRequest"));
 
 //Creating initial state cases
 const initialState = {
-  request: donationRequest ? donationRequest : null,
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -16,19 +12,19 @@ const initialState = {
 
 //donate a bag
 
-export const donateRequest = createAsyncThunk(
-  "request/donateRequest",
-  async (donationRequest, thunkAPI) => {
+export const addLocation = createAsyncThunk(
+  "addLocation",
+  async (locationData, thunkAPI) => {
     try {
-      return await donationRequestService.donateRequest(donationRequest);
+      return await addLocationService.addLocation(locationData);
     } catch (error) {
       return thunkAPI.rejectWithValue(extractErrorMessage(error));
     }
   }
 );
 
-export const donationRequestSlice = createSlice({
-  name: "request",
+export const addLocationSlice = createSlice({
+  name: "location",
   initialState,
   reducers: {
     reset: (state) => {
@@ -40,15 +36,15 @@ export const donationRequestSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(donateRequest.pending, (state) => {
+      .addCase(addLocation.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(donateRequest.fulfilled, (state, action) => {
+      .addCase(addLocation.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
         state.request = action.payload;
       })
-      .addCase(donateRequest.rejected, (state, action) => {
+      .addCase(addLocation.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
@@ -57,5 +53,5 @@ export const donationRequestSlice = createSlice({
   },
 });
 
-export const { reset } = donationRequestSlice.actions;
-export default donationRequestSlice.reducer;
+export const { reset } = addLocationSlice.actions;
+export default addLocationSlice.reducer;

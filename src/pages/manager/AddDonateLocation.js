@@ -1,74 +1,30 @@
-import React, { useState, useEffect } from "react";
-//import Select from "react-select";
+import React, { useEffect } from "react";
+
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { donate, reset } from "../../features/donation/donationSlice";
-
-/**
-  const [selectedCity, setSelectedCity] = useState();
-  const [selectedStreet, setSelectedStreet] = useState();
-  const [selectedStreetNumber, setSelectedStreetNumber] = useState();
-  const [selectedInfo, setSelectedInfo] = useState();
-  
-  const [selectedType, setSelectedType] = useState();
-  const [selectedSeason, setSelectedSeason] = useState();
-  const [selectedGender, setSelectedGender] = useState();
-  const [selectedSector, setSelectedSector] = useState();
-   */
+import { useForm } from "react-hook-form";
+import { addLocation, reset } from "../../features/manager/addLocationSlice";
+import GreenButton from "../../components/ui/GreenButton";
 
 const DonateLocation = () => {
-  const [selectedCity, setSelectedCity] = useState();
-  const [selectedStreet, setSelectedStreet] = useState();
-  const [selectedStreetNumber, setSelectedStreetNumber] = useState();
-  const [selectedType, setSelectedType] = useState();
-  const [selectedInfo, setSelectedInfo] = useState();
-
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      city: "",
+      street: "",
+      streetNumber: "",
+      type: "",
+      info: "",
+    },
+  });
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { donation, isSuccess, isError, message, isLoading } = useSelector(
-    (state) => state.donation
+  const { isSuccess, isError, message, isLoading } = useSelector(
+    (state) => state.location
   );
 
-  const labelExtractor = (e) => {
-    return e.label;
-  };
-
-  const onSelectCity = (e) => {
-    setSelectedCity(e.target.value);
-  };
-
-  const onSelectStreet = (e) => {
-    setSelectedStreet(e.target.value);
-  };
-
-  const onSelectStreetNumber = (e) => {
-    setSelectedStreetNumber(e.target.value);
-  };
-  const onSelectType = (e) => {
-    setSelectedType(e.target.value);
-  };
-
-  const onSelectInfo = (e) => {
-    setSelectedInfo(e.target.value);
-  };
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-    const cities = selectedCity.map(labelExtractor);
-    const streets = selectedStreet.map(labelExtractor);
-    const streetNumbers = selectedStreetNumber.map(labelExtractor);
-    const infos = selectedInfo.map(labelExtractor);
-
-    const donationLocationData = {
-      city: cities,
-      street: streets,
-      streetNumber: streetNumbers,
-      info: infos,
-    };
-
-    dispatch(donate(donationLocationData));
-    dispatch(reset());
+  const onSubmit = (data) => {
+    dispatch(addLocation(data));
   };
   useEffect(() => {
     if (isError) {
@@ -79,7 +35,7 @@ const DonateLocation = () => {
       navigate("/");
     }
     dispatch(reset());
-  }, [isError, isSuccess, donation, message, navigate, dispatch]);
+  }, [isError, isSuccess, message, navigate, dispatch]);
 
   if (isLoading) {
     return <h1>Loading...</h1>;
@@ -99,34 +55,34 @@ const DonateLocation = () => {
               הוספת נקודת איסוף חדשה
             </h1>
 
-            <form className="w-full flex flex-col py-4">
+            <form
+              className="w-full flex flex-col py-4"
+              method="POST"
+              onSubmit={handleSubmit(onSubmit)}
+            >
               <input
                 className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
                 placeholder="עיר"
                 type="text"
-                value={selectedCity}
-                onChange={onSelectCity}
+                {...register("city")}
               />
               <input
                 className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
                 placeholder="רחוב"
                 type="text"
-                value={selectedStreet}
-                onChange={onSelectStreet}
+                {...register("street")}
               />
               <input
                 className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
                 placeholder="מספר רחוב"
                 type="text"
-                value={selectedStreetNumber}
-                onChange={onSelectStreetNumber}
+                {...register("streetNumber")}
               />
               <select
                 className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right rtl-grid "
                 placeholder="סוג נקודה"
                 type="text"
-                value={selectedType}
-                onChange={onSelectType}
+                {...register("type")}
               >
                 <option>איסוף בגדים</option>
                 <option>מיחזור</option>
@@ -135,17 +91,11 @@ const DonateLocation = () => {
                 className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
                 placeholder="מידע"
                 type="text"
-                value={selectedInfo}
                 style={{ height: "100px" }}
-                onChange={onSelectInfo}
+                {...register("info")}
               />
 
-              <button
-                onClick={onSubmit}
-                className="bg-green-500 py-3 my-6 rounded font-bold"
-              >
-                הוספה
-              </button>
+              <GreenButton type="submit" buttonName="הוספה" />
             </form>
           </div>
         </div>

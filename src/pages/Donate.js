@@ -41,7 +41,7 @@ const Donate = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { donation, isSuccess, isError, message, isLoading } = useSelector(
+  const { isSuccess, isError, message, isLoading } = useSelector(
     (state) => state.donation
   );
 
@@ -85,6 +85,7 @@ const Donate = (props) => {
     const donationData = {
       user: props.user.email,
       types,
+      condition: selectedCondition,
       seasons,
       genders,
       sectors,
@@ -105,15 +106,7 @@ const Donate = (props) => {
       navigate("/");
     }
     dispatch(reset());
-  }, [
-    isError,
-    isSuccess,
-    donation,
-    message,
-    navigate,
-    dispatch,
-    deficiencyIsShown,
-  ]);
+  }, [isError, isSuccess, message, navigate, dispatch, deficiencyIsShown]);
 
   if (isLoading) {
     return <h1>Loading...</h1>;

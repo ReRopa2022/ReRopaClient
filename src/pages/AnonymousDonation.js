@@ -16,6 +16,7 @@ import {
   genderOptions,
   seasonOptions,
   donateOptions,
+  donateCondition,
 } from "../optionsData";
 
 const AnonymousDonation = (props) => {
@@ -29,6 +30,7 @@ const AnonymousDonation = (props) => {
     setDeficiencyIsShown(false);
   };
   const [selectedType, setSelectedType] = useState();
+  const [selectedCondition, setSelectedCondition] = useState();
   const [selectedSeason, setSelectedSeason] = useState();
   const [selectedGender, setSelectedGender] = useState();
   const [selectedSector, setSelectedSector] = useState();
@@ -39,7 +41,7 @@ const AnonymousDonation = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { donation, isSuccess, isError, message, isLoading } = useSelector(
+  const { isSuccess, isError, message, isLoading } = useSelector(
     (state) => state.donation
   );
 
@@ -49,6 +51,9 @@ const AnonymousDonation = (props) => {
 
   const onSelectType = (data) => {
     setSelectedType(data);
+  };
+  const onSelectedCondition = (data) => {
+    setSelectedCondition(data);
   };
 
   const onSelectSeason = (data) => {
@@ -79,6 +84,7 @@ const AnonymousDonation = (props) => {
     const donationData = {
       user: "anonymous",
       types,
+      condition: selectedCondition,
       seasons,
       genders,
       sectors,
@@ -99,15 +105,7 @@ const AnonymousDonation = (props) => {
       navigate("/");
     }
     dispatch(reset());
-  }, [
-    isError,
-    isSuccess,
-    donation,
-    message,
-    navigate,
-    dispatch,
-    deficiencyIsShown,
-  ]);
+  }, [isError, isSuccess, message, navigate, dispatch, deficiencyIsShown]);
 
   if (isLoading) {
     return <h1>Loading...</h1>;
@@ -129,6 +127,15 @@ const AnonymousDonation = (props) => {
                 value={selectedType}
                 onChange={onSelectType}
                 isSearchable={true}
+                isRtl
+              />
+              <Select
+                className="p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
+                options={donateCondition}
+                placeholder="מצב הבגדים"
+                isSearchable={true}
+                value={selectedCondition}
+                onChange={onSelectedCondition}
                 isRtl
               />
               <Select
