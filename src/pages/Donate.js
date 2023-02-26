@@ -114,14 +114,14 @@ const Donate = (props) => {
   }
   return (
     <Card>
-      <div className="max-w-[320px] h-[750x] mx-auto ">
+      <div className="max-w-[320px] h-[750px] mx-auto ">
         {deficiencyIsShown ? (
           <Deficiency onHideHandler={hideDeficiencyHandler} />
         ) : (
           <React.Fragment>
             <h1 className="text-3xl font-bold  text-center">תרומה</h1>
 
-            <form className="w-full flex flex-col py-4">
+            <form className="w-full flex flex-col py-2">
               <Select
                 className="p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
                 options={donateOptions}

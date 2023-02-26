@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaHandsHelping } from "react-icons/fa";
+import { BiDonateHeart } from "react-icons/bi";
 import { GiReceiveMoney } from "react-icons/gi";
 import { HiLocationMarker } from "react-icons/hi";
 import { BsTable } from "react-icons/bs";
@@ -35,12 +35,12 @@ const ManagerHome = () => {
           </div>
           <div>
             <button className="flex justify-center rounded-full px-5 py-5 shadow-md">
-              <GiReceiveMoney className="text-green-500 text-5xl " />
+              <BiDonateHeart className="text-green-500 text-5xl " />
               <Link
                 to="/donate-request"
                 className="text-green-500 text-3xl font-bold"
               >
-                חיסכון
+                בקשת תרומה
               </Link>
             </button>
           </div>
