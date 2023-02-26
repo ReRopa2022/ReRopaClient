@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+/*import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -51,13 +51,7 @@ const ExcessesReport = () => {
     const sectors = selectedSector.map(labelExtractor);
     const sizes = selectedSize.map(labelExtractor);
 
-    const formNeedyData = {
-      seasons,
-      genders,
-      sectors,
-      sizes,
-      quantity,
-    };
+    
   };
   useEffect(() => {
     if (isError) {
@@ -128,4 +122,4 @@ const ExcessesReport = () => {
   );
 };
 
-export default ExcessesReport;
+export default ExcessesReport;*/

@@ -24,7 +24,7 @@ const TableRow = ({ data }) => {
     } else {
       setStatus("לא עודכן סטטוס");
     }
-  }, [onChangeStatus]);
+  }, [data.status, status]);
   return (
     <tr>
       <td className="py-3 pl-4">
@@ -36,9 +36,7 @@ const TableRow = ({ data }) => {
         </div>
       </td>
       <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-        <a className="text-red-500 hover:text-red-700" href="#">
-          מחיקה
-        </a>
+        <button className="text-red-500 hover:text-red-700">מחיקה</button>
       </td>
 
       <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
