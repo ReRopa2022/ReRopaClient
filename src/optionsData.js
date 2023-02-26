@@ -42,3 +42,8 @@ export const donateOptions = [
   { value: "bag", label: "שקית" },
   { value: "", label: "אפשרות נוספת" },
 ];
+export const donateCondition = [
+  { value: "3", label: "בלוי" },
+  { value: "2", label: "משומש" },
+  { value: "1", label: "חדש" },
+];

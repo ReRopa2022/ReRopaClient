@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 
 const Home = lazy(() => import("./pages/Home"));
 const ManagerHome = lazy(() => import("./pages/manager/ManagerHome"));
+const ExcessesReport = lazy(() => import("./pages/manager/ExcessesReport"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Login = lazy(() => import("./pages/Login"));
 const Signup = lazy(() => import("./pages/Signup"));
@@ -43,6 +44,7 @@ function App() {
               <Route path="/add-location" element={<DonateLocation />} />
               <Route path="/donate-request" element={<DonateRequest />} />
               <Route path="/info-tables" element={<Queries />} />
+              <Route path="/excesses-report" element={<ExcessesReport />} />
             </>
           )}
           <Route path="*" element={<NotFound />} />

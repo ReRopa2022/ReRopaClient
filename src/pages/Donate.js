@@ -16,6 +16,7 @@ import {
   genderOptions,
   seasonOptions,
   donateOptions,
+  donateCondition,
 } from "../optionsData";
 
 const Donate = (props) => {
@@ -29,6 +30,7 @@ const Donate = (props) => {
     setDeficiencyIsShown(false);
   };
   const [selectedType, setSelectedType] = useState();
+  const [selectedCondition, setSelectedCondition] = useState();
   const [selectedSeason, setSelectedSeason] = useState();
   const [selectedGender, setSelectedGender] = useState();
   const [selectedSector, setSelectedSector] = useState();
@@ -49,6 +51,10 @@ const Donate = (props) => {
 
   const onSelectType = (data) => {
     setSelectedType(data);
+  };
+
+  const onSelectedCondition = (data) => {
+    setSelectedCondition(data);
   };
 
   const onSelectSeason = (data) => {
@@ -114,14 +120,14 @@ const Donate = (props) => {
   }
   return (
     <Card>
-      <div className="max-w-[320px] h-[750x] mx-auto ">
+      <div className="max-w-[320px] h-[750px] mx-auto ">
         {deficiencyIsShown ? (
           <Deficiency onHideHandler={hideDeficiencyHandler} />
         ) : (
           <React.Fragment>
             <h1 className="text-3xl font-bold  text-center">תרומה</h1>
 
-            <form className="w-full flex flex-col py-4">
+            <form className="w-full flex flex-col py-2">
               <Select
                 className="p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
                 options={donateOptions}
@@ -129,6 +135,15 @@ const Donate = (props) => {
                 value={selectedType}
                 onChange={onSelectType}
                 isSearchable={true}
+                isRtl
+              />
+              <Select
+                className="p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
+                options={donateCondition}
+                placeholder="מצב הבגדים"
+                isSearchable={true}
+                value={selectedCondition}
+                onChange={onSelectedCondition}
                 isRtl
               />
               <Select

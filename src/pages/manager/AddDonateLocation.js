@@ -20,6 +20,7 @@ const DonateLocation = () => {
   const [selectedCity, setSelectedCity] = useState();
   const [selectedStreet, setSelectedStreet] = useState();
   const [selectedStreetNumber, setSelectedStreetNumber] = useState();
+  const [selectedType, setSelectedType] = useState();
   const [selectedInfo, setSelectedInfo] = useState();
 
   const dispatch = useDispatch();
@@ -43,6 +44,9 @@ const DonateLocation = () => {
 
   const onSelectStreetNumber = (e) => {
     setSelectedStreetNumber(e.target.value);
+  };
+  const onSelectType = (e) => {
+    setSelectedType(e.target.value);
   };
 
   const onSelectInfo = (e) => {
@@ -117,6 +121,16 @@ const DonateLocation = () => {
                 value={selectedStreetNumber}
                 onChange={onSelectStreetNumber}
               />
+              <select
+                className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right rtl-grid "
+                placeholder="סוג נקודה"
+                type="text"
+                value={selectedType}
+                onChange={onSelectType}
+              >
+                <option>איסוף בגדים</option>
+                <option>מיחזור</option>
+              </select>
               <input
                 className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
                 placeholder="מידע"
