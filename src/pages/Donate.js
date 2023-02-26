@@ -77,6 +77,7 @@ const Donate = (props) => {
     e.preventDefault();
 
     const types = selectedType.label;
+    const condition = selectedCondition.label;
     const seasons = selectedSeason.map(labelExtractor);
     const genders = selectedGender.label;
     const sectors = selectedSector.map(labelExtractor);
@@ -85,7 +86,7 @@ const Donate = (props) => {
     const donationData = {
       user: props.user.email,
       types,
-      condition: selectedCondition,
+      condition,
       seasons,
       genders,
       sectors,
