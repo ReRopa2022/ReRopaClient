@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { BiDonateHeart } from "react-icons/bi";
-import { GiReceiveMoney } from "react-icons/gi";
+import { FaBox } from "react-icons/fa";
 import { HiLocationMarker } from "react-icons/hi";
 import { BsTable } from "react-icons/bs";
 
@@ -41,6 +41,17 @@ const ManagerHome = () => {
                 className="text-green-500 text-3xl font-bold"
               >
                 בקשת תרומה
+              </Link>
+            </button>
+          </div>
+          <div>
+            <button className="flex justify-center rounded-full px-5 py-5 shadow-md">
+              <FaBox className="text-green-500 text-5xl " />
+              <Link
+                to="/excesses-report"
+                className="text-green-500 text-3xl font-bold"
+              >
+                דיווח על עודפים
               </Link>
             </button>
           </div>

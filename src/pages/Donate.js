@@ -16,6 +16,7 @@ import {
   genderOptions,
   seasonOptions,
   donateOptions,
+  donateCondition,
 } from "../optionsData";
 
 const Donate = (props) => {
@@ -29,6 +30,7 @@ const Donate = (props) => {
     setDeficiencyIsShown(false);
   };
   const [selectedType, setSelectedType] = useState();
+  const [selectedCondition, setSelectedCondition] = useState();
   const [selectedSeason, setSelectedSeason] = useState();
   const [selectedGender, setSelectedGender] = useState();
   const [selectedSector, setSelectedSector] = useState();
@@ -49,6 +51,10 @@ const Donate = (props) => {
 
   const onSelectType = (data) => {
     setSelectedType(data);
+  };
+
+  const onSelectedCondition = (data) => {
+    setSelectedCondition(data);
   };
 
   const onSelectSeason = (data) => {
@@ -129,6 +135,15 @@ const Donate = (props) => {
                 value={selectedType}
                 onChange={onSelectType}
                 isSearchable={true}
+                isRtl
+              />
+              <Select
+                className="p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
+                options={donateCondition}
+                placeholder="מצב הבגדים"
+                isSearchable={true}
+                value={selectedCondition}
+                onChange={onSelectedCondition}
                 isRtl
               />
               <Select
