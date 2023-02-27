@@ -11,8 +11,17 @@ const donate = async (donationData) => {
   }
 };
 
+//Update donation status
+const updateStatus = async ({ donation_id, status }) => {
+  const res = await axios.patch(API_URL, { donation_id, status });
+  if (res.data) {
+    return res.data;
+  }
+};
+
 const donationService = {
   donate,
+  updateStatus,
 };
 
 export default donationService;

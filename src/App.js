@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/Footer";
 
 const Home = lazy(() => import("./pages/Home"));
+const Test = lazy(() => import("./pages/Test"));
 const ManagerHome = lazy(() => import("./pages/manager/ManagerHome"));
 const ExcessesReport = lazy(() => import("./pages/manager/ExcessesReport"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -14,6 +15,7 @@ const Login = lazy(() => import("./pages/Login"));
 const Signup = lazy(() => import("./pages/Signup"));
 const About = lazy(() => import("./pages/About"));
 const Donate = lazy(() => import("./pages/Donate"));
+const NoNeedDonate = lazy(() => import("./pages/NoNeedDonate"));
 const DonateRequest = lazy(() => import("./pages/manager/DonateRequest"));
 const DonateLocation = lazy(() => import("./pages/manager/AddDonateLocation"));
 const AnonymousDonation = lazy(() => import("./pages/AnonymousDonation"));
@@ -22,14 +24,10 @@ const Queries = lazy(() => import("./pages/manager/Queries"));
 
 function App() {
   const { user } = useSelector((state) => state.auth);
-  var isManager = null;
-  if (user) {
-    isManager = user.isManager;
-  }
 
   return (
     <>
-      <Navbar isUser={user} isManager={isManager} />
+      <Navbar isUser={user} isManager={user?.isManager} />
 
       <Suspense fallback={<p>Loading...</p>}>
         <Routes>
@@ -37,8 +35,10 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Signup />} />
+          <Route path="/test" element={<Test />} />
+          <Route path="no-donate" element={<NoNeedDonate />} />
           {user && <Route path="/donate" element={<Donate user={user} />} />}
-          {isManager && (
+          {user?.isManager && (
             <>
               <Route path="/manager-home" element={<ManagerHome />} />
               <Route path="/add-location" element={<DonateLocation />} />

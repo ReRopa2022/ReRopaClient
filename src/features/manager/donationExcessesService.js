@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://reropa-server.onrender.com/api/request";
+const API_URL = "https://reropa-server.onrender.com/api/excesses";
 //For locally running const LOCALHOST_API_URL = "http://localhost:5000/api/request";
 
 //Report excesses

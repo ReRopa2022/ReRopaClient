@@ -14,9 +14,9 @@ const initialState = {
 
 export const excessReport = createAsyncThunk(
   "report/excessesReport",
-  async (excessesReport, thunkAPI) => {
+  async (excessReport, thunkAPI) => {
     try {
-      return await donationExcessesService.excessesReport(excessesReport);
+      return await donationExcessesService.excessReport(excessReport);
     } catch (error) {
       return thunkAPI.rejectWithValue(extractErrorMessage(error));
     }

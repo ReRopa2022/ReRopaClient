@@ -25,6 +25,18 @@ export const donate = createAsyncThunk(
   }
 );
 
+//Update donation status
+export const updateStatus = createAsyncThunk(
+  "donation/updateStauts",
+  async ({ donation_id, status }, thunkAPI) => {
+    try {
+      return await donationService.updateStatus({ donation_id, status });
+    } catch (error) {
+      return thunkAPI.rejectWithValue(extractErrorMessage(error));
+    }
+  }
+);
+
 export const donationSlice = createSlice({
   name: "donation",
   initialState,
@@ -47,6 +59,20 @@ export const donationSlice = createSlice({
         state.donation = action.payload;
       })
       .addCase(donate.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+        state.donation = null;
+      })
+      .addCase(updateStatus.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(updateStatus.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.donation = action.payload;
+      })
+      .addCase(updateStatus.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
