@@ -9,8 +9,8 @@ const Navbar = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const onLogout = () => {
-    dispatch(logout());
+  const onLogout = async () => {
+    await dispatch(logout());
     dispatch(reset());
     navigate("/");
   };

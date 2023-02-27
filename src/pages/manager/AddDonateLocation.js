@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import { addLocation, reset } from "../../features/manager/addLocationSlice";
 import GreenButton from "../../components/ui/GreenButton";
 
@@ -11,7 +12,7 @@ const DonateLocation = () => {
     defaultValues: {
       city: "",
       street: "",
-      streetNumber: "",
+      street_no: "",
       type: "",
       info: "",
     },
@@ -23,16 +24,17 @@ const DonateLocation = () => {
     (state) => state.location
   );
 
-  const onSubmit = (data) => {
-    dispatch(addLocation(data));
+  const onSubmit = async (data) => {
+    await dispatch(addLocation(data));
   };
   useEffect(() => {
     if (isError) {
-      console.log(message);
+      toast.error("לא התקבלה נקודה חדשה, אנא נסה שוב!");
     }
     if (isSuccess) {
-      alert("Thank you for donation ,hope to see you again. ");
-      navigate("/");
+      toast.success("נקודה התווספה בהצלחה");
+      dispatch(reset());
+      navigate("/manager-home");
     }
     dispatch(reset());
   }, [isError, isSuccess, message, navigate, dispatch]);
@@ -76,14 +78,15 @@ const DonateLocation = () => {
                 className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
                 placeholder="מספר רחוב"
                 type="text"
-                {...register("streetNumber")}
+                {...register("street_no")}
               />
               <select
                 className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right rtl-grid "
-                placeholder="סוג נקודה"
                 type="text"
+                placeholder="סוג נקודה"
                 {...register("type")}
               >
+                <option>סוג נקודה</option>
                 <option>איסוף בגדים</option>
                 <option>מיחזור</option>
               </select>

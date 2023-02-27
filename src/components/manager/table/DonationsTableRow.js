@@ -1,30 +1,54 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import { updateStatus, reset } from "../../../features/donation/donationSlice";
 import Status from "./Status";
 
 const TableRow = ({ data }) => {
   const [isStatusClicked, setIsStatusClicked] = useState(false);
   var [status, setStatus] = useState();
+  const [prevStatus, setPrevStatus] = useState();
+  const noTimeZone = data?.createdAt.substring(0, 10);
+  const dispatch = useDispatch();
+  const { isSuccess, isError } = useSelector((state) => state.donation);
+  const donation_id = data?._id;
 
   const onEditStatus = () => {
     setIsStatusClicked(true);
   };
   const onCancelEditStatus = () => {
     setIsStatusClicked(false);
+    setStatus(prevStatus);
   };
-  const onChangeStatus = (e) => {
+  const onSelectStatus = (e) => {
     setStatus(e.target.value);
   };
   const onUpdateStatus = () => {
-    onCancelEditStatus();
+    dispatch(updateStatus({ donation_id, status }));
+    console.log({ status, donation_id });
+
+    setPrevStatus(status);
+    setIsStatusClicked(false);
   };
   useEffect(() => {
     if (data?.status) {
       setStatus(data.status);
+      setPrevStatus(data.status);
     } else if (status) {
     } else {
       setStatus("לא עודכן סטטוס");
+      setPrevStatus("לא עודכן סטטוס");
     }
-  }, [data.status, status]);
+
+    if (isError) {
+      toast.error("סטטוס תרומה לא עודכן, אנא נסה שוב");
+      dispatch(reset());
+    }
+    if (isSuccess) {
+      toast.success("סטטוס תרומה עודכן בהצלחה");
+      dispatch(reset());
+    }
+  }, [data.status, dispatch, isError, isSuccess, status]);
   return (
     <tr>
       <td className="py-3 pl-4">
@@ -51,7 +75,7 @@ const TableRow = ({ data }) => {
               צא ממצב עריכה
             </button>
             <button onClick={onUpdateStatus}>עדכן</button>
-            <select onChange={onChangeStatus} className="rtl-grid">
+            <select onClick={onSelectStatus} className="rtl-grid">
               <option>עידכון סטטוס</option>
               <option className="text-red-500">לא התקבלה</option>
               <option className="text-yellow-500">התקבלה</option>
@@ -63,7 +87,7 @@ const TableRow = ({ data }) => {
       </td>
 
       <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-        {data?.createdAt}
+        {noTimeZone}
       </td>
       <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
         {data?.user}

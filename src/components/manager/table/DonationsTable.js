@@ -1,5 +1,5 @@
 import React from "react";
-import TableRow from "./TableRow";
+import DonationsTableRow from "./DonationsTableRow";
 
 function Table({ data }) {
   return (
@@ -133,7 +133,7 @@ function Table({ data }) {
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {data?.map((row) => (
-                  <TableRow key={row._id} data={row} />
+                  <DonationsTableRow key={row._id} data={row} />
                 ))}
               </tbody>
             </table>
