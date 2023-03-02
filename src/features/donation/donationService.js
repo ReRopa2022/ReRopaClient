@@ -18,10 +18,19 @@ const updateStatus = async ({ donation_id, status }) => {
     return res.data;
   }
 };
+//Delete a donation
+const deleteDonation = async (donation_id) => {
+  const res = await axios.delete(API_URL, donation_id);
+  if (res.data) {
+    console.log(res.data);
+    return res.data;
+  }
+};
 
 const donationService = {
   donate,
   updateStatus,
+  deleteDonation,
 };
 
 export default donationService;

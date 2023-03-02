@@ -59,7 +59,6 @@ const Donate = (props) => {
       setSelectedCondition(data.label);
     }
   };
-
   const onSelectSeason = (data) => {
     setSelectedSeason(data);
   };
@@ -80,7 +79,7 @@ const Donate = (props) => {
     e.preventDefault();
 
     const types = selectedType.label;
-    const condition = selectedCondition.label;
+
     const seasons = selectedSeason.map(labelExtractor);
     const genders = selectedGender.label;
     const sectors = selectedSector.map(labelExtractor);
@@ -89,7 +88,7 @@ const Donate = (props) => {
     const donationData = {
       user: props.user.email,
       types,
-      condition,
+      condition: selectedCondition,
       seasons,
       genders,
       sectors,
@@ -135,7 +134,6 @@ const Donate = (props) => {
             options={donateCondition}
             placeholder="מצב הבגדים"
             isSearchable={true}
-            value={selectedCondition}
             onChange={onSelectedCondition}
             isRtl
           />
