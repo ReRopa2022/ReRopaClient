@@ -132,7 +132,6 @@ const AnonymousDonation = (props) => {
             options={donateCondition}
             placeholder="מצב הבגדים"
             isSearchable={true}
-            value={selectedCondition}
             onChange={onSelectedCondition}
             isRtl
           />

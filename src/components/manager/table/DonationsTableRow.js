@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import { updateStatus, reset } from "../../../features/donation/donationSlice";
+import {
+  updateStatus,
+  deleteDonation,
+  reset,
+} from "../../../features/donation/donationSlice";
 import Status from "./Status";
 
 const TableRow = ({ data }) => {
@@ -29,6 +33,17 @@ const TableRow = ({ data }) => {
 
     setPrevStatus(status);
     setIsStatusClicked(false);
+  };
+
+  const onClickDelete = () => {
+    const deleteOrNot = prompt(
+      "האם אתה בטוח שאתה רוצה למחוק את התרומה? אנא אשב כן או לא"
+    );
+    if (deleteOrNot === "כן") {
+      dispatch(deleteDonation(donation_id));
+    } else {
+      return;
+    }
   };
   useEffect(() => {
     if (data?.status) {
@@ -60,7 +75,12 @@ const TableRow = ({ data }) => {
         </div>
       </td>
       <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-        <button className="text-red-500 hover:text-red-700">מחיקה</button>
+        <button
+          onClick={onClickDelete}
+          className="text-red-500 hover:text-red-700"
+        >
+          מחיקה
+        </button>
       </td>
 
       <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
