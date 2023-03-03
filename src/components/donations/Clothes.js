@@ -83,7 +83,6 @@ const Clothes = (props) => {
     };
     console.log(donationData);
     dispatch(donate(donationData));
-    dispatch(reset());
   };
 
   return (

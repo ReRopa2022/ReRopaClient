@@ -37,6 +37,7 @@ const Donate = (props) => {
     }
     if (isSuccess) {
       toast.success("תודה על תרומתך, מקווים לראותך שוב");
+      dispatch(reset());
       navigate("/");
     }
     dispatch(reset());
