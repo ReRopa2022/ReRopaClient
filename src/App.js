@@ -18,7 +18,7 @@ const Donate = lazy(() => import("./pages/Donate"));
 const NoNeedDonate = lazy(() => import("./pages/NoNeedDonate"));
 const DonateRequest = lazy(() => import("./pages/manager/DonateRequest"));
 const DonateLocation = lazy(() => import("./pages/manager/AddDonateLocation"));
-const AnonymousDonation = lazy(() => import("./pages/AnonymousDonation"));
+
 const Contact = lazy(() => import("./pages/Contact"));
 const Queries = lazy(() => import("./pages/manager/Queries"));
 
@@ -37,7 +37,7 @@ function App() {
           <Route path="/register" element={<Signup />} />
           <Route path="/test" element={<Test />} />
           <Route path="no-donate" element={<NoNeedDonate />} />
-          {user && <Route path="/donate" element={<Donate user={user} />} />}
+          <Route path="/donate" element={<Donate user={user} />} />
           {user?.isManager && (
             <>
               <Route path="/manager-home" element={<ManagerHome />} />
@@ -49,8 +49,6 @@ function App() {
           )}
           <Route path="*" element={<NotFound />} />
           <Route path="/contact" element={<Contact />} />
-
-          <Route path="/anonymous-donate" element={<AnonymousDonation />} />
         </Routes>
       </Suspense>
       <Footer />

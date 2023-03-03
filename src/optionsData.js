@@ -39,8 +39,9 @@ export const seasonOptions = [
 ];
 
 export const donateOptions = [
-  { value: "bag", label: "שקית" },
-  { value: "", label: "אפשרות נוספת" },
+  { value: "clothes", label: "בגדים" },
+  { value: "game", label: "משחק" },
+  { value: "book", label: "ספר" },
 ];
 export const donateCondition = [
   { value: "3", label: "בלוי" },
