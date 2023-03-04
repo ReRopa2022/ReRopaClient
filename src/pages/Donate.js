@@ -65,6 +65,7 @@ const Donate = (props) => {
         )}
         {selectedType?.label === "משחק" && (
           <GameOrBook
+            donatorName={donatorName}
             type={selectedType?.label}
             itemName="שם המשחק"
             categoryName="קטגוריית משחק"
@@ -72,6 +73,7 @@ const Donate = (props) => {
         )}
         {selectedType?.label === "ספר" && (
           <GameOrBook
+            donatorName={donatorName}
             type={selectedType?.label}
             itemName="שם הספר"
             categoryName="קטגוריית ספר"

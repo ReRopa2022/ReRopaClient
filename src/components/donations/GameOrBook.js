@@ -1,10 +1,14 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { donateBookOrGame, reset } from "../../features/donation/donationSlice";
 import GreenButton from "../ui/GreenButton";
 
 const GameOrBook = (props) => {
+  const dispatch = useDispatch();
   const { register, handleSubmit } = useForm({
     defaultValues: {
+      user: props.donatorName,
       type: props.type,
       category: "",
       name: "",
@@ -12,8 +16,9 @@ const GameOrBook = (props) => {
     },
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    await dispatch(donateBookOrGame(data));
+    dispatch(reset());
   };
   return (
     <form

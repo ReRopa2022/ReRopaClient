@@ -2,6 +2,7 @@ import axios from "axios";
 
 const API_URL = "https://reropa-server.onrender.com/api/donate";
 //For locally running const LOCALHOST_API_URL = "http://localhost:5000/api/donate";
+const LOCALHOST_API_URL = "http://localhost:5000/api/donate";
 
 //Donate a bag
 const donate = async (donationData) => {
@@ -27,10 +28,19 @@ const deleteDonation = async (donation_id) => {
   }
 };
 
+//Donate book or game
+const donateBookOrGame = async (donationData) => {
+  const res = await axios.post(API_URL + "/book-or-game", donationData);
+  if (res.data) {
+    return res.data;
+  }
+};
+
 const donationService = {
   donate,
   updateStatus,
   deleteDonation,
+  donateBookOrGame,
 };
 
 export default donationService;
