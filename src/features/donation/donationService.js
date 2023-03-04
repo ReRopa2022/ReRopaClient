@@ -27,10 +27,19 @@ const deleteDonation = async (donation_id) => {
   }
 };
 
+//Donate book or game
+const donateBookOrGame = async (donationData) => {
+  const res = await axios.post(API_URL + "/book-or-game", donationData);
+  if (res.data) {
+    return res.data;
+  }
+};
+
 const donationService = {
   donate,
   updateStatus,
   deleteDonation,
+  donateBookOrGame,
 };
 
 export default donationService;
