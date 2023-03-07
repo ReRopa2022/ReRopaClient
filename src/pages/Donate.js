@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
 import Select from "react-select";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import GameOrBook from "../components/donations/GameOrBook";
 import Clothes from "../components/donations/Clothes";
@@ -48,6 +48,13 @@ const Donate = (props) => {
   }
   return (
     <Card>
+      <Link to="/deficiencies-excesses">
+        {" "}
+        <h1 className="text-green-500 text-4xl font-bold cursor-pointer rtl-grid">
+          מה יש/חסר לנו?
+        </h1>
+      </Link>
+
       <div className="max-w-[320px] h-[750x] mx-auto ">
         <h1 className="text-3xl font-bold rtl-grid  text-center">{title}</h1>
 
