@@ -47,47 +47,48 @@ const Donate = (props) => {
     return <h1>Loading...</h1>;
   }
   return (
-    <Card>
+    <>
       <Link to="/deficiencies-excesses">
         {" "}
         <h1 className="text-green-500 text-4xl font-bold cursor-pointer rtl-grid">
           מה יש/חסר לנו?
         </h1>
       </Link>
+      <Card>
+        <div className="max-w-[320px] h-[750x] mx-auto ">
+          <h1 className="text-3xl font-bold rtl-grid  text-center">{title}</h1>
 
-      <div className="max-w-[320px] h-[750x] mx-auto ">
-        <h1 className="text-3xl font-bold rtl-grid  text-center">{title}</h1>
-
-        <Select
-          className="p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
-          options={donateOptions}
-          placeholder="סוג תרומה"
-          value={selectedType}
-          onChange={onSelectType}
-          isSearchable={true}
-          isRtl
-        />
-        {selectedType?.label === "בגדים" && (
-          <Clothes type="בגדים" donatorName={donatorName} />
-        )}
-        {selectedType?.label === "משחק" && (
-          <GameOrBook
-            donatorName={donatorName}
-            type={selectedType?.label}
-            itemName="שם המשחק"
-            categoryName="קטגוריית משחק"
+          <Select
+            className="p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
+            options={donateOptions}
+            placeholder="סוג תרומה"
+            value={selectedType}
+            onChange={onSelectType}
+            isSearchable={true}
+            isRtl
           />
-        )}
-        {selectedType?.label === "ספר" && (
-          <GameOrBook
-            donatorName={donatorName}
-            type={selectedType?.label}
-            itemName="שם הספר"
-            categoryName="קטגוריית ספר"
-          />
-        )}
-      </div>
-    </Card>
+          {selectedType?.label === "בגדים" && (
+            <Clothes type="בגדים" donatorName={donatorName} />
+          )}
+          {selectedType?.label === "משחק" && (
+            <GameOrBook
+              donatorName={donatorName}
+              type={selectedType?.label}
+              itemName="שם המשחק"
+              categoryName="קטגוריית משחק"
+            />
+          )}
+          {selectedType?.label === "ספר" && (
+            <GameOrBook
+              donatorName={donatorName}
+              type={selectedType?.label}
+              itemName="שם הספר"
+              categoryName="קטגוריית ספר"
+            />
+          )}
+        </div>
+      </Card>
+    </>
   );
 };
 
