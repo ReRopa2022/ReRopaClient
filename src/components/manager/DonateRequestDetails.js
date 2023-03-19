@@ -20,7 +20,6 @@ const DonateRequestDetails = (props) => {
   const [selectedGender, setSelectedGender] = useState();
   const [selectedSector, setSelectedSector] = useState();
   const [selectedSize, setSelectedSize] = useState();
-  const [quantity, setQuantity] = useState(0);
 
   const { isSuccess, isError, message } = useSelector((state) => state.request);
 
@@ -42,9 +41,6 @@ const DonateRequestDetails = (props) => {
   const onSelectSize = (data) => {
     setSelectedSize(data);
   };
-  const onSelectQuantity = (e) => {
-    setQuantity(e.target.value);
-  };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -59,7 +55,6 @@ const DonateRequestDetails = (props) => {
       genders,
       sectors,
       sizes,
-      quantity,
     };
     dispatch(donateRequest(formNeedyData));
     dispatch(reset());
@@ -120,14 +115,6 @@ const DonateRequestDetails = (props) => {
           isRtl
         />
 
-        <input
-          className="rtl-grid p-3 my-2 bg-white-700 rounded text-gray-600  text-right flex flex-row-reverse"
-          type="number"
-          min={1}
-          value={quantity}
-          placeholder="כמות בגדים"
-          onChange={onSelectQuantity}
-        />
         <GreenButton
           buttonName=" חזרה לפרטי נזקק"
           onClickButton={props.onHideHandler}

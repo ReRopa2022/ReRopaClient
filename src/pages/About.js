@@ -26,10 +26,16 @@ const About = () => {
             <p className="mt-4 text-right text-gray-600">
               .אנחנו מבטיחים שהתרומה שלך תגיע למקום שהכי זקוק לו
             </p>
+            
+
           </div>
         </div>
       </div>
+      <div className="flex justify-center">
+      <img src="https://www.hit.ac.il/.upload/minisites/HIT_50/uses/HIT_logo_50_years_c.jpg" className="rounded-full" loading="lazy" width="200px" height="200px" alt="hit.jpg" />
+      </div>
     </div>
+    
   );
 };
 
