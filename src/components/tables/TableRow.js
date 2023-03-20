@@ -7,10 +7,6 @@ const DeficiencyTableRow = ({ data }) => {
       <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
         {noTimeZone}
       </td>
-
-      <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-        {data?.quantity}
-      </td>
       <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
         {data?.sectors}
       </td>

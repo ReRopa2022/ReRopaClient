@@ -12,45 +12,33 @@ const Table = ({ data }) => {
                 <tr>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase "
-                  >
+                    className="px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase ">
                     תאריך
                   </th>
 
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase "
-                  >
-                    כמות
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase "
-                  >
+                    className="px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase ">
                     מגזר
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase "
-                  >
+                    className="px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase ">
                     מידה
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase "
-                  >
+                    className="px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase ">
                     מגדר
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase "
-                  >
+                    className="px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase ">
                     עונה
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase "
-                  >
+                    className="px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase ">
                     אירגון
                   </th>
                 </tr>

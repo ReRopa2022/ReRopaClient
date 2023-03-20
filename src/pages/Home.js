@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <>
       <div className="text-center bg-green-500 h-48 ">
-        <div className="w-full flex justify-center ">
+        <div className="w-full flex justify-center  ">
           <h1 className="mt-4 max-w-[36rem] xl:text-6xl lg:text-5xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl xl:max-w-[43.5rem]">
             ReRopa ברוכים הבאים ל
           </h1>
@@ -29,25 +29,40 @@ const Home = () => {
           </h2>
         </div>
       </div>
-      <div className=" bg-white w-full mt-6">
-        <div className="flex justify-around">
-          <div className="flex justify-center">
-            <button className="flex justify-center rounded-full px-5 py-5 shadow-md">
-              <FaEnvira className="text-green-500 text-5xl " />
-              <h1 className="text-green-500 text-3xl font-bold">סביבה</h1>
-            </button>
+      <div className="bg-white w-full mt-6">
+        <div className="flex flex-wrap justify-evenly">
+          <div className="flex flex-col justify-center p-5">
+            <div className="flex flex-row justify-center">
+              <button className="flex justify-center rounded-full px-5 py-5 shadow-md">
+                <FaEnvira className="text-green-500 text-5xl " />
+                <h1 className="text-green-500 text-3xl font-bold">סביבה</h1>
+              </button>
+            </div>
+            <div className="flex flex-row justify-center text-center text-pink-400 font-bold text-xl mt-3">
+              שימוש חוזר בחפצים והפחתה בפסולת מזהמת
+            </div>
           </div>
-          <div>
-            <button className="flex justify-center rounded-full px-5 py-5 shadow-md">
-              <GiReceiveMoney className="text-green-500 text-5xl " />
-              <h1 className="text-green-500 text-3xl font-bold">חיסכון</h1>
-            </button>
+          <div className="flex flex-col justify-center p-5">
+            <div className="flex flex-row justify-center">
+              <button className="flex justify-center rounded-full px-5 py-5 shadow-md">
+                <GiReceiveMoney className="text-green-500 text-5xl " />
+                <h1 className="text-green-500 text-3xl font-bold">חיסכון</h1>
+              </button>
+            </div>
+            <div className="flex flex-row justify-center text-center text-pink-400 font-bold text-xl mt-3">
+              להשיג בקלות חפצים בחינם, ולפנות את הכסף לדברים שאנחנו צריכים
+            </div>
           </div>
-          <div>
-            <button className="flex justify-center rounded-full px-5 py-5 shadow-md">
-              <FaHandsHelping className="text-green-500 text-5xl " />
-              <h1 className="text-green-500 text-3xl font-bold">חברה</h1>
-            </button>
+          <div className="flex flex-col justify-center p-5 ">
+            <div className="flex flex-row justify-center">
+              <button className="flex justify-center rounded-full px-5 py-5 shadow-md">
+                <FaHandsHelping className="text-green-500 text-5xl " />
+                <h1 className="text-green-500 text-3xl font-bold">חברה</h1>
+              </button>
+            </div>
+            <div className="flex flex-row justify-center text-center text-pink-400 font-bold text-xl mt-3">
+              הזדמנות להרים את השכבות החלשות ולהכיר את השכנים שלנו
+            </div>
           </div>
         </div>
       </div>

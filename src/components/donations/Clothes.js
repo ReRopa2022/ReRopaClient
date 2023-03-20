@@ -21,7 +21,6 @@ const Clothes = (props) => {
   const [selectedGender, setSelectedGender] = useState();
   const [selectedSector, setSelectedSector] = useState();
   const [selectedSize, setSelectedSize] = useState();
-  const [quantity, setQuantity] = useState(0);
   const [image, setImage] = useState();
 
   const dispatch = useDispatch();
@@ -58,9 +57,6 @@ const Clothes = (props) => {
   const onSelectSize = (data) => {
     setSelectedSize(data);
   };
-  const onSelectQuantity = (e) => {
-    setQuantity(e.target.value);
-  };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -78,7 +74,6 @@ const Clothes = (props) => {
       genders,
       sectors,
       sizes,
-      quantity,
       image,
     };
     console.log(donationData);
@@ -136,14 +131,6 @@ const Clothes = (props) => {
         isRtl
       />
 
-      <input
-        className="rtl-grid p-3 my-2 bg-white-700 rounded text-gray-600  text-right flex flex-row-reverse"
-        type="number"
-        min={1}
-        value={quantity}
-        placeholder="כמות בגדים"
-        onChange={onSelectQuantity}
-      />
       <ImageUploader image={image} setImage={setImage} />
       <GreenButton buttonName="תרום" onClickButton={onSubmit} />
     </form>
