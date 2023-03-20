@@ -1,8 +1,43 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import DonationsTableRow from "./DonationsTableRow";
+import { reset } from "../../../features/donation/donationSlice";
 
 function Table({ data }) {
+  const {
+    isStatusUpdated,
+    isDonateDeleted,
+    isStatusUpdatedError,
+    isDonateDeletedError,
+  } = useSelector((state) => state.donation);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (isStatusUpdatedError) {
+      toast.error("סטטוס תרומה לא עודכן, אנא נסה שוב");
+      dispatch(reset());
+    }
+    if (isStatusUpdated) {
+      toast.success("סטטוס תרומה עודכן בהצלחה");
+      dispatch(reset());
+    }
+
+    if (isDonateDeletedError) {
+      toast.error("תרומה לא נמחקה, אנא נסה שוב");
+      dispatch(reset());
+    }
+    if (isDonateDeleted) {
+      toast.success("תרומה נמחקה בהצלחה");
+      dispatch(reset());
+    }
+  }, [
+    dispatch,
+    isDonateDeleted,
+    isDonateDeletedError,
+    isStatusUpdated,
+    isStatusUpdatedError,
+  ]);
   return (
     <div className="p-1.5 w-full inline-block align-middle">
       <div className="overflow-hidden border rounded-lg">
@@ -35,43 +70,38 @@ function Table({ data }) {
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
+                className="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
               >
                 תורם
               </th>
+
               <th
                 scope="col"
-                className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
-              >
-                כמות
-              </th>
-              <th
-                scope="col"
-                className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
+                className="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
               >
                 מגזר
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
+                className="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
               >
                 מידה
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
+                className="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
               >
                 מגדר
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
+                className="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
               >
                 עונה
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
+                className="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
               >
                 סוג תרומה
               </th>

@@ -38,7 +38,7 @@ const Home = () => {
                 <h1 className="text-green-500 text-3xl font-bold">סביבה</h1>
               </button>
             </div>
-            <div className="flex flex-row justify-center text-center text-pink-400 font-bold text-xl mt-3">
+            <div className="flex flex-row justify-center text-center text-green-600 font-bold text-xl mt-3">
               שימוש חוזר בחפצים והפחתה בפסולת מזהמת
             </div>
           </div>
@@ -49,7 +49,7 @@ const Home = () => {
                 <h1 className="text-green-500 text-3xl font-bold">חיסכון</h1>
               </button>
             </div>
-            <div className="flex flex-row justify-center text-center text-pink-400 font-bold text-xl mt-3">
+            <div className="flex flex-row justify-center text-center text-green-600 font-bold text-xl mt-3">
               להשיג בקלות חפצים בחינם, ולפנות את הכסף לדברים שאנחנו צריכים
             </div>
           </div>
@@ -60,7 +60,7 @@ const Home = () => {
                 <h1 className="text-green-500 text-3xl font-bold">חברה</h1>
               </button>
             </div>
-            <div className="flex flex-row justify-center text-center text-pink-400 font-bold text-xl mt-3">
+            <div className="flex flex-row justify-center text-center text-green-600 font-bold text-xl mt-3">
               הזדמנות להרים את השכבות החלשות ולהכיר את השכנים שלנו
             </div>
           </div>

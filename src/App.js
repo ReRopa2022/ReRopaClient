@@ -15,7 +15,7 @@ const Login = lazy(() => import("./pages/Login"));
 const Signup = lazy(() => import("./pages/Signup"));
 const About = lazy(() => import("./pages/About"));
 const Donate = lazy(() => import("./pages/Donate"));
-const NoNeedDonate = lazy(() => import("./pages/NoNeedDonate"));
+const DonatePoints = lazy(() => import("./pages/DonatePoints"));
 const DonateRequest = lazy(() => import("./pages/manager/DonateRequest"));
 const DonateLocation = lazy(() => import("./pages/manager/AddDonateLocation"));
 const DefienciesExcesses = lazy(() => import("./pages/DefienciesExcesses"));
@@ -37,7 +37,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Signup />} />
           <Route path="/test" element={<Test />} />
-          <Route path="no-donate" element={<NoNeedDonate />} />
+          <Route path="donate-points" element={<DonatePoints />} />
           <Route
             path="/deficiencies-excesses"
             element={<DefienciesExcesses />}

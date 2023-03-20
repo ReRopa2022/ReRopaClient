@@ -6,6 +6,11 @@ import { extractErrorMessage } from "../../utils";
 
 //Creating initial state cases
 const initialState = {
+  isStatusUpdated: false,
+  isDonateDeleted: false,
+  isStatusUpdatedError: false,
+  isDonateDeletedError: false,
+  isRequired: false,
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -42,7 +47,6 @@ export const deleteDonation = createAsyncThunk(
   "donation/deleteDonation",
   async (donation_id, thunkAPI) => {
     try {
-      console.log(donation_id + "dispatch");
       return await donationService.deleteDonation(donation_id);
     } catch (error) {
       return thunkAPI.rejectWithValue(extractErrorMessage(error));
@@ -67,9 +71,14 @@ export const donationSlice = createSlice({
   initialState,
   reducers: {
     reset: (state) => {
+      state.isRequired = false;
       state.isLoading = false;
       state.isError = false;
       state.isSuccess = false;
+      state.isDonateDeleted = false;
+      state.isDonateDeletedError = false;
+      state.isStatusUpdated = false;
+      state.isStatusUpdatedError = false;
       state.message = "";
     },
   },
@@ -81,6 +90,7 @@ export const donationSlice = createSlice({
       .addCase(donate.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
+        state.isRequired = action.payload.isRequired;
         state.donation = action.payload;
       })
       .addCase(donate.rejected, (state, action) => {
@@ -94,12 +104,12 @@ export const donationSlice = createSlice({
       })
       .addCase(updateStatus.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.isSuccess = true;
+        state.isStatusUpdated = true;
         state.donation = action.payload;
       })
       .addCase(updateStatus.rejected, (state, action) => {
         state.isLoading = false;
-        state.isError = true;
+        state.isStatusUpdatedError = true;
         state.message = action.payload;
         state.donation = null;
       })
@@ -108,12 +118,12 @@ export const donationSlice = createSlice({
       })
       .addCase(deleteDonation.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.isSuccess = true;
+        state.isDonateDeleted = true;
         state.donation = action.payload;
       })
       .addCase(deleteDonation.rejected, (state, action) => {
         state.isLoading = false;
-        state.isError = true;
+        state.isDonateDeletedError = true;
         state.message = action.payload;
         state.donation = null;
       })

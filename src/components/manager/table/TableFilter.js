@@ -3,7 +3,6 @@ import { GoSearch } from "react-icons/go";
 const TableFilter = (props) => {
   const [search, setSearch] = useState();
   const onChangeSearch = (e) => {
-    console.log(e.target.value);
     setSearch(e.target.value);
   };
   const onClickSearch = () => {
@@ -12,10 +11,8 @@ const TableFilter = (props) => {
       if (search === element?.user) {
         return element;
       }
-      if (Number(search) === element?.quantity) {
-        return element;
-      }
-      if (search === element?.sectors) {
+
+      if (element?.sectors.includes(search)) {
         return element;
       }
       if (element?.sizes.includes(search)) {

@@ -37,7 +37,7 @@ const Clothes = (props) => {
       );
       if (isNotForDonate === "כן") {
         dispatch(reset());
-        navigate("/no-donate");
+        navigate("/donate-points", { state: { condition: "faulty" } });
       } else {
         setSelectedCondition("");
       }
@@ -76,7 +76,7 @@ const Clothes = (props) => {
       sizes,
       image,
     };
-    console.log(donationData);
+    //console.log(donationData);
     dispatch(donate(donationData));
   };
 

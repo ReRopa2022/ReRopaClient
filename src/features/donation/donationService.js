@@ -22,7 +22,6 @@ const updateStatus = async ({ donation_id, status }) => {
 const deleteDonation = async (donation_id) => {
   const res = await axios.delete(API_URL, donation_id);
   if (res.data) {
-    console.log(res.data);
     return res.data;
   }
 };

@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
 import {
   updateStatus,
   deleteDonation,
-  reset,
 } from "../../../features/donation/donationSlice";
 import Status from "./Status";
 
@@ -13,8 +11,11 @@ const TableRow = ({ data }) => {
   var [status, setStatus] = useState();
   const [prevStatus, setPrevStatus] = useState();
   const noTimeZone = data?.createdAt.substring(0, 10);
+  const blatime = new Date(noTimeZone);
+  const time = blatime.toLocaleDateString("en-GB");
+  console.log(time);
+  console.log(blatime);
   const dispatch = useDispatch();
-  const { isSuccess, isError } = useSelector((state) => state.donation);
   const donation_id = data?._id;
 
   const onEditStatus = () => {
@@ -29,7 +30,6 @@ const TableRow = ({ data }) => {
   };
   const onUpdateStatus = () => {
     dispatch(updateStatus({ donation_id, status }));
-    console.log({ status, donation_id });
 
     setPrevStatus(status);
     setIsStatusClicked(false);
@@ -54,16 +54,7 @@ const TableRow = ({ data }) => {
       setStatus("לא עודכן סטטוס");
       setPrevStatus("לא עודכן סטטוס");
     }
-
-    if (isError) {
-      toast.error("סטטוס תרומה לא עודכן, אנא נסה שוב");
-      dispatch(reset());
-    }
-    if (isSuccess) {
-      toast.success("סטטוס תרומה עודכן בהצלחה");
-      dispatch(reset());
-    }
-  }, [data.status, dispatch, isError, isSuccess, status]);
+  }, [data.status, dispatch, status]);
   return (
     <tr>
       <td className="py-3 pl-4">
@@ -106,28 +97,26 @@ const TableRow = ({ data }) => {
         )}
       </td>
 
-      <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-        {noTimeZone}
+      <td className="rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+        {time}
       </td>
-      <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+      <td className="rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
         {data?.user}
       </td>
-      <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-        {data?.quantity}
-      </td>
-      <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+
+      <td className="rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
         {data?.sectors}
       </td>
-      <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+      <td className="rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
         {data?.sizes}
       </td>
-      <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+      <td className="rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
         {data?.genders}
       </td>
-      <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+      <td className="rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
         {data?.seasons}
       </td>
-      <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+      <td className="rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
         {data?.types}
       </td>
     </tr>

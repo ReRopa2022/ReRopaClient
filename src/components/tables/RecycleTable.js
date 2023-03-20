@@ -2,7 +2,6 @@ import React from "react";
 import RecycleTableRow from "./RecycleTableRow";
 
 const RecycleTable = ({ data }) => {
-  const recycleData = data?.filter((row) => row.type === "מיחזור");
   return (
     <div className="flex flex-col">
       <div className="overflow-x-auto">
@@ -44,7 +43,7 @@ const RecycleTable = ({ data }) => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200 text-center">
-                {recycleData?.map((row) => (
+                {data?.map((row) => (
                   <RecycleTableRow key={row._id} data={row} />
                 ))}
               </tbody>

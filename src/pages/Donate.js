@@ -23,7 +23,7 @@ const Donate = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { isSuccess, isError, message, isLoading } = useSelector(
+  const { isSuccess, isRequired, isError, message, isLoading } = useSelector(
     (state) => state.donation
   );
 
@@ -35,13 +35,19 @@ const Donate = (props) => {
     if (isError) {
       toast.error("תרומתך לא התקבלה עקב שגיאה ,נשמח אם תנסה שוב");
     }
+
     if (isSuccess) {
-      toast.success("תודה על תרומתך, מקווים לראותך שוב");
-      dispatch(reset());
-      navigate("/");
+      if (!isRequired) {
+        navigate("/donate-points", { state: { condition: "noNeed" } });
+      } else {
+        console.log(isRequired);
+        toast.success("תודה על תרומתך, מקווים לראותך שוב");
+        dispatch(reset());
+        navigate("/donate-points");
+      }
     }
     dispatch(reset());
-  }, [isError, isSuccess, message, navigate, dispatch]);
+  }, [isError, isSuccess, isRequired, message, navigate, dispatch]);
 
   if (isLoading) {
     return <h1>Loading...</h1>;
