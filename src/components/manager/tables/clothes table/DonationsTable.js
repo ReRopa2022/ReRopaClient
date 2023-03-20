@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import DonationsTableRow from "./DonationsTableRow";
-import { reset } from "../../../features/donation/donationSlice";
+import { reset } from "../../../../features/donation/donationSlice";
 
 function Table({ data }) {
   const {

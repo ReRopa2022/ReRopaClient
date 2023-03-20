@@ -12,7 +12,7 @@ const DonatePoints = () => {
   const [message, setMessage] = useState("");
   const [filterTable, setFilterTable] = useState();
   const location = useLocation();
-  const [condition, setCondition] = useState(location.state?.condition);
+  const [condition] = useState(location.state?.condition);
   const [isDataLoaded, setIsDataLoaded] = useState(false);
 
   useEffect(() => {
@@ -24,6 +24,7 @@ const DonatePoints = () => {
       console.log(condition);
     };
     fetchData();
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -52,6 +53,7 @@ const DonatePoints = () => {
         setMessage("נשמח שתשים את השקית באחת מנקודות האיסוף הבאות");
       }
     }
+    // eslint-disable-next-line
   }, [isDataLoaded]);
   return (
     <div>

@@ -54,12 +54,33 @@ export const deleteDonation = createAsyncThunk(
   }
 );
 
-//donate bag or book
+//donate game or book
 export const donateBookOrGame = createAsyncThunk(
   "donation/donateBookOrGame",
   async (donation, thunkAPI) => {
     try {
       return await donationService.donateBookOrGame(donation);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(extractErrorMessage(error));
+    }
+  }
+);
+export const updateBookOrGameStatus = createAsyncThunk(
+  "donation/updateBookOrGameStatus",
+  async (donation, thunkAPI) => {
+    try {
+      return await donationService.updateBookOrGameStatus(donation);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(extractErrorMessage(error));
+    }
+  }
+);
+
+export const deleteBookOrGame = createAsyncThunk(
+  "donation/deleteBookOrGame",
+  async (donation, thunkAPI) => {
+    try {
+      return await donationService.deleteBookOrGame(donation);
     } catch (error) {
       return thunkAPI.rejectWithValue(extractErrorMessage(error));
     }
@@ -138,6 +159,32 @@ export const donationSlice = createSlice({
       .addCase(donateBookOrGame.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
+        state.message = action.payload;
+        state.donation = null;
+      })
+
+      .addCase(updateBookOrGameStatus.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isStatusUpdated = true;
+        state.donation = action.payload;
+      })
+      .addCase(updateBookOrGameStatus.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isStatusUpdatedError = true;
+        state.message = action.payload;
+        state.donation = null;
+      })
+      .addCase(deleteBookOrGame.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(deleteBookOrGame.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isDonateDeleted = true;
+        state.donation = action.payload;
+      })
+      .addCase(deleteBookOrGame.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isDonateDeletedError = true;
         state.message = action.payload;
         state.donation = null;
       });

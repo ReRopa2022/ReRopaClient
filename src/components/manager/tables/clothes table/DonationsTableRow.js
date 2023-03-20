@@ -3,8 +3,8 @@ import { useDispatch } from "react-redux";
 import {
   updateStatus,
   deleteDonation,
-} from "../../../features/donation/donationSlice";
-import Status from "./Status";
+} from "../../../../features/donation/donationSlice";
+import Status from "../Status";
 
 const TableRow = ({ data }) => {
   const [isStatusClicked, setIsStatusClicked] = useState(false);
