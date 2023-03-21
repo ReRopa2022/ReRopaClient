@@ -5,6 +5,7 @@ import { ToastContainer } from "react-toastify";
 import Navbar from "./components/Navbar";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/Footer";
+import Spinner from "./components/ui/Spinner";
 
 const Home = lazy(() => import("./pages/Home"));
 const Test = lazy(() => import("./pages/Test"));
@@ -21,7 +22,8 @@ const DonatePoints = lazy(() => import("./pages/DonatePoints"));
 const DonateRequest = lazy(() => import("./pages/manager/DonateRequest"));
 const DonateLocation = lazy(() => import("./pages/manager/AddDonateLocation"));
 const DefienciesExcesses = lazy(() => import("./pages/DefienciesExcesses"));
-
+const ExcessesTable = lazy(() => import("./pages/manager/ExcessesTable"));
+const DefienciesTable = lazy(() => import("./pages/manager/DefienciesTable"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Queries = lazy(() => import("./pages/manager/Queries"));
 
@@ -32,7 +34,13 @@ function App() {
     <>
       <Navbar isUser={user} isManager={user?.isManager} />
       <div className="h-full pb-10">
-        <Suspense fallback={<p>Loading...</p>}>
+        <Suspense
+          fallback={
+            <div className="flex justify-center">
+              <Spinner />
+            </div>
+          }
+        >
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -54,6 +62,8 @@ function App() {
                 <Route path="/excesses-report" element={<ExcessesReport />} />
                 <Route path="/clothes-table" element={<ClothesTable />} />
                 <Route path="/games-books" element={<BooksOrGamesPage />} />
+                <Route path="/excesses-table" element={<ExcessesTable />} />
+                <Route path="/defiencies-table" element={<DefienciesTable />} />
               </>
             )}
             <Route path="*" element={<NotFound />} />

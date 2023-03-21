@@ -6,6 +6,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import GameOrBook from "../components/donations/GameOrBook";
 import Clothes from "../components/donations/Clothes";
+import Spinner from "../components/ui/Spinner";
 
 import { reset } from "../features/donation/donationSlice";
 
@@ -50,7 +51,11 @@ const Donate = (props) => {
   }, [isError, isSuccess, isRequired, message, navigate, dispatch]);
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return (
+      <div className="flex justify-center">
+        <Spinner />
+      </div>
+    );
   }
   return (
     <>
