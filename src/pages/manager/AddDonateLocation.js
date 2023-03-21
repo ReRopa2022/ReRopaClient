@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { addLocation, reset } from "../../features/manager/addLocationSlice";
 import GreenButton from "../../components/ui/GreenButton";
+import Spinner from "../../components/ui/Spinner";
 
 const DonateLocation = () => {
   const { register, handleSubmit } = useForm({
@@ -40,7 +41,11 @@ const DonateLocation = () => {
   }, [isError, isSuccess, message, navigate, dispatch]);
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return (
+      <div className="flex justify-center">
+        <Spinner />
+      </div>
+    );
   }
   return (
     <div className="w-full h-screen mb-3">

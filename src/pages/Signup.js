@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { registerUser, reset } from "../features/auth/authSlice";
 import Card from "../components/ui/Card";
 import GreenButton from "../components/ui/GreenButton";
+import Spinner from "../components/ui/Spinner";
 
 const Signup = () => {
   //const { emailRef, passwordRef } = useRef({});
@@ -44,7 +45,11 @@ const Signup = () => {
     dispatch(registerUser(data));
   };
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return (
+      <div className="flex justify-center">
+        <Spinner />
+      </div>
+    );
   }
 
   return (

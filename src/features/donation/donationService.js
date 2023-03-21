@@ -33,12 +33,31 @@ const donateBookOrGame = async (donationData) => {
     return res.data;
   }
 };
+//Update item status
+const updateBookOrGameStatus = async ({ donation_id, status }) => {
+  const res = await axios.patch(API_URL + "/book-or-game", {
+    donation_id,
+    status,
+  });
+  if (res.data) {
+    return res.data;
+  }
+};
+//Delete a item
+const deleteBookOrGame = async (donation_id) => {
+  const res = await axios.delete(API_URL + "/book-or-game", donation_id);
+  if (res.data) {
+    return res.data;
+  }
+};
 
 const donationService = {
   donate,
   updateStatus,
   deleteDonation,
   donateBookOrGame,
+  updateBookOrGameStatus,
+  deleteBookOrGame,
 };
 
 export default donationService;

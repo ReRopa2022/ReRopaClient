@@ -12,6 +12,7 @@ import { reset } from "../features/donation/donationSlice";
 import Card from "../components/ui/Card";
 
 import { donateOptions } from "../optionsData";
+import Spinner from "../components/ui/Spinner";
 
 const Donate = (props) => {
   const [selectedType, setSelectedType] = useState();
@@ -50,7 +51,11 @@ const Donate = (props) => {
   }, [isError, isSuccess, isRequired, message, navigate, dispatch]);
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return (
+      <div className="flex justify-center">
+        <Spinner />
+      </div>
+    );
   }
   return (
     <>

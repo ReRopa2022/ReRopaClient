@@ -1,7 +1,11 @@
 import React from "react";
-
+import Spinner from "../components/ui/Spinner";
 const NotFound = () => {
-  return <h2>Welcome to ReRopa NotFound Page</h2>;
+  return (
+    <div className="flex justify-center">
+      <Spinner />
+    </div>
+  );
 };
 
 export default NotFound;
