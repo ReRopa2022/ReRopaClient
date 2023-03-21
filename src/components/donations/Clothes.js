@@ -81,9 +81,9 @@ const Clothes = (props) => {
   };
 
   return (
-    <form className="w-full flex flex-col py-4">
+    <form className="w-full flex flex-col">
       <Select
-        className="p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
+        className="p-3  bg-white-700 rounded text-gray-600  text-right"
         options={donateCondition}
         placeholder="מצב הבגדים"
         isSearchable={true}
@@ -91,7 +91,7 @@ const Clothes = (props) => {
         isRtl
       />
       <Select
-        className="p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
+        className="p-3 bg-white-700 rounded text-gray-600  text-right"
         options={seasonOptions}
         placeholder="עונה"
         value={selectedSeason}
@@ -101,7 +101,7 @@ const Clothes = (props) => {
         isRtl
       />
       <Select
-        className="p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
+        className="p-3  bg-white-700 rounded text-gray-600  text-right"
         options={genderOptions}
         placeholder="מגדר"
         value={selectedGender}
@@ -110,7 +110,7 @@ const Clothes = (props) => {
         isRtl
       />
       <Select
-        className="p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
+        className="p-3  bg-white-700 rounded text-gray-600  text-right"
         options={sectorOptions}
         placeholder="מגזר"
         value={selectedSector}
@@ -121,7 +121,7 @@ const Clothes = (props) => {
       />
 
       <Select
-        className="p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
+        className="p-3  bg-white-700 rounded text-gray-600  text-right"
         options={sizeOptions}
         placeholder="גיל/מידה"
         value={selectedSize}
