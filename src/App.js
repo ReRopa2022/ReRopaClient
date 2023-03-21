@@ -29,33 +29,34 @@ function App() {
   return (
     <>
       <Navbar isUser={user} isManager={user?.isManager} />
-
-      <Suspense fallback={<p>Loading...</p>}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Signup />} />
-          <Route path="/test" element={<Test />} />
-          <Route path="donate-points" element={<DonatePoints />} />
-          <Route
-            path="/deficiencies-excesses"
-            element={<DefienciesExcesses />}
-          />
-          <Route path="/donate" element={<Donate user={user} />} />
-          {user?.isManager && (
-            <>
-              <Route path="/manager-home" element={<ManagerHome />} />
-              <Route path="/add-location" element={<DonateLocation />} />
-              <Route path="/donate-request" element={<DonateRequest />} />
-              <Route path="/info-tables" element={<Queries />} />
-              <Route path="/excesses-report" element={<ExcessesReport />} />
-            </>
-          )}
-          <Route path="*" element={<NotFound />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </Suspense>
+      <div className="h-full pb-10">
+        <Suspense fallback={<p>Loading...</p>}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Signup />} />
+            <Route path="/test" element={<Test />} />
+            <Route path="donate-points" element={<DonatePoints />} />
+            <Route
+              path="/deficiencies-excesses"
+              element={<DefienciesExcesses />}
+            />
+            <Route path="/donate" element={<Donate user={user} />} />
+            {user?.isManager && (
+              <>
+                <Route path="/manager-home" element={<ManagerHome />} />
+                <Route path="/add-location" element={<DonateLocation />} />
+                <Route path="/donate-request" element={<DonateRequest />} />
+                <Route path="/info-tables" element={<Queries />} />
+                <Route path="/excesses-report" element={<ExcessesReport />} />
+              </>
+            )}
+            <Route path="*" element={<NotFound />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </Suspense>
+      </div>
       <Footer />
       <ToastContainer />
     </>

@@ -9,7 +9,7 @@ const LoggedOffNav = () => {
       <Link to="/donate">
         <GreenButton buttonName="תרומה אנונימית" />
       </Link>
-      <Link className="pl-2" to="/login">
+      <Link className="" to="/login">
         <GreenButton buttonName="התחברות" />
       </Link>
       <Link to="/register">
