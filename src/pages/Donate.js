@@ -54,18 +54,22 @@ const Donate = (props) => {
   }
   return (
     <>
-      <Link to="/deficiencies-excesses">
-        {" "}
-        <h1 className="text-green-500 text-4xl font-bold cursor-pointer rtl-grid">
-          מה יש/חסר לנו?
-        </h1>
-      </Link>
       <Card>
-        <div className="max-w-[320px] h-[750x] mx-auto ">
-          <h1 className="text-3xl font-bold rtl-grid  text-center">{title}</h1>
+        <div className="max-w-[320px] h-[750x] mx-auto flex flex-col justify-center ">
+          <div className="flex justify-center">
+            <Link to="/deficiencies-excesses">
+              {" "}
+              <button className="text-green-500 text-3xl font-bold cursor-pointer rtl-grid">
+                מה יש/חסר לנו?
+              </button>
+            </Link>
+          </div>
+          <div className="w-full">
+            <h1 className="text-3xl font-bold rtl-grid text-center">{title}</h1>
+          </div>
 
           <Select
-            className="p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
+            className="pb-2 pt-2 my-2 bg-white-700 rounded text-gray-600  text-right"
             options={donateOptions}
             placeholder="סוג תרומה"
             value={selectedType}

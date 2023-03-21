@@ -34,8 +34,8 @@ const TableFilter = (props) => {
   };
   return (
     <div className="flex justify-between py-3 pl-2">
-      <div className="relative max-w-xs">
-        <label htmlFor="hs-table-search" className="sr-only">
+      <div className="relative max-w-xs text-green-600">
+        <label htmlFor="hs-table-search" className="sr-only ">
           Search
         </label>
         <input
@@ -43,7 +43,7 @@ const TableFilter = (props) => {
           type="text"
           name="hs-table-search"
           id="hs-table-search"
-          className="block w-full p-3 pl-10 text-sm border-gray-200 rounded-md focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
+          className="block w-full p-3 pl-10 text-sm border-green-400 rounded-md focus:border-green-500 focus:ring-green-500  dark:text-green-500"
           placeholder="Search..."
         />
         <div className="absolute inset-y-0 left-0 flex items-center pl-4 ">
