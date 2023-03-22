@@ -1,22 +1,31 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { useDispatch } from "react-redux";
 import {
   updateStatus,
   deleteDonation,
 } from "../../../../features/donation/donationSlice";
 import Status from "../Status";
+import ImageCard from "./ImageCard";
 
+const API_URL = "https://reropa-server.onrender.com/api/donate/image";
+//const LOCAL_API_URL = "http://localhost:5000/api/donate/image";
 const TableRow = ({ data }) => {
+  const [imgSrc, setImgSrc] = useState();
+  const [isImageBigger, setIsImageBigger] = useState(false);
   const [isStatusClicked, setIsStatusClicked] = useState(false);
   var [status, setStatus] = useState();
   const [prevStatus, setPrevStatus] = useState();
   const noTimeZone = data?.createdAt.substring(0, 10);
   const blatime = new Date(noTimeZone);
   const time = blatime.toLocaleDateString("en-GB");
-  console.log(time);
-  console.log(blatime);
   const dispatch = useDispatch();
   const donation_id = data?._id;
+  const imageId = data?.image?._id;
+
+  const onClickImage = () => {
+    setIsImageBigger(!isImageBigger);
+  };
 
   const onEditStatus = () => {
     setIsStatusClicked(true);
@@ -45,6 +54,7 @@ const TableRow = ({ data }) => {
       return;
     }
   };
+
   useEffect(() => {
     if (data?.status) {
       setStatus(data.status);
@@ -55,13 +65,25 @@ const TableRow = ({ data }) => {
       setPrevStatus("לא עודכן סטטוס");
     }
   }, [data.status, dispatch, status]);
+
+  useEffect(() => {
+    axios.post(API_URL, { imageId }).then((response) => {
+      const blob = new Blob([Int8Array.from(response.data.img.data.data)], {
+        type: response.data.img.contentType,
+      });
+
+      setImgSrc(window.URL.createObjectURL(blob));
+    });
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <tr>
       <td className="py-3 pl-4">
-        <div className="flex justify-center h-5">
+        <div className="flex items-center h-5">
           <input
             type="checkbox"
-            className="text-green-500 border-gray-200 rounded focus:ring-green-500"
+            className="text-blue-600 border-gray-200 rounded focus:ring-blue-500"
           />
         </div>
       </td>
@@ -94,6 +116,17 @@ const TableRow = ({ data }) => {
               <option className="text-green-500">הועברה לחנות</option>
             </select>
           </>
+        )}
+      </td>
+      {isImageBigger && imgSrc && (
+        <ImageCard imgSrc={imgSrc} onClickImg={onClickImage} />
+      )}
+
+      <td className="rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+        {!isImageBigger && imgSrc && (
+          <button onClick={onClickImage}>
+            <img width="10" height="10" src={imgSrc} alt="donate" />
+          </button>
         )}
       </td>
 

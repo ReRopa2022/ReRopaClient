@@ -66,6 +66,13 @@ function Table({ data }) {
                 scope="col"
                 className="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
               >
+                תמונה
+              </th>
+
+              <th
+                scope="col"
+                className="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
+              >
                 תאריך
               </th>
               <th

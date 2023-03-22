@@ -37,7 +37,9 @@ const ImageUploader = (props) => {
 
   return (
     <div>
-      {props.image ? <img src={props.image} alt="" width="300" /> : null}
+      {props.image ? (
+        <img src={props.image} alt="" height="100" width="100" />
+      ) : null}
       <form>
         {!watch("files") || watch("files").length === 0 ? (
           <div>
