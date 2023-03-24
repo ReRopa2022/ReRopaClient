@@ -36,7 +36,7 @@ function App() {
       <div className="h-full pb-10">
         <Suspense
           fallback={
-            <div className="flex justify-center">
+            <div className="flex justify-center pt-60">
               <Spinner />
             </div>
           }

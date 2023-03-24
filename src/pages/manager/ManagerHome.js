@@ -10,19 +10,19 @@ const ManagerHome = () => {
     <>
       <div className="text-center bg-green-500 h-48 ">
         <div className="w-full flex justify-center">
-          <h1 className="mt-4 max-w-[36rem] xl:text-6xl lg:text-5xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl xl:max-w-[43.5rem]">
+          <h1 className="mt-4 text-6xl font-bold tracking-tighter text-white">
             ברוכה הבאה
           </h1>
         </div>
         <div className="w-full flex justify-center mt-7">
-          <h2 className="mt-4 xl:text-5xl lg:text-3xl font-light tracking-tight text-white sm:text-2xl md:text-2xl xl:max-w-[43.5rem]">
+          <h2 className="mt-4 text-4xl font-light tracking-tighter flex flex-wrap text-white">
             דף פעולות מנהל{" "}
           </h2>
         </div>
       </div>
       <div className=" bg-white w-full mt-6">
-        <div className="flex justify-around">
-          <div className="flex justify-center">
+        <div className="flex justify-around flex-wrap">
+          <div className="flex justify-center pb-2">
             <button className="flex justify-center rounded-full px-5 py-5 shadow-md">
               <HiLocationMarker className="text-green-500 text-5xl " />
               <Link
@@ -33,7 +33,7 @@ const ManagerHome = () => {
               </Link>
             </button>
           </div>
-          <div>
+          <div className="flex justify-center pb-2">
             <button className="flex justify-center rounded-full px-5 py-5 shadow-md">
               <BiDonateHeart className="text-green-500 text-5xl " />
               <Link
@@ -44,7 +44,7 @@ const ManagerHome = () => {
               </Link>
             </button>
           </div>
-          <div>
+          <div className="flex justify-center pb-2">
             <button className="flex justify-center rounded-full px-5 py-5 shadow-md">
               <FaBox className="text-green-500 text-5xl " />
               <Link
@@ -55,7 +55,7 @@ const ManagerHome = () => {
               </Link>
             </button>
           </div>
-          <div>
+          <div className="flex justify-center pb-2">
             <button className="flex justify-center rounded-full px-5 py-5 shadow-md">
               <BsTable className="text-green-500 text-5xl " />
               <Link

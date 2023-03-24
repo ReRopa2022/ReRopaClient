@@ -82,69 +82,73 @@ const ExcessesReport = () => {
   }, [isError, isSuccess, message, navigate, dispatch]);
   return (
     <Card>
-      <h1 className="text-3xl font-bold  text-center">דיווח על עודפים</h1>
-      <form className="w-full flex flex-col py-4">
-        <Select
-          className="p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
-          options={organizationOptions}
-          placeholder="ארגון"
-          value={selectedOrganization}
-          onChange={onSelectOrganization}
-          isSearchable={true}
-          isRtl
-        />
-        <Select
-          className="p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
-          options={seasonOptions}
-          placeholder="עונה"
-          value={selectedSeason}
-          onChange={onSelectSeason}
-          isSearchable={true}
-          isMulti
-          isRtl
-        />
-        <Select
-          className="p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
-          options={genderOptions}
-          placeholder="מגדר"
-          value={selectedGender}
-          onChange={onSelectGender}
-          isSearchable={true}
-          isRtl
-        />
-        <Select
-          className="p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
-          options={sectorOptions}
-          placeholder="מגזר"
-          value={selectedSector}
-          onChange={onSelectSector}
-          isSearchable={true}
-          isMulti
-          isRtl
-        />
+      <div className="max-w-[320px] h-full mx-auto py-10 ">
+        <h1 className="text-3xl pt-3 font-bold  text-center">
+          דיווח על עודפים
+        </h1>
+        <form className="w-full flex flex-col py-4">
+          <Select
+            className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
+            options={organizationOptions}
+            placeholder="ארגון"
+            value={selectedOrganization}
+            onChange={onSelectOrganization}
+            isSearchable={true}
+            isRtl
+          />
+          <Select
+            className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
+            options={seasonOptions}
+            placeholder="עונה"
+            value={selectedSeason}
+            onChange={onSelectSeason}
+            isSearchable={true}
+            isMulti
+            isRtl
+          />
+          <Select
+            className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
+            options={genderOptions}
+            placeholder="מגדר"
+            value={selectedGender}
+            onChange={onSelectGender}
+            isSearchable={true}
+            isRtl
+          />
+          <Select
+            className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
+            options={sectorOptions}
+            placeholder="מגזר"
+            value={selectedSector}
+            onChange={onSelectSector}
+            isSearchable={true}
+            isMulti
+            isRtl
+          />
 
-        <Select
-          className="p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
-          options={sizeOptions}
-          placeholder="גיל/מידה"
-          value={selectedSize}
-          onChange={onSelectSize}
-          isSearchable={true}
-          isMulti
-          isRtl
-        />
+          <Select
+            className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
+            options={sizeOptions}
+            placeholder="גיל/מידה"
+            value={selectedSize}
+            onChange={onSelectSize}
+            isSearchable={true}
+            isMulti
+            isRtl
+          />
 
-        <input
-          className="rtl-grid p-3 my-2 bg-white-700 rounded text-gray-600  text-right flex flex-row-reverse"
-          type="number"
-          min={1}
-          value={quantity}
-          placeholder="כמות בגדים"
-          onChange={onSelectQuantity}
-        />
+          <input
+            className="rtl-grid p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
+            type="number"
+            min={1}
+            value={quantity}
+            placeholder="כמות בגדים"
+            onChange={onSelectQuantity}
+          />
 
-        <GreenButton buttonName="דווח על עודפים" onClickButton={onSubmit} />
-      </form>
+          <GreenButton buttonName="דווח על עודפים" onClickButton={onSubmit} />
+        </form>
+      </div>
     </Card>
   );
 };

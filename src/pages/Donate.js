@@ -52,7 +52,7 @@ const Donate = (props) => {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center">
+      <div className="flex justify-center pt-55">
         <Spinner />
       </div>
     );

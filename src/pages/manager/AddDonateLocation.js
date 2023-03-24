@@ -41,23 +41,23 @@ const DonateLocation = () => {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center">
+      <div className="flex justify-center pt-55">
         <Spinner />
       </div>
     );
   }
   return (
-    <div className="w-full h-screen mb-3">
+    <div className="w-full h-[100%]">
       <img
-        className="hidden sm:block absolute w-full h-full object-cover"
+        className="hidden sm:block absolute w-full h-[100%] object-cover"
         src="https://media.istockphoto.com/photos/many-second-hand-clothes-are-on-sale-picture-id1248406700?k=20&m=1248406700&s=612x612&w=0&h=OH8eyoshszG0w08jVfaVRkuhpUNz92nRDsvxeuWdmy8="
         alt="/"
       />
       <div className=" fixed top-0 left-0 w-full "></div>
-      <div className="bg-white/60 absolute h-full w-full px-4 py-18 z-50">
+      <div className="bg-white/60 absolute w-full h-full px-4 py-10">
         <div className="max-w-[450px] h-[600px] mx-auto bg-black/75 text-white">
           <div className="max-w-[320px]  mx-auto ">
-            <h1 className="text-3xl font-bold  text-center">
+            <h1 className="text-3xl font-bold pt-5 text-center">
               הוספת נקודת איסוף חדשה
             </h1>
 
@@ -71,35 +71,40 @@ const DonateLocation = () => {
                 placeholder="עיר"
                 type="text"
                 {...register("city")}
+                required
               />
               <input
                 className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
                 placeholder="רחוב"
                 type="text"
                 {...register("street")}
+                required
               />
               <input
                 className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
                 placeholder="מספר רחוב"
                 type="text"
                 {...register("street_no")}
+                required
               />
               <select
                 className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right rtl-grid "
                 type="text"
-                placeholder="סוג נקודה"
                 {...register("type")}
+                required
               >
-                <option>סוג נקודה</option>
+                <option default selected="selected" disabled>
+                  סוג נקודה
+                </option>
                 <option>איסוף בגדים</option>
                 <option>מיחזור</option>
               </select>
-              <input
+              <textarea
                 className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
                 placeholder="מידע"
                 type="text"
-                style={{ height: "100px" }}
                 {...register("info")}
+                required
               />
 
               <GreenButton type="submit" buttonName="הוספה" />

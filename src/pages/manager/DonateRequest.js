@@ -70,7 +70,7 @@ const DonateRequest = (props) => {
 
             <form className="w-full flex flex-col py-4">
               <Select
-                className="p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
+                className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
                 options={organizationOptions}
                 placeholder="ארגון"
                 value={selectedOrganization}
@@ -79,7 +79,7 @@ const DonateRequest = (props) => {
                 isRtl
               />
               <input
-                className="rtl-grid p-3 my-2 bg-white-700 rounded text-gray-600  text-right flex flex-row-reverse"
+                className="rtl-grid p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
                 type="text"
                 placeholder=" שם הנזקק "
                 name="needy"
@@ -87,21 +87,21 @@ const DonateRequest = (props) => {
                 onChange={onSelectNeedy}
               />
               <input
-                className="rtl-grid p-3 my-2 bg-white-700 rounded text-gray-600  text-right flex flex-row-reverse"
+                className="rtl-grid p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
                 type="text"
                 placeholder=" מספר טלפון  "
                 value={selectedPhone}
                 onChange={onSelectPhone}
               />
               <input
-                className="rtl-grid p-3 my-2 bg-white-700 rounded text-gray-600  text-right flex flex-row-reverse"
+                className="rtl-grid p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
                 type="text"
                 placeholder=" כתובת"
                 value={selectedAddress}
                 onChange={onSelectAddress}
               />
               <Select
-                className="p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
+                className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
                 options={urgentOptions}
                 placeholder="רמת דחיפות"
                 value={selectedUrgent}

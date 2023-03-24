@@ -45,7 +45,7 @@ function BooksOrGamesTable({ data }) {
           <thead className="bg-gray-50">
             <tr>
               <th scope="col" className="py-3 pl-4">
-                <div className="flex items-center h-5">
+                <div className="flex justify-center h-5">
                   <button className="text-red-500">מחק פרטים שסומנו</button>
                 </div>
               </th>

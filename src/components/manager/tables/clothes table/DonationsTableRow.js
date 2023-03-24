@@ -80,7 +80,7 @@ const TableRow = ({ data }) => {
   return (
     <tr>
       <td className="py-3 pl-4">
-        <div className="flex items-center h-5">
+        <div className="flex justify-center h-5">
           <input
             type="checkbox"
             className="text-blue-600 border-gray-200 rounded focus:ring-blue-500"
