@@ -81,7 +81,7 @@ const Clothes = (props) => {
   };
 
   return (
-    <form className="w-full flex flex-col">
+    <form className="w-full flex flex-col z-50">
       <Select
         className="p-3  bg-white-700 rounded text-gray-600  text-right"
         options={donateCondition}
@@ -131,7 +131,7 @@ const Clothes = (props) => {
         isRtl
       />
 
-      <ImageUploader image={image} setImage={setImage} />
+      <ImageUploader setImage={setImage} />
       <GreenButton buttonName="תרום" onClickButton={onSubmit} />
     </form>
   );
