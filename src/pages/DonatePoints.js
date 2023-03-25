@@ -21,7 +21,6 @@ const DonatePoints = () => {
         setData(response.data);
         setIsDataLoaded(true);
       });
-      console.log(condition);
     };
     fetchData();
     // eslint-disable-next-line
@@ -30,7 +29,7 @@ const DonatePoints = () => {
   useEffect(() => {
     if (isDataLoaded) {
       // Use the data variable here
-      console.log(data);
+
       // ...
       if (condition === "noNeed") {
         setMessage(

@@ -33,6 +33,7 @@ const ImageUploader = (props) => {
   const onSubmit = (data) => {
     if (data.files.length > 0) {
       props.setImage(data.files[0]);
+      console.log(data.files[0].type);
       convertToBase64(data.files[0]);
     }
   };
