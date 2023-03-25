@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { useDispatch } from "react-redux";
 import {
   updateStatus,
@@ -8,7 +7,7 @@ import {
 import Status from "../Status";
 import ImageCard from "./ImageCard";
 
-const API_URL = "https://reropa-server.onrender.com/api/donate/image";
+//const API_URL = "https://reropa-server.onrender.com/api/donate/image";
 //const LOCAL_API_URL = "http://localhost:5000/api/donate/image";
 const TableRow = ({ data }) => {
   const [imgSrc, setImgSrc] = useState();
@@ -21,7 +20,6 @@ const TableRow = ({ data }) => {
   const time = blatime.toLocaleDateString("en-GB");
   const dispatch = useDispatch();
   const donation_id = data?._id;
-  const imageId = data?.image?._id;
 
   const onClickImage = () => {
     setIsImageBigger(!isImageBigger);
