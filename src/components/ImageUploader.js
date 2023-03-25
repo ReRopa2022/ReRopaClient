@@ -11,7 +11,6 @@ const schema = yup.object().shape({
 
 const ImageUploader = (props) => {
   const [imageDisplay, setImageDisplay] = useState();
-
   const {
     register,
     watch,
@@ -39,30 +38,28 @@ const ImageUploader = (props) => {
   };
 
   return (
-    <div className="rtl-grid  flex flex-col flex-wrap justify-start">
+    <div>
       {imageDisplay ? (
         <img src={imageDisplay} alt="" height="100" width="100" />
       ) : null}
-
-      {!watch("files") || watch("files").length === 0 ? (
-        <div className="flex flex-wrap">
-          <input
-            type="file"
-            className="rtl-grid"
-            accept=".png,.jpg,.jpeg,.jfif"
-            id="fileupload"
-            {...register("files")}
-          />
-        </div>
-      ) : (
-        <strong>{watch("files")[0].name}</strong>
-      )}
-      <div className="">
-        <button className="" onClick={handleSubmit(onSubmit)} type="submit">
+      <form>
+        {!watch("files") || watch("files").length === 0 ? (
+          <div>
+            <input
+              type="file"
+              accept=".png,.jpg,.jpeg,.jfif"
+              id="fileupload"
+              {...register("files")}
+            />
+          </div>
+        ) : (
+          <strong>{watch("files")[0].name}</strong>
+        )}
+        <button onClick={handleSubmit(onSubmit)} type="submit">
           העלה תמונה
         </button>
-      </div>
-      {errors.files && <div>{errors.files.message}</div>}
+        {errors.files && <div>{errors.files.message}</div>}
+      </form>
     </div>
   );
 };
