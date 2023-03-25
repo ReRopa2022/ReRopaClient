@@ -67,13 +67,12 @@ const TableRow = ({ data }) => {
   }, [data.status, dispatch, status]);
 
   useEffect(() => {
-    axios.post(API_URL, { imageId }).then((response) => {
-      const blob = new Blob([Int8Array.from(response.data.img.data.data)], {
-        type: response.data.img.contentType,
-      });
-
-      setImgSrc(window.URL.createObjectURL(blob));
+    const blob = new Blob([Int8Array.from(data.image.img.data.data)], {
+      type: data.image.img.contentType,
     });
+
+    setImgSrc(window.URL.createObjectURL(blob));
+
     // eslint-disable-next-line
   }, []);
 
