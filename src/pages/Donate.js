@@ -60,7 +60,7 @@ const Donate = (props) => {
   return (
     <>
       <Card>
-        <div className="max-w-[320px] h-[750x] mx-auto flex flex-col justify-center ">
+        <div className="max-w-[320px] h-full mx-auto flex flex-col justify-center ">
           <div className="flex justify-center">
             <Link to="/deficiencies-excesses">
               {" "}
@@ -74,7 +74,7 @@ const Donate = (props) => {
           </div>
 
           <Select
-            className="pb-2 pt-2 my-2 bg-white-700 rounded text-gray-600  text-right"
+            className="pb-2 pt-2  bg-white-700 rounded text-gray-600  text-right"
             options={donateOptions}
             placeholder="סוג תרומה"
             value={selectedType}

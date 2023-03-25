@@ -82,57 +82,72 @@ const Clothes = (props) => {
 
   return (
     <form className="w-full flex flex-col">
-      <Select
-        className="p-3  bg-white-700 rounded text-gray-600  text-right"
-        options={donateCondition}
-        placeholder="מצב הבגדים"
-        isSearchable={true}
-        onChange={onSelectedCondition}
-        isRtl
-      />
-      <Select
-        className="p-3 bg-white-700 rounded text-gray-600  text-right"
-        options={seasonOptions}
-        placeholder="עונה"
-        value={selectedSeason}
-        onChange={onSelectSeason}
-        isSearchable={true}
-        isMulti
-        isRtl
-      />
-      <Select
-        className="p-3  bg-white-700 rounded text-gray-600  text-right"
-        options={genderOptions}
-        placeholder="מגדר"
-        value={selectedGender}
-        onChange={onSelectGender}
-        isSearchable={true}
-        isRtl
-      />
-      <Select
-        className="p-3  bg-white-700 rounded text-gray-600  text-right"
-        options={sectorOptions}
-        placeholder="מגזר"
-        value={selectedSector}
-        onChange={onSelectSector}
-        isSearchable={true}
-        isMulti
-        isRtl
-      />
+      <div className="w-full  ">
+        <Select
+          className="p-3  bg-white-700 rounded text-gray-600  text-right"
+          options={donateCondition}
+          placeholder="מצב הבגדים"
+          isSearchable={true}
+          onChange={onSelectedCondition}
+          isRtl
+        />
+      </div>
+      <div className="w-full  ">
+        <Select
+          className="p-3 bg-white-700 rounded text-gray-600  text-right"
+          options={seasonOptions}
+          placeholder="עונה"
+          value={selectedSeason}
+          onChange={onSelectSeason}
+          isSearchable={true}
+          isMulti
+          isRtl
+        />
+      </div>
+      <div className="w-full  ">
+        <Select
+          className="p-3  bg-white-700 rounded text-gray-600  text-right"
+          options={genderOptions}
+          placeholder="מגדר"
+          value={selectedGender}
+          onChange={onSelectGender}
+          isSearchable={true}
+          isRtl
+        />
+      </div>
+      <div className="w-full  ">
+        <Select
+          className="p-3  bg-white-700 rounded text-gray-600  text-right"
+          options={sectorOptions}
+          placeholder="מגזר"
+          value={selectedSector}
+          onChange={onSelectSector}
+          isSearchable={true}
+          isMulti
+          isRtl
+        />
+      </div>
+      <div className="w-full  ">
+        <Select
+          className="p-3  bg-white-700 rounded text-gray-600  text-right"
+          options={sizeOptions}
+          placeholder="גיל/מידה"
+          value={selectedSize}
+          onChange={onSelectSize}
+          isSearchable={true}
+          isMulti
+          isRtl
+        />
+      </div>
 
-      <Select
-        className="p-3  bg-white-700 rounded text-gray-600  text-right"
-        options={sizeOptions}
-        placeholder="גיל/מידה"
-        value={selectedSize}
-        onChange={onSelectSize}
-        isSearchable={true}
-        isMulti
-        isRtl
-      />
-
-      <ImageUploader image={image} setImage={setImage} />
-      <GreenButton buttonName="תרום" onClickButton={onSubmit} />
+      <div className="rtl-grid flex flex-row justify-evenly ">
+        <div className=" w-[60%] ">
+          <ImageUploader setImage={setImage} />
+        </div>
+        <div className="  w-[33.33%] ">
+          <GreenButton buttonName="תרום" onClickButton={onSubmit} />
+        </div>
+      </div>
     </form>
   );
 };

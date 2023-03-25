@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -10,6 +10,8 @@ const schema = yup.object().shape({
 });
 
 const ImageUploader = (props) => {
+  const [imageDisplay, setImageDisplay] = useState();
+
   const {
     register,
     watch,
@@ -23,7 +25,7 @@ const ImageUploader = (props) => {
     const reader = new FileReader();
 
     reader.onloadend = () => {
-      props.setImage(reader.result.toString());
+      setImageDisplay(reader.result.toString());
     };
 
     reader.readAsDataURL(file);
@@ -31,29 +33,39 @@ const ImageUploader = (props) => {
 
   const onSubmit = (data) => {
     if (data.files.length > 0) {
+      props.setImage(data.files[0]);
       convertToBase64(data.files[0]);
     }
   };
 
   return (
-    <div>
-      {props.image ? (
-        <img src={props.image} alt="" height="100" width="100" />
+    <div className="rtl-grid  flex flex-col flex-wrap justify-start">
+      {imageDisplay ? (
+        <img src={imageDisplay} alt="" height="100" width="100" />
       ) : null}
-      <form>
-        {!watch("files") || watch("files").length === 0 ? (
-          <div>
-            <input type="file" id="fileupload" {...register("files")} />
-            <label htmlFor="fileupload">בחר תמונה</label>
-          </div>
-        ) : (
-          <strong>{watch("files")[0].name}</strong>
-        )}
-        <button onClick={handleSubmit(onSubmit)} type="submit">
+
+      {!watch("files") || watch("files").length === 0 ? (
+        <div className="flex flex-wrap">
+          <input
+            type="file"
+            className="rtl-grid"
+            accept=".png,.jpg,.jpeg,.jfif"
+            id="fileupload"
+            {...register("files")}
+          />
+          <label className="rtl-grid" htmlFor="fileupload">
+            בחר תמונה
+          </label>
+        </div>
+      ) : (
+        <strong>{watch("files")[0].name}</strong>
+      )}
+      <div className="">
+        <button className="" onClick={handleSubmit(onSubmit)} type="submit">
           העלה תמונה
         </button>
-        {errors.files && <div>{errors.files.message}</div>}
-      </form>
+      </div>
+      {errors.files && <div>{errors.files.message}</div>}
     </div>
   );
 };
