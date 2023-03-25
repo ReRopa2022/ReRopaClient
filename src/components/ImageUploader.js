@@ -53,9 +53,6 @@ const ImageUploader = (props) => {
             id="fileupload"
             {...register("files")}
           />
-          <label className="rtl-grid" htmlFor="fileupload">
-            בחר תמונה
-          </label>
         </div>
       ) : (
         <strong>{watch("files")[0].name}</strong>
