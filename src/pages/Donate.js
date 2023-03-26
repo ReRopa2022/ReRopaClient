@@ -114,6 +114,22 @@ const Donate = (props) => {
             {selectedType?.label === "בגדים" && (
               <Clothes type="בגדים" donatorName={donatorName} />
             )}
+            {/*selectedType?.label === "ספר" && (
+            <GameOrBook
+              donatorName={donatorName}
+              type={selectedType?.label}
+              itemName="שם הספר"
+              categoryName="קטגוריית ספר"
+            />
+          )*/}
+            {/*selectedType?.label === "משחק" && (
+            <GameOrBook
+              donatorName={donatorName}
+              type={selectedType?.label}
+              itemName="שם המשחק"
+              categoryName="קטגוריית משחק"
+            />
+)*/}
           </div>
         </Card>
       </div>
@@ -122,20 +138,3 @@ const Donate = (props) => {
 };
 
 export default Donate;
-
-/* {selectedType?.label === "משחק" && (
-            <GameOrBook
-              donatorName={donatorName}
-              type={selectedType?.label}
-              itemName="שם המשחק"
-              categoryName="קטגוריית משחק"
-            />
-          )}
-          {selectedType?.label === "ספר" && (
-            <GameOrBook
-              donatorName={donatorName}
-              type={selectedType?.label}
-              itemName="שם הספר"
-              categoryName="קטגוריית ספר"
-            />
-          )}*/

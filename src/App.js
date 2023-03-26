@@ -15,7 +15,7 @@ const BooksOrGamesPage = lazy(() => import("./pages/manager/BooksOrGamesPage"));
 const ExcessesReport = lazy(() => import("./pages/manager/ExcessesReport"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Login = lazy(() => import("./pages/Login"));
-const Signup = lazy(() => import("./pages/Signup"));
+//const Signup = lazy(() => import("./pages/Signup"));
 const About = lazy(() => import("./pages/About"));
 const Donate = lazy(() => import("./pages/Donate"));
 const DonatePoints = lazy(() => import("./pages/DonatePoints"));
@@ -45,7 +45,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Signup />} />
+
             <Route path="/test" element={<Test />} />
             <Route path="donate-points" element={<DonatePoints />} />
             <Route

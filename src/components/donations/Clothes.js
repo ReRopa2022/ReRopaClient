@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Select from "react-select";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import ImageUploader from "../ImageUploader";
+//import ImageUploader from "../ImageUploader";
 import GreenButton from "../ui/GreenButton";
 
 import { donate, reset } from "../../features/donation/donationSlice";
@@ -21,7 +21,7 @@ const Clothes = (props) => {
   const [selectedGender, setSelectedGender] = useState();
   const [selectedSector, setSelectedSector] = useState();
   const [selectedSize, setSelectedSize] = useState();
-  const [image, setImage] = useState();
+  //const [image, setImage] = useState();
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -70,7 +70,7 @@ const Clothes = (props) => {
       genders,
       sectors,
       sizes,
-      image,
+      //image,
     };
     //console.log(donationData);
     dispatch(donate(donationData));
@@ -137,11 +137,11 @@ const Clothes = (props) => {
       </div>
 
       <div className="rtl-grid flex flex-row justify-evenly ">
-        {selectedCondition === "חדש" && (
+        {/*selectedCondition === "חדש" && (
           <div className=" w-[60%] ">
             <ImageUploader setImage={setImage} />
           </div>
-        )}
+        )*/}
 
         <div className="  w-[33.33%] ">
           <GreenButton buttonName="לתרומה" onClickButton={onSubmit} />
