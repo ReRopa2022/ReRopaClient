@@ -44,7 +44,8 @@ export const donateOptions = [
   { value: "book", label: "ספר" },
 ];
 export const donateCondition = [
-  { value: "3", label: "בלוי" },
   { value: "2", label: "משומש" },
   { value: "1", label: "חדש" },
 ];
+
+//{ value: "3", label: "בלוי" },

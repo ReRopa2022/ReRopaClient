@@ -8,7 +8,7 @@ import { GiReceiveMoney } from "react-icons/gi";
 const Home = () => {
   const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
-  const title = "ברוכים הבאים ל-ReRopa";
+  const title = "ברוכים הבאים למחזורית יד משהם";
 
   useEffect(() => {
     if (user?.isManager) {
@@ -26,7 +26,7 @@ const Home = () => {
         </div>
         <div className="w-full flex justify-center mt-7">
           <h2 className="mt-4 text-5xl  font-light  text-green-600">
-            הכי חשוב - זה חינוכי
+            לעשות טוב לאדם ולאדמה
           </h2>
         </div>
       </div>

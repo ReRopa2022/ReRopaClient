@@ -32,15 +32,8 @@ const Clothes = (props) => {
 
   const onSelectedCondition = (data) => {
     if (data.label === "בלוי") {
-      const isNotForDonate = prompt(
-        "תורם יקר, האם ברצונך למסור בגדים בלויים? אנא השב כן או לא"
-      );
-      if (isNotForDonate === "כן") {
-        dispatch(reset());
-        navigate("/donate-points", { state: { condition: "faulty" } });
-      } else {
-        setSelectedCondition("");
-      }
+      dispatch(reset());
+      navigate("/donate-points", { state: { condition: "faulty" } });
     } else {
       setSelectedCondition(data.label);
     }
@@ -60,6 +53,9 @@ const Clothes = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    if (selectedCondition === "משומש") {
+      navigate("/donate-points", { state: { condition: "faulty" } });
+    }
 
     const seasons = selectedSeason?.map(labelExtractor);
     const genders = selectedGender?.label;
@@ -141,11 +137,14 @@ const Clothes = (props) => {
       </div>
 
       <div className="rtl-grid flex flex-row justify-evenly ">
-        <div className=" w-[60%] ">
-          <ImageUploader setImage={setImage} />
-        </div>
+        {selectedCondition === "חדש" && (
+          <div className=" w-[60%] ">
+            <ImageUploader setImage={setImage} />
+          </div>
+        )}
+
         <div className="  w-[33.33%] ">
-          <GreenButton buttonName="תרום" onClickButton={onSubmit} />
+          <GreenButton buttonName="לתרומה" onClickButton={onSubmit} />
         </div>
       </div>
     </form>

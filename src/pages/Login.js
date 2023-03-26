@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { toast } from "react-toastify";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { login, reset } from "../features/auth/authSlice";
@@ -65,8 +65,14 @@ const Login = () => {
             {...register("password")}
           />
           <GreenButton type="submit" buttonName="התחבר" />
+        </form>
+      </div>
+    </Card>
+  );
+};
+export default Login;
 
-          <p className="text-right">
+/* <p className="text-right">
             <span className="text-green-500">עוד לא נרשמת?</span>{" "}
             <Link
               className="hover:text-gray-500 hover:shadow-lg
@@ -76,10 +82,4 @@ const Login = () => {
             >
               הירשם
             </Link>
-          </p>
-        </form>
-      </div>
-    </Card>
-  );
-};
-export default Login;
+          </p>*/
