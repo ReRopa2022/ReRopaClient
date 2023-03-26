@@ -57,7 +57,7 @@ const ImageUploader = (props) => {
           <strong>{watch("files")[0].name}</strong>
         )}
         <button onClick={handleSubmit(onSubmit)} type="submit">
-          העלה תמונה
+          להעלאת תמונה
         </button>
         {errors.files && <div>{errors.files.message}</div>}
       </form>

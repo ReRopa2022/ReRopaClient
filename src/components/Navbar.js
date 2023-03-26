@@ -17,9 +17,12 @@ const Navbar = (props) => {
   return (
     <div className="flex items-center justify-between p-4 z-[100] w-full bg-green-100  ">
       <Link to="/">
-        <h1 className="text-green-600 text-4xl font-bold cursor-pointer">
-          ReRopa
-        </h1>
+        <img
+          src={process.env.PUBLIC_URL + "/assets/Logo.png"}
+          alt="logo"
+          width="150"
+          height="20"
+        />
       </Link>
 
       <div className="flex flex-row flex-wrap">

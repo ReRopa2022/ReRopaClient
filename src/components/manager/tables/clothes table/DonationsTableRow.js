@@ -120,14 +120,6 @@ const TableRow = ({ data }) => {
       )}
 
       <td className="rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-        {!isImageBigger && imgSrc && (
-          <button onClick={onClickImage}>
-            <img width="10" height="10" src={imgSrc} alt="donate" />
-          </button>
-        )}
-      </td>
-
-      <td className="rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
         {time}
       </td>
       <td className="rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
@@ -154,3 +146,11 @@ const TableRow = ({ data }) => {
 };
 
 export default TableRow;
+
+/* <td className="rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+        {!isImageBigger && imgSrc && (
+          <button onClick={onClickImage}>
+            <img width="10" height="10" src={imgSrc} alt="donate" />
+          </button>
+        )}
+      </td>*/
