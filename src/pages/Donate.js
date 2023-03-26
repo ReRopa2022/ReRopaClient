@@ -68,14 +68,18 @@ const Donate = (props) => {
     <>
       <div>
         {isImageShown && (
-          <div className="grid grid-flow-row">
+          <div className=" grid grid-rows-1 gap-4 place-items-center bg-green-100">
             <img
-              className="w-34 h-34 "
+              className=""
               src={process.env.PUBLIC_URL + "/assets/BlauUsedNew.jfif"}
               alt="condition"
+              height={350}
+              width={500}
             />
             <button onClick={onCloseImage}>
-              <span className="text-red-500  z-50">להסתרת התמונה</span>
+              <span className="text-red-600 font-bold  z-50">
+                להסתרת התמונה
+              </span>
             </button>
           </div>
         )}

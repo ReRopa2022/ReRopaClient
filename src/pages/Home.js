@@ -18,7 +18,7 @@ const Home = () => {
   }, [navigate, user?.isManager]);
   return (
     <div className="h-full w-full">
-      <div className="text-center w-full bg-green-100 pt-20 pb-20 align-middle ">
+      <div className="text-center w-full bg-green-100 pt-10 pb-10 align-middle ">
         <div className="w-full flex justify-center  ">
           <h1 className="rtl-grid mt-4 text-8xl md:text-5x font-bold text-green-500">
             {title}
