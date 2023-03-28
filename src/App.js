@@ -24,6 +24,7 @@ const DonateLocation = lazy(() => import("./pages/manager/AddDonateLocation"));
 const DefienciesExcesses = lazy(() => import("./pages/DefienciesExcesses"));
 const ExcessesTable = lazy(() => import("./pages/manager/ExcessesTable"));
 const DefienciesTable = lazy(() => import("./pages/manager/DefienciesTable"));
+const PointsTable = lazy(() => import("./pages/manager/PointsTable"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Queries = lazy(() => import("./pages/manager/Queries"));
 
@@ -64,6 +65,7 @@ function App() {
                 <Route path="/games-books" element={<BooksOrGamesPage />} />
                 <Route path="/excesses-table" element={<ExcessesTable />} />
                 <Route path="/defiencies-table" element={<DefienciesTable />} />
+                <Route path="/locataions-table" element={<PointsTable />} />
               </>
             )}
             <Route path="*" element={<NotFound />} />

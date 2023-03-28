@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { GiClothes, GiBookshelf, GiFullFolder } from "react-icons/gi";
-import { FaHands } from "react-icons/fa";
+import { FaHands, FaDumpster } from "react-icons/fa";
 
 //For locally running const LOCALHOST_API_URL = "http://localhost:5000/api/donate";
 const Queries = () => {
@@ -70,6 +70,17 @@ const Queries = () => {
                   className="text-green-500 text-3xl font-bold"
                 >
                   חוסרים
+                </Link>
+              </button>
+            </div>
+            <div className="flex flex-col">
+              <button className="flex justify-center rounded-full px-5 py-5 shadow-md">
+                <FaDumpster className="text-green-500 text-5xl pr-1 " />
+                <Link
+                  to="/locataions-table"
+                  className="text-green-500 text-3xl font-bold"
+                >
+                  נקודות איסוף/מיחזור
                 </Link>
               </button>
             </div>

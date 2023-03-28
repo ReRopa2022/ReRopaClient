@@ -46,13 +46,9 @@ const Donate = (props) => {
     }
 
     if (isSuccess) {
-      if (!isRequired) {
-        navigate("/donate-points", { state: { condition: "noNeed" } });
-      } else {
-        toast.success("תודה על תרומתך, מקווים לראותך שוב");
-        dispatch(reset());
-        navigate("/donate-points");
-      }
+      toast.success("תודה על תרומתך, מקווים לראותך שוב");
+      dispatch(reset());
+      return navigate("/donate-points");
     }
     dispatch(reset());
   }, [isError, isSuccess, isRequired, message, navigate, dispatch]);

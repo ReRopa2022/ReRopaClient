@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import RecycleTable from "../components/tables/RecycleTable";
 
 const API_URL = "https://reropa-server.onrender.com/api/location";
@@ -15,6 +15,7 @@ const DonatePoints = () => {
   const location = useLocation();
   const [condition] = useState(location.state?.condition);
   const [isDataLoaded, setIsDataLoaded] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = () => {
@@ -45,6 +46,7 @@ const DonatePoints = () => {
         setFilterTable(filterData);
         setTitle("נשמח שתשאיר/י את השקית באחת מנקודות האיסוף הבאות");
       }
+      navigate("", { state: {} });
     }
     // eslint-disable-next-line
   }, [isDataLoaded]);
@@ -52,7 +54,7 @@ const DonatePoints = () => {
     <div>
       <div className="text-center bg-green-500 h-36 mb-10 ">
         <div className="w-full flex justify-center mb-2">
-          <h1 className="mt-4 max-w-[36rem] xl:text-6xl lg:text-5xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl xl:max-w-[43.5rem]">
+          <h1 className="mt-4 max-w-[36rem] xl:text-5xl lg:text-4xl font-bold tracking-tight text-white sm:text-2xl md:text-3xl xl:max-w-[43.5rem]">
             {title}
           </h1>
         </div>

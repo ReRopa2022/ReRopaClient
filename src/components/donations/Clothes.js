@@ -54,7 +54,7 @@ const Clothes = (props) => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (selectedCondition === "משומש") {
-      navigate("/donate-points", { state: { condition: "faulty" } });
+      return navigate("/donate-points", { state: { condition: "faulty" } });
     }
 
     const seasons = selectedSeason?.map(labelExtractor);
@@ -142,8 +142,15 @@ const Clothes = (props) => {
             <ImageUploader setImage={setImage} />
           </div>
         )*/}
+        <div className=" grid grid-rows-1 gap-1 place-items-center ">
+          <img
+            className=""
+            src={process.env.PUBLIC_URL + "/assets/SohamWarehouse.jfif"}
+            alt="condition"
+            height={100}
+            width={100}
+          />
 
-        <div className="  w-[33.33%] ">
           <GreenButton buttonName="לתרומה" onClickButton={onSubmit} />
         </div>
       </div>

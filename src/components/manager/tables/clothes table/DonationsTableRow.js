@@ -5,13 +5,13 @@ import {
   deleteDonation,
 } from "../../../../features/donation/donationSlice";
 import Status from "../Status";
-import ImageCard from "./ImageCard";
+//import ImageCard from "./ImageCard";
 
 //const API_URL = "https://reropa-server.onrender.com/api/donate/image";
 //const LOCAL_API_URL = "http://localhost:5000/api/donate/image";
 const TableRow = ({ data }) => {
-  const [imgSrc, setImgSrc] = useState();
-  const [isImageBigger, setIsImageBigger] = useState(false);
+  //const [imgSrc, setImgSrc] = useState();
+  //const [isImageBigger, setIsImageBigger] = useState(false);
   const [isStatusClicked, setIsStatusClicked] = useState(false);
   var [status, setStatus] = useState();
   const [prevStatus, setPrevStatus] = useState();
@@ -21,9 +21,9 @@ const TableRow = ({ data }) => {
   const dispatch = useDispatch();
   const donation_id = data?._id;
 
-  const onClickImage = () => {
+  /*const onClickImage = () => {
     setIsImageBigger(!isImageBigger);
-  };
+  };*/
 
   const onEditStatus = () => {
     setIsStatusClicked(true);
@@ -64,7 +64,7 @@ const TableRow = ({ data }) => {
     }
   }, [data.status, dispatch, status]);
 
-  useEffect(() => {
+  /*useEffect(() => {
     const blob = new Blob([Int8Array.from(data.image.img.data.data)], {
       type: data.image.img.contentType,
     });
@@ -72,7 +72,7 @@ const TableRow = ({ data }) => {
     setImgSrc(window.URL.createObjectURL(blob));
 
     // eslint-disable-next-line
-  }, []);
+  }, []);*/
 
   return (
     <tr>
@@ -115,9 +115,9 @@ const TableRow = ({ data }) => {
           </>
         )}
       </td>
-      {isImageBigger && imgSrc && (
+      {/*isImageBigger && imgSrc && (
         <ImageCard imgSrc={imgSrc} onClickImg={onClickImage} />
-      )}
+      )*/}
 
       <td className="rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
         {time}
