@@ -6,14 +6,14 @@ import { useDispatch } from "react-redux";
 //import ImageUploader from "../ImageUploader";
 import GreenButton from "../ui/GreenButton";
 
-import { donate, reset } from "../../features/donation/donationSlice";
+import { donate } from "../../features/donation/donationSlice";
 import {
   sizeOptions,
   sectorOptions,
   genderOptions,
   seasonOptions,
   donateCondition,
-} from "../../optionsData";
+} from "../../data/optionsData";
 
 const Clothes = (props) => {
   const [selectedCondition, setSelectedCondition] = useState();
@@ -31,12 +31,11 @@ const Clothes = (props) => {
   };
 
   const onSelectedCondition = (data) => {
-    if (data.label === "בלוי") {
+    /*if (data.label === "בלוי") {
       dispatch(reset());
-      navigate("/donate-points", { state: { condition: "faulty" } });
-    } else {
-      setSelectedCondition(data.label);
-    }
+      navigate("/donate-points", { state: { condition: "faulty" } });*/
+
+    setSelectedCondition(data.label);
   };
   const onSelectSeason = (data) => {
     setSelectedSeason(data);
@@ -54,7 +53,7 @@ const Clothes = (props) => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (selectedCondition === "משומש") {
-      return navigate("/donate-points", { state: { condition: "faulty" } });
+      return navigate("/donate-points", { state: { condition: "noNeed" } });
     }
 
     const seasons = selectedSeason?.map(labelExtractor);

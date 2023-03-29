@@ -12,7 +12,7 @@ import {
   sectorOptions,
   genderOptions,
   seasonOptions,
-} from "../../optionsData";
+} from "../../data/optionsData";
 import GreenButton from "../ui/GreenButton";
 
 const DonateRequestDetails = (props) => {

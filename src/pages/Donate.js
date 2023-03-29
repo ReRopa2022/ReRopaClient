@@ -12,7 +12,7 @@ import { reset } from "../features/donation/donationSlice";
 
 import Card from "../components/ui/Card";
 
-import { donateOptions } from "../optionsData";
+import { donateOptions } from "../data/optionsData";
 
 const Donate = (props) => {
   const [selectedType, setSelectedType] = useState();

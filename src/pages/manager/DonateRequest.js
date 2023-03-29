@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Select from "react-select";
 
-import { organizationOptions, urgentOptions } from "../../optionsData";
+import { organizationOptions, urgentOptions } from "../../data/optionsData";
 import Card from "../../components/ui/Card";
 import GreenButton from "../../components/ui/GreenButton";
 import DonateRequestDetails from "../../components/manager/DonateRequestDetails";

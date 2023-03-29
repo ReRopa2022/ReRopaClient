@@ -13,7 +13,7 @@ import {
   sectorOptions,
   genderOptions,
   seasonOptions,
-} from "../../optionsData";
+} from "../../data/optionsData";
 import GreenButton from "../../components/ui/GreenButton";
 import Card from "../../components/ui/Card";
 

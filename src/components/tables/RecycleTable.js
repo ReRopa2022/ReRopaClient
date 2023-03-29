@@ -12,31 +12,31 @@ const RecycleTable = ({ data }) => {
                 <tr>
                   <th
                     scope="col"
-                    className="xs:px-2 px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase "
+                    className="xs:px-1 px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase "
                   >
                     מידע
                   </th>
                   <th
                     scope="col"
-                    className="xs:px-2 px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase "
+                    className="xs:px-1 px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase "
                   >
                     סוג נקודה
                   </th>
                   <th
                     scope="col"
-                    className="xs:px-2 px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase "
+                    className="xs:px-1 px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase "
                   >
                     מספר רחוב
                   </th>
                   <th
                     scope="col"
-                    className="xs:px-2 px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase "
+                    className="xs:px-1 px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase "
                   >
                     רחוב
                   </th>
                   <th
                     scope="col"
-                    className="xs:px-2 px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase "
+                    className="xs:px-1 px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase "
                   >
                     עיר
                   </th>
