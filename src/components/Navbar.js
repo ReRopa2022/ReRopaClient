@@ -36,14 +36,12 @@ const Navbar = (props) => {
         </div>
         <div>
           {props.isUser && props.isManager && (
-            <Link className="pl-2 " to="/manager-home">
-              <GreenButton buttonName="פעולות מנהל" />
-            </Link>
-          )}
-        </div>
-        <div>
-          {props.isUser && (
-            <GreenButton buttonName="התנתק" onClickButton={onLogout} />
+            <>
+              <Link className="xs:pl-0 pl-2 " to="/manager-home">
+                <GreenButton buttonName="פעולות מנהל" />
+              </Link>
+              <GreenButton buttonName="התנתק" onClickButton={onLogout} />
+            </>
           )}
         </div>
       </div>
@@ -52,3 +50,9 @@ const Navbar = (props) => {
 };
 
 export default Navbar;
+//Beneath isUser&&isManager div
+/*<div>
+          {props.isUser && (
+            <GreenButton buttonName="התנתק" onClickButton={onLogout} />
+          )}
+        </div>*/
