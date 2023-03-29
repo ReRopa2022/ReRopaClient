@@ -15,7 +15,7 @@ const Navbar = (props) => {
     navigate("/");
   };
   return (
-    <div className="flex items-center justify-between p-4 z-[100] w-full bg-green-100  ">
+    <div className="flex items-center justify-between xs:p-1 p-4 z-[100] w-full bg-green-100 ">
       <Link to="/">
         <img
           src={process.env.PUBLIC_URL + "/assets/Logo.png"}
@@ -36,7 +36,7 @@ const Navbar = (props) => {
         </div>
         <div>
           {props.isUser && props.isManager && (
-            <Link className="pl-2" to="/manager-home">
+            <Link className="pl-2 " to="/manager-home">
               <GreenButton buttonName="פעולות מנהל" />
             </Link>
           )}

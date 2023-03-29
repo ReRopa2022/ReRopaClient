@@ -18,26 +18,28 @@ const Home = () => {
   }, [navigate, user?.isManager]);
   return (
     <div className="h-full w-full">
-      <div className="text-center w-full bg-green-100 pt-10 pb-10 align-middle ">
+      <div className="text-center  w-full bg-green-100 xs:py-0 py-10  align-middle ">
         <div className="w-full flex justify-center  ">
-          <h1 className="rtl-grid mt-4 text-8xl md:text-5x font-bold text-green-500">
+          <h1 className="rtl-grid mt-4 text-8xl md:text-5x xs:text-2xl font-bold text-green-500">
             {title}
           </h1>
         </div>
-        <div className="w-full flex justify-center mt-7">
-          <h2 className="mt-4 text-5xl  font-light  text-green-600">
+        <div className="w-full flex justify-center xs:mt-2 mt-7">
+          <h2 className="mt-4 text-5xl xs:text-xl  font-light  text-green-600">
             לעשות טוב לאדם ולאדמה
           </h2>
         </div>
       </div>
 
-      <div className="bg-white w-full mt-6 mb-10">
+      <div className="bg-white w-full xs:mt-1 xs:mb-4 mt-6  mb-10">
         <div className="flex flex-wrap justify-evenly">
           <div className="flex flex-col w-full justify-center p-10">
             <div className="flex flex-row w-full justify-center ">
               <h1 className="flex justify-center w-full">
-                <FaEnvira className="text-green-500 text-7xl" />
-                <span className="text-green-500 text-7xl font-bold">סביבה</span>
+                <FaEnvira className="text-green-500 xs:text-4xl  text-7xl" />
+                <span className="text-green-500 xs:text-4xl text-7xl font-bold">
+                  סביבה
+                </span>
               </h1>
             </div>
             <div className="flex flex-row justify-center text-center text-green-600 font-bold text-xl mt-3">
@@ -47,8 +49,8 @@ const Home = () => {
           <div className="flex flex-col w-full justify-center p-10">
             <div className="flex flex-row w-full justify-center">
               <h1 className="flex justify-center w-full">
-                <GiReceiveMoney className="text-green-500 text-7xl " />
-                <span className="text-green-500 text-7xl font-bold">
+                <GiReceiveMoney className="text-green-500 xs:text-4xl  text-7xl " />
+                <span className="text-green-500 xs:text-4xl  text-7xl font-bold">
                   חיסכון
                 </span>
               </h1>
@@ -60,8 +62,10 @@ const Home = () => {
           <div className="flex flex-col w-full justify-center p-10 ">
             <div className="flex flex-row  w-full justify-center">
               <h1 className="flex justify-center w-full">
-                <FaHandsHelping className="text-green-500 text-7xl " />
-                <span className="text-green-500 text-7xl font-bold">חברה</span>
+                <FaHandsHelping className="text-green-500 xs:text-4xl  text-7xl " />
+                <span className="text-green-500 xs:text-4xl  text-7xl font-bold">
+                  חברה
+                </span>
               </h1>
             </div>
             <div className="flex flex-row justify-center text-center text-green-600 font-bold text-xl mt-3">

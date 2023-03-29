@@ -1,4 +1,5 @@
 import React from "react";
+import GreenButton from "../components/ui/GreenButton";
 
 const Contact = () => {
   return (
@@ -37,27 +38,7 @@ const Contact = () => {
             </div>
 
             <div className="form-group form-check text-center mb-6"></div>
-            <input
-              type="submit"
-              value="צרו קשר"
-              className="
-    w-[10%]
-    px-4
-    py-2.5
-    bg-green-500
-    text-white
-    font-medium
-    text-xs
-    leading-tight
-    rounded
-    shadow-md
-    hover:bg-green-700 hover:shadow-lg
-    focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0
-    active:bg-green-800 active:shadow-lg
-    transition
-    duration-150
-    ease-in-out"
-            />
+            <GreenButton type="submit" buttonName="צרו קשר" />
           </form>
         </div>
       </div>

@@ -16,7 +16,6 @@ import { donateOptions } from "../optionsData";
 
 const Donate = (props) => {
   const [selectedType, setSelectedType] = useState();
-  const [isImageShown, setIsImageShown] = useState(false);
 
   const title = props.user
     ? "שלום " + props.user.email + " מה תרצי/ה לתרום?"
@@ -28,13 +27,6 @@ const Donate = (props) => {
   const { isSuccess, isRequired, isError, message, isLoading } = useSelector(
     (state) => state.donation
   );
-
-  const onOpenImage = () => {
-    setIsImageShown(true);
-  };
-  const onCloseImage = () => {
-    setIsImageShown(false);
-  };
 
   const onSelectType = (type) => {
     setSelectedType(type);
@@ -63,22 +55,16 @@ const Donate = (props) => {
   return (
     <>
       <div>
-        {isImageShown && (
-          <div className=" grid grid-rows-1 gap-4 place-items-center bg-green-100">
-            <img
-              className=""
-              src={process.env.PUBLIC_URL + "/assets/BlauUsedNew.jfif"}
-              alt="condition"
-              height={350}
-              width={500}
-            />
-            <button onClick={onCloseImage}>
-              <span className="text-red-600 font-bold  z-50">
-                להסתרת התמונה
-              </span>
-            </button>
-          </div>
-        )}
+        <div className=" grid grid-rows-1 gap-4 place-items-center bg-green-100">
+          <img
+            className="xs:w-[75%]"
+            src={process.env.PUBLIC_URL + "/assets/BlauUsedNew.jfif"}
+            alt="condition"
+            height={350}
+            width={500}
+          />
+        </div>
+
         <Card>
           <div className="max-w-[320px] h-[750x] mx-auto flex flex-col justify-center ">
             <div className="flex justify-center">
@@ -94,9 +80,6 @@ const Donate = (props) => {
                 {title}
               </h1>
             </div>
-            <button onClick={onOpenImage}>
-              <span className="text-green-500">הכוונה למצב בגדים</span>
-            </button>
 
             <Select
               className="pb-2 pt-2 my-2 bg-white-700 rounded text-gray-600  text-right"

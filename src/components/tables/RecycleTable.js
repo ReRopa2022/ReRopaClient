@@ -5,38 +5,38 @@ const RecycleTable = ({ data }) => {
   return (
     <div className="flex flex-col">
       <div className="overflow-x-auto">
-        <div className="p-1.5 w-full inline-block align-middle">
+        <div className="xs:p-0 p-1.5 w-full inline-block align-middle">
           <div className="overflow-hidden border rounded-lg">
             <table className="min-w-full divide-y text-center divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase "
+                    className="px-6 xs:px-2 py-3 text-xs font-bold text-center text-gray-500 uppercase "
                   >
                     מידע
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase "
+                    className="px-6 xs:px-2 py-3 text-xs font-bold text-center text-gray-500 uppercase "
                   >
                     סוג נקודה
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase "
+                    className="px-6 xs:px-2 py-3 text-xs font-bold text-center text-gray-500 uppercase "
                   >
                     מספר רחוב
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase "
+                    className="px-6 xs:px-2 py-3 text-xs font-bold text-center text-gray-500 uppercase "
                   >
                     רחוב
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase "
+                    className="px-6 xs:px-2 py-3 text-xs font-bold text-center text-gray-500 uppercase "
                   >
                     עיר
                   </th>
