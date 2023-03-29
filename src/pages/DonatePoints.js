@@ -52,7 +52,7 @@ const DonatePoints = () => {
   }, [isDataLoaded]);
   return (
     <div>
-      <div className="text-center bg-green-500 h-36 mb-10 ">
+      <div className="text-center bg-green-500 h-36 xs:mb-4 mb-10 ">
         <div className="w-full flex justify-center mb-2">
           <h1 className="mt-4 max-w-[36rem] xl:text-5xl lg:text-4xl font-bold tracking-tight text-white sm:text-2xl md:text-3xl xl:max-w-[43.5rem]">
             {title}

@@ -3,19 +3,19 @@ import React from "react";
 const RecycleTableRow = ({ data }) => {
   return (
     <tr>
-      <td className="px-6 xs:px-2 py-4 text-sm text-gray-800 whitespace-nowrap">
+      <td className="xs:px-2 xs:py-1 px-6  py-4 text-sm text-gray-800 whitespace-nowrap">
         {data?.info}
       </td>
-      <td className="px-6 xs:px-2 py-4 text-sm text-gray-800 whitespace-nowrap">
+      <td className="xs:px-2 xs:py-1 px-6  py-4 text-sm text-gray-800 whitespace-nowrap">
         {data?.type}
       </td>
-      <td className="px-6 xs:px-2 py-4 text-sm text-gray-800 whitespace-nowrap">
+      <td className="xs:px-2 xs:py-1 px-6  py-4 text-sm text-gray-800 whitespace-nowrap">
         {data?.street_no}
       </td>
-      <td className="px-6 xs:px-2 py-4 text-sm text-gray-800 whitespace-nowrap">
+      <td className="xs:px-2 xs:py-1 px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
         {data?.street}
       </td>
-      <td className="px-6 xs:px-2 py-4 text-sm text-gray-800 whitespace-nowrap">
+      <td className="xs:px-2 xs:py-1 px-6  py-4 text-sm text-gray-800 whitespace-nowrap">
         {data?.city}
       </td>
     </tr>
