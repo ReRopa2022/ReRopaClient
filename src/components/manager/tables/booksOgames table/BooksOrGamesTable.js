@@ -40,7 +40,7 @@ function BooksOrGamesTable({ data }) {
   ]);
   return (
     <div className="xs:px-1 sm:text-base xs:p-0 p-1.5 w-full  inline-block align-middle">
-      <div className="xs:px-1 sm:text-base overflow-hidden border rounded-lg">
+      <div className="xs:px-1 sm:text-base overflow-auto  border rounded-lg">
         <table className="xs:px-1 sm:text-base min-w-full divide-y divide-gray-200 overflow-y-auto">
           <thead className="xs:px-1 sm:text-base bg-gray-50">
             <tr>

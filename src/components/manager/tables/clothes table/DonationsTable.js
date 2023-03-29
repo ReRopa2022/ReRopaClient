@@ -40,7 +40,7 @@ function Table({ data }) {
   ]);
   return (
     <div className="xs:p-0 p-1.5  w-full inline-block align-middle">
-      <div className="overflow-hidden border rounded-lg">
+      <div className="overflow-auto border rounded-lg">
         <table className="min-w-full divide-y divide-gray-200 overflow-y-auto">
           <thead className="bg-gray-50">
             <tr>

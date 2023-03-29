@@ -70,7 +70,7 @@ const Donate = (props) => {
             <div className="flex justify-center">
               <Link to="/deficiencies-excesses">
                 {" "}
-                <button className="text-green-500 text-3xl font-bold cursor-pointer rtl-grid">
+                <button className="hidden text-green-500 text-3xl font-bold cursor-pointer rtl-grid">
                   מה יש/חסר לנו?
                 </button>
               </Link>
