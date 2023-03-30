@@ -57,7 +57,7 @@ const BooksOrGamesTableRow = ({ data }) => {
   }, [data.status, dispatch, status]);
   return (
     <tr>
-      <td className="xs:px-2  py-3 pl-4">
+      <td className="hidden xs:px-2  py-3 pl-4">
         <div className="xs:px-2  flex justify-center h-5">
           <input
             type="checkbox"

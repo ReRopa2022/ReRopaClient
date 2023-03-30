@@ -39,12 +39,12 @@ function BooksOrGamesTable({ data }) {
     isStatusUpdatedError,
   ]);
   return (
-    <div className="xs:px-1  xs:p-0 p-1.5 w-full  inline-block align-middle">
-      <div className="xs:px-1  xs:overflow-auto overflow-hidden border rounded-lg">
-        <table className="xs:px-1  min-w-full divide-y divide-gray-200 overflow-y-auto">
-          <thead className="xs:px-1  bg-gray-50">
+    <div className=" xs:p-0 p-1.5 w-full  inline-block align-middle">
+      <div className=" overflow-auto border rounded-lg">
+        <table className=" min-w-full divide-y divide-gray-200 overflow-y-auto">
+          <thead className="  bg-gray-50">
             <tr>
-              <th scope="col" className="xs:px-1  py-3 xs:hidden pl-4">
+              <th scope="col" className="xs:px-1  py-3 hidden pl-4">
                 <div className="xs:px-1  flex justify-center h-5">
                   <button className="xs:px-1 xs:text-base text-red-500">
                     מחק פרטים שסומנו

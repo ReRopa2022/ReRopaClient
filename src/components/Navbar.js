@@ -20,7 +20,7 @@ const Navbar = (props) => {
         <img
           src={process.env.PUBLIC_URL + "/assets/Logo.png"}
           alt="logo"
-          width="150"
+          width="125"
           height="20"
         />
       </Link>
