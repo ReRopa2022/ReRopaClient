@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
@@ -28,8 +28,23 @@ const PointsTable = lazy(() => import("./pages/manager/PointsTable"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Queries = lazy(() => import("./pages/manager/Queries"));
 
+const URL = "https://reropa-server.onrender.com/api/ping";
 function App() {
   const { user } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    const makePingRequest = async () => {
+      try {
+        const response = await fetch(URL);
+        const data = await response.json();
+        console.log(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    makePingRequest();
+  }, []);
 
   return (
     <>

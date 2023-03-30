@@ -16,6 +16,7 @@ const Home = () => {
       return;
     }
   }, [navigate, user?.isManager]);
+
   return (
     <div className="h-full w-full">
       <div className="text-center  w-full bg-green-100 xs:py-0 py-10  align-middle ">
