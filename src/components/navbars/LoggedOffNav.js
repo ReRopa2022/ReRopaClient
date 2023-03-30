@@ -10,7 +10,7 @@ const LoggedOffNav = () => {
         <GreenButton buttonName="תרומה" />
       </Link>
       <Link className="" to="/login">
-        <GreenButton buttonName="התחברות" />
+        <GreenButton buttonName="התחברות מנהל" />
       </Link>
     </div>
   );

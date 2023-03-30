@@ -39,7 +39,7 @@ const Login = () => {
   return (
     <Card>
       <div className="max-w-[320px] mx-auto py-16">
-        <h1 className="text-3xl font-bold text-center">התחברות</h1>
+        <h1 className="text-3xl font-bold text-center">התחברות מנהל</h1>
 
         <form
           className="w-full flex flex-col py-4"

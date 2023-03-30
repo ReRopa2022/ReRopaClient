@@ -40,11 +40,11 @@ function Table({ data }) {
   ]);
   return (
     <div className="xs:p-0 p-1.5  w-full inline-block align-middle">
-      <div className="sm:overflow-auto overflow-hidden border rounded-lg">
+      <div className=" overflow-auto border rounded-lg">
         <table className="min-w-full divide-y divide-gray-200 overflow-y-auto">
           <thead className="bg-gray-50">
             <tr>
-              <th scope="col" className="py-3  xs:hidden pl-4">
+              <th scope="col" className="py-3  hidden pl-4">
                 <div className="flex justify-center xs:h-8 h-5 ">
                   <button className="text-red-500 ">מחק פרטים שסומנו</button>
                 </div>
