@@ -40,7 +40,7 @@ function Table({ data }) {
   ]);
   return (
     <div className="xs:p-0 p-1.5  w-full inline-block align-middle">
-      <div className="overflow-auto border rounded-lg">
+      <div className="sm:overflow-auto overflow-hidden border rounded-lg">
         <table className="min-w-full divide-y divide-gray-200 overflow-y-auto">
           <thead className="bg-gray-50">
             <tr>
@@ -51,57 +51,57 @@ function Table({ data }) {
               </th>
               <th
                 scope="col"
-                className="xs:px-1 sm:text-base xs:py-2 px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
+                className="xs:px-1 xs:text-base xs:py-2 px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
               >
                 מחק
               </th>
               <th
                 scope="col"
-                className="xs:px-1 sm:text-base xs:py-2 px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
+                className="xs:px-1 xs:text-base xs:py-2 px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
               >
                 ערוך סטטוס
               </th>
 
               <th
                 scope="col"
-                className="xs:px-1 sm:text-base xs:py-2 px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
+                className="xs:px-1 xs:text-base xs:py-2 px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
               >
                 תאריך
               </th>
               <th
                 scope="col"
-                className="xs:px-1 sm:text-base xs:py-2 px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
+                className="xs:px-1 xs:text-base xs:py-2 px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
               >
                 תורם
               </th>
 
               <th
                 scope="col"
-                className="xs:px-1 sm:text-base xs:py-2 px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
+                className="xs:px-1 xs:text-base xs:py-2 px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
               >
                 מגזר
               </th>
               <th
                 scope="col"
-                className="xs:px-1 sm:text-base xs:py-2 px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
+                className="xs:px-1 xs:text-base xs:py-2 px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
               >
                 מידה
               </th>
               <th
                 scope="col"
-                className="xs:px-1 sm:text-base xs:py-2 px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
+                className="xs:px-1 xs:text-base xs:py-2 px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
               >
                 מגדר
               </th>
               <th
                 scope="col"
-                className="xs:px-1 sm:text-base xs:py-2 px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
+                className="xs:px-1 xs:text-base xs:py-2 px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
               >
                 עונה
               </th>
               <th
                 scope="col"
-                className="xs:px-1 sm:text-base xs:py-2 px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
+                className="xs:px-1 xs:text-base xs:py-2 px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
               >
                 סוג תרומה
               </th>

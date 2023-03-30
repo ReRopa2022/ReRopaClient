@@ -77,29 +77,29 @@ const TableRow = ({ data }) => {
   return (
     <tr>
       <td className="xs:hidden py-3 pl-4">
-        <div className="xs:px-1 sm:text-base xs:py-2 flex justify-center h-5">
+        <div className="xs:px-1 xs:text-base xs:py-2 flex justify-center h-5">
           <input
             type="checkbox"
             className=" text-blue-600 border-gray-200 rounded focus:ring-blue-500"
           />
         </div>
       </td>
-      <td className="xs:px-1 sm:text-base xs:py-2 px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+      <td className="xs:px-1 xs:text-base xs:py-2 px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
         <button
           onClick={onClickDelete}
-          className="xs:px-1 sm:text-base xs:py-2 text-red-500 hover:text-red-700"
+          className="xs:px-1 xs:text-base xs:py-2 text-red-500 hover:text-red-700"
         >
           מחיקה
         </button>
       </td>
 
-      <td className="xs:px-1 sm:text-base xs:py-2  px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+      <td className="xs:px-1 xs:text-base xs:py-2  px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
         {!isStatusClicked ? (
           <Status status={status} onClickHandler={onEditStatus} />
         ) : (
           <>
             <button
-              className="xs:px-1 sm:text-base xs:py-2 text-red-500 hover:text-red-700"
+              className="xs:px-1 xs:text-base xs:py-2 text-red-500 hover:text-red-700"
               onClick={onCancelEditStatus}
             >
               צא ממצב עריכה
@@ -107,19 +107,19 @@ const TableRow = ({ data }) => {
             <button onClick={onUpdateStatus}>עדכן</button>
             <select
               onClick={onSelectStatus}
-              className="xs:px-1 sm:text-base xs:py-2 rtl-grid"
+              className="xs:px-1 xs:text-base xs:py-2 rtl-grid"
             >
               <option>עידכון סטטוס</option>
-              <option className="xs:px-1 sm:text-base xs:py-2 text-red-500">
+              <option className="xs:px-1 xs:text-base xs:py-2 text-red-500">
                 לא התקבלה
               </option>
-              <option className="xs:px-1 sm:text-base xs:py-2 text-yellow-500">
+              <option className="xs:px-1 xs:text-base xs:py-2 text-yellow-500">
                 התקבלה
               </option>
-              <option className="xs:px-1 sm:text-base xs:py-2 text-green-500">
+              <option className="xs:px-1 xs:text-base xs:py-2 text-green-500">
                 נמסרה לתרומה
               </option>
-              <option className="xs:px-1 sm:text-base xs:py-2 text-green-500">
+              <option className="xs:px-1 xs:text-base xs:py-2 text-green-500">
                 הועברה לחנות
               </option>
             </select>
@@ -130,26 +130,26 @@ const TableRow = ({ data }) => {
         <ImageCard imgSrc={imgSrc} onClickImg={onClickImage} />
       )*/}
 
-      <td className="xs:px-1 sm:text-base xs:py-2 rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+      <td className="xs:px-1 xs:text-base xs:py-2 rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
         {time}
       </td>
-      <td className="xs:px-1 sm:text-base xs:py-2 rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+      <td className="xs:px-1 xs:text-base xs:py-2 rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
         {data?.user}
       </td>
 
-      <td className="xs:px-1 sm:text-base xs:py-2 rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+      <td className="xs:px-1 xs:text-base xs:py-2 rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
         {data?.sectors}
       </td>
-      <td className="xs:px-1 sm:text-base xs:py-2 rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+      <td className="xs:px-1 xs:text-base xs:py-2 rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
         {data?.sizes}
       </td>
-      <td className="xs:px-1 sm:text-base xs:py-2 rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+      <td className="xs:px-1 xs:text-base xs:py-2 rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
         {data?.genders}
       </td>
-      <td className="xs:px-1 sm:text-base xs:py-2 rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+      <td className="xs:px-1 xs:text-base xs:py-2 rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
         {data?.seasons}
       </td>
-      <td className="xs:px-1 sm:text-base xs:py-2 rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+      <td className="xs:px-1 xs:text-base xs:py-2 rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
         {data?.types}
       </td>
     </tr>
@@ -158,7 +158,7 @@ const TableRow = ({ data }) => {
 
 export default TableRow;
 
-/* <td className="xs:px-1 sm:text-base xs:py-2 rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+/* <td className="xs:px-1 xs:text-base xs:py-2 rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
         {!isImageBigger && imgSrc && (
           <button onClick={onClickImage}>
             <img width="10" height="10" src={imgSrc} alt="donate" />
