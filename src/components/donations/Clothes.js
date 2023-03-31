@@ -69,6 +69,7 @@ const Clothes = (props) => {
       genders,
       sectors,
       sizes,
+      status: "לא עודכן סטטוס",
       //image,
     };
     //console.log(donationData);

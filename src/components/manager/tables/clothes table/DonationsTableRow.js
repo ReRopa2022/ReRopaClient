@@ -4,7 +4,7 @@ import {
   updateStatus,
   deleteDonation,
 } from "../../../../features/donation/donationSlice";
-import Status from "../Status";
+
 //import ImageCard from "./ImageCard";
 
 //const API_URL = "https://reropa-server.onrender.com/api/donate/image";
@@ -13,8 +13,8 @@ const TableRow = ({ data }) => {
   //const [imgSrc, setImgSrc] = useState();
   //const [isImageBigger, setIsImageBigger] = useState(false);
   const [isStatusClicked, setIsStatusClicked] = useState(false);
-  var [status, setStatus] = useState();
-  const [prevStatus, setPrevStatus] = useState();
+  const [status, setStatus] = useState(data?.status);
+  const [statusColor, setStatusColor] = useState();
   const noTimeZone = data?.createdAt.substring(0, 10);
   const blatime = new Date(noTimeZone);
   const time = blatime.toLocaleDateString("en-GB");
@@ -30,7 +30,7 @@ const TableRow = ({ data }) => {
   };
   const onCancelEditStatus = () => {
     setIsStatusClicked(false);
-    setStatus(prevStatus);
+    setStatus(data?.status);
   };
   const onSelectStatus = (e) => {
     setStatus(e.target.value);
@@ -38,7 +38,6 @@ const TableRow = ({ data }) => {
   const onUpdateStatus = () => {
     dispatch(updateStatus({ donation_id, status }));
 
-    setPrevStatus(status);
     setIsStatusClicked(false);
   };
 
@@ -54,16 +53,27 @@ const TableRow = ({ data }) => {
   };
 
   useEffect(() => {
-    if (data?.status) {
-      setStatus(data?.status);
-      setPrevStatus(data?.status);
-    } else if (status) {
+    if (status === "לא עודכן סטטוס") {
+      setStatusColor("text-yellow-500");
       return;
-    } else {
-      setStatus("לא עודכן סטטוס");
-      setPrevStatus("לא עודכן סטטוס");
     }
-  }, [data.status, dispatch, status]);
+    if (status === "לא התקבלה") {
+      setStatusColor("text-red-500");
+      return;
+    }
+    if (status === "התקבלה") {
+      setStatusColor("text-yellow-500");
+      return;
+    }
+    if (status === "נמסרה לתרומה") {
+      setStatusColor("text-green-500");
+      return;
+    }
+    if (status === "הועברה לחנות") {
+      setStatusColor("text-green-500");
+      return;
+    }
+  }, [dispatch, status, statusColor]);
 
   /*useEffect(() => {
     const blob = new Blob([Int8Array.from(data.image.img.data.data)], {
@@ -96,7 +106,9 @@ const TableRow = ({ data }) => {
 
       <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
         {!isStatusClicked ? (
-          <Status status={status} onClickHandler={onEditStatus} />
+          <button className={statusColor} onClick={onEditStatus}>
+            {status}
+          </button>
         ) : (
           <>
             <button

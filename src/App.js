@@ -11,7 +11,7 @@ const Home = lazy(() => import("./pages/Home"));
 const Test = lazy(() => import("./pages/Test"));
 const ManagerHome = lazy(() => import("./pages/manager/ManagerHome"));
 const ClothesTable = lazy(() => import("./pages/manager/ClothesTable"));
-const BooksOrGamesPage = lazy(() => import("./pages/manager/BooksOrGamesPage"));
+//const BooksOrGamesPage = lazy(() => import("./pages/manager/BooksOrGamesPage"));
 const ExcessesReport = lazy(() => import("./pages/manager/ExcessesReport"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Login = lazy(() => import("./pages/Login"));
@@ -77,7 +77,7 @@ function App() {
                 <Route path="/info-tables" element={<Queries />} />
                 <Route path="/excesses-report" element={<ExcessesReport />} />
                 <Route path="/clothes-table" element={<ClothesTable />} />
-                <Route path="/games-books" element={<BooksOrGamesPage />} />
+
                 <Route path="/excesses-table" element={<ExcessesTable />} />
                 <Route path="/defiencies-table" element={<DefienciesTable />} />
                 <Route path="/locataions-table" element={<PointsTable />} />

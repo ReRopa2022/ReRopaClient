@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 //import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import RecycleTable from "../components/tables/RecycleTable";
+import FacebookGroupsTable from "../components/tables/FacebookGroupsTable";
 import { locationsData } from "../data/locationsData";
+import { facebookGroups } from "../data/facebookGroups";
 
 //const API_URL = "https://reropa-server.onrender.com/api/location";
 //For locally running const LOCALHOST_API_URL = "http://localhost:5000/api/location";
@@ -54,7 +56,7 @@ const DonatePoints = () => {
   }, []);
   return (
     <div>
-      <div className="text-center bg-green-500 h-36 xs:mb-4 mb-10 ">
+      <div className="text-center bg-green-500 xs:h-12  h-36 xs:mb-4 mb-10 ">
         <div className="w-full flex justify-center mb-2">
           <h1 className="mt-4 max-w-[36rem] xl:text-5xl lg:text-4xl font-bold tracking-tight text-white sm:text-2xl md:text-3xl xl:max-w-[43.5rem]">
             {title}
@@ -64,6 +66,14 @@ const DonatePoints = () => {
       <div className="mb-2">
         <RecycleTable data={filterTable} />
       </div>
+      <div className="text-center bg-green-500 xs:h-12 h-36 xs:mb-4 mb-10 ">
+        <div className="w-full flex justify-center mb-2">
+          <h1 className="mt-4 max-w-[36rem] xl:text-5xl lg:text-4xl font-bold tracking-tight text-white sm:text-2xl md:text-3xl xl:max-w-[43.5rem]">
+            או להצטרף לאחת מהקבוצות הבאות{" "}
+          </h1>
+        </div>
+      </div>{" "}
+      <FacebookGroupsTable data={facebookGroups} />
     </div>
   );
 };

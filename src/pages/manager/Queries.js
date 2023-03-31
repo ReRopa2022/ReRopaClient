@@ -20,12 +20,12 @@ const Queries = () => {
                 תרומות
               </h2>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col ">
               <button className="flex  rounded-full px-5 py-5 shadow-md">
                 <GiBookshelf className="text-green-500 text-5xl " />
                 <Link
-                  to="/games-books"
-                  className="text-green-500 text-3xl font-bold"
+                  /*to="/games-books"*/
+                  className="disabled-link text-green-500 text-3xl font-bold"
                 >
                   ספרים/משחקים{" "}
                 </Link>

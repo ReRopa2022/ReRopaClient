@@ -4,12 +4,12 @@ import {
   updateBookOrGameStatus,
   deleteBookOrGame,
 } from "../../../../features/donation/donationSlice";
-import Status from "../Status";
 
 const BooksOrGamesTableRow = ({ data }) => {
   const [isStatusClicked, setIsStatusClicked] = useState(false);
-  var [status, setStatus] = useState();
-  const [prevStatus, setPrevStatus] = useState();
+  const [status, setStatus] = useState(data?.status);
+  const [statusColor, setStatusColor] = useState(data?.status);
+
   const noTimeZone = data?.createdAt.substring(0, 10);
   const blatime = new Date(noTimeZone);
   const time = blatime.toLocaleDateString("en-GB");
@@ -23,7 +23,6 @@ const BooksOrGamesTableRow = ({ data }) => {
   };
   const onCancelEditStatus = () => {
     setIsStatusClicked(false);
-    setStatus(prevStatus);
   };
   const onSelectStatus = (e) => {
     setStatus(e.target.value);
@@ -31,7 +30,6 @@ const BooksOrGamesTableRow = ({ data }) => {
   const onUpdateStatus = () => {
     dispatch(updateBookOrGameStatus({ donation_id, status }));
 
-    setPrevStatus(status);
     setIsStatusClicked(false);
   };
 
@@ -46,15 +44,27 @@ const BooksOrGamesTableRow = ({ data }) => {
     }
   };
   useEffect(() => {
-    if (data?.status) {
-      setStatus(data.status);
-      setPrevStatus(data.status);
-    } else if (status) {
-    } else {
-      setStatus("לא עודכן סטטוס");
-      setPrevStatus("לא עודכן סטטוס");
+    if (status === "לא עודכן סטטוס") {
+      setStatusColor("text-yellow-500");
+      return;
     }
-  }, [data.status, dispatch, status]);
+    if (status === "לא התקבלה") {
+      setStatusColor("text-red-500");
+      return;
+    }
+    if (status === "התקבלה") {
+      setStatusColor("text-yellow-500");
+      return;
+    }
+    if (status === "נמסרה לתרומה") {
+      setStatusColor("text-green-500");
+      return;
+    }
+    if (status === "הועברה לחנות") {
+      setStatusColor("text-green-500");
+      return;
+    }
+  }, [dispatch, status]);
   return (
     <tr>
       <td className="hidden xs:px-2  py-3 pl-4">
@@ -76,22 +86,24 @@ const BooksOrGamesTableRow = ({ data }) => {
 
       <td className="xs:px-2  px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
         {!isStatusClicked ? (
-          <Status status={status} onClickHandler={onEditStatus} />
+          <button className={statusColor} onClick={onEditStatus}>
+            {status}
+          </button>
         ) : (
           <>
             <button
-              className="xs:px-2  text-red-500 hover:text-red-700"
+              className="text-red-500 hover:text-red-700"
               onClick={onCancelEditStatus}
             >
               צא ממצב עריכה
             </button>
             <button onClick={onUpdateStatus}>עדכן</button>
-            <select onClick={onSelectStatus} className="xs:px-2  rtl-grid">
+            <select onClick={onSelectStatus} className="rtl-grid">
               <option>עידכון סטטוס</option>
-              <option className="xs:px-2  text-red-500">לא התקבלה</option>
-              <option className="xs:px-2  text-yellow-500">התקבלה</option>
-              <option className="xs:px-2  text-green-500">נמסרה לתרומה</option>
-              <option className="xs:px-2  text-green-500">הועברה לחנות</option>
+              <option className="text-red-500">לא התקבלה</option>
+              <option className="text-yellow-500">התקבלה</option>
+              <option className="text-green-500">נמסרה לתרומה</option>
+              <option className="text-green-500">הועברה לחנות</option>
             </select>
           </>
         )}
