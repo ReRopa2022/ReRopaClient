@@ -61,7 +61,7 @@ const DonateRequestDetails = (props) => {
   };
   useEffect(() => {
     if (isError) {
-      toast.error("בקשתך לתרומה לא הצליחה, אנא נסה שוב");
+      toast.error("בקשתך לתרומה לא הצליחה, אנא נסה/נסי שוב");
     }
     if (isSuccess) {
       toast.success("בקשתך לתרומה התקבלה");
@@ -116,10 +116,10 @@ const DonateRequestDetails = (props) => {
         />
 
         <GreenButton
-          buttonName=" חזרה לפרטי נזקק"
+          buttonName=" חזרה לפרטי נזקק.ת"
           onClickButton={props.onHideHandler}
         />
-        <GreenButton buttonName="בקש תרומה" onClickButton={onSubmit} />
+        <GreenButton buttonName="בקשת תרומה" onClickButton={onSubmit} />
       </form>
     </>
   );

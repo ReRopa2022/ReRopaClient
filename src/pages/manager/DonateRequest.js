@@ -81,7 +81,7 @@ const DonateRequest = (props) => {
               <input
                 className="rtl-grid p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
                 type="text"
-                placeholder=" שם הנזקק "
+                placeholder=" שם הנזקק.ת "
                 name="needy"
                 value={selectedNeedy}
                 onChange={onSelectNeedy}
