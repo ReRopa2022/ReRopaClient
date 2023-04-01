@@ -53,13 +53,13 @@ function Table({ data }) {
                 scope="col"
                 className="xs:px-1 xs:text-base xs:py-2 px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
               >
-                מחק
+                מחיקה
               </th>
               <th
                 scope="col"
                 className="xs:px-1 xs:text-base xs:py-2 px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
               >
-                ערוך סטטוס
+                עריכת סטטוס
               </th>
 
               <th
@@ -72,7 +72,7 @@ function Table({ data }) {
                 scope="col"
                 className="xs:px-1 xs:text-base xs:py-2 px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
               >
-                תורם
+                תורמ.ת
               </th>
 
               <th

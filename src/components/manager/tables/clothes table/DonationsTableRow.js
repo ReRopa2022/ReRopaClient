@@ -43,7 +43,7 @@ const TableRow = ({ data }) => {
 
   const onClickDelete = () => {
     const deleteOrNot = prompt(
-      "האם אתה בטוח שאתה רוצה למחוק את התרומה? אנא אשב כן או לא"
+      "האם אתה בטוח.ה שאת.ה רוצה למחוק את התרומה? אנא השיבי/השב כן או לא"
     );
     if (deleteOrNot === "כן") {
       dispatch(deleteDonation(donation_id));
@@ -115,9 +115,9 @@ const TableRow = ({ data }) => {
               className="text-red-500 hover:text-red-700"
               onClick={onCancelEditStatus}
             >
-              צא ממצב עריכה
+              יציאה ממצב עריכה
             </button>
-            <button onClick={onUpdateStatus}>עדכן</button>
+            <button onClick={onUpdateStatus}>עדכון</button>
             <select onClick={onSelectStatus} className="rtl-grid">
               <option>עידכון סטטוס</option>
               <option className="text-red-500">לא התקבלה</option>
