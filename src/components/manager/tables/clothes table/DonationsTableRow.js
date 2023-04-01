@@ -117,7 +117,7 @@ const TableRow = ({ data }) => {
             >
               יציאה ממצב עריכה
             </button>
-            <button onClick={onUpdateStatus}>עדכון</button>
+            <button onClick={onUpdateStatus}>עידכון</button>
             <select onClick={onSelectStatus} className="rtl-grid">
               <option>עידכון סטטוס</option>
               <option className="text-red-500">לא התקבלה</option>
