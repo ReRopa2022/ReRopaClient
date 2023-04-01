@@ -15,6 +15,7 @@ const DonatePoints = () => {
     "נשמח שתשאיר/י את השקית באחת מנקודות המיחזור הבאות"
   );
   const [filterTable, setFilterTable] = useState();
+  const [isNotNeed, setIsNotNeed] = useState(false);
   const location = useLocation();
   const [condition] = useState(location.state?.condition);
   //const [isDataLoaded, setIsDataLoaded] = useState(false);
@@ -37,6 +38,7 @@ const DonatePoints = () => {
     // ...
     if (condition === "noNeed") {
       const filterData = locationsData.filter((row) => row.type === "מיחזור");
+      setIsNotNeed(true);
 
       setFilterTable(filterData);
       /* } else if (condition === "faulty") {
@@ -49,6 +51,7 @@ const DonatePoints = () => {
       );
       setFilterTable(filterData);
       setTitle("נשמח שתשאיר/י את השקית באחת מנקודות האיסוף הבאות");
+      setIsNotNeed(false);
     }
     navigate("", { state: {} });
 
@@ -66,14 +69,18 @@ const DonatePoints = () => {
       <div className="mb-2">
         <RecycleTable data={filterTable} />
       </div>
-      <div className="text-center bg-green-500 xs:h-12 h-36 xs:mb-4 mb-10 ">
-        <div className="w-full flex justify-center mb-2">
-          <h1 className="mt-4 max-w-[36rem] xl:text-5xl lg:text-4xl font-bold tracking-tight text-white sm:text-2xl md:text-3xl xl:max-w-[43.5rem]">
-            או להצטרף לאחת מהקבוצות הבאות{" "}
-          </h1>
-        </div>
-      </div>{" "}
-      <FacebookGroupsTable data={facebookGroups} />
+      {isNotNeed && (
+        <>
+          <div className="text-center bg-green-500 xs:h-12 h-36 xs:mb-4 mb-10 ">
+            <div className="w-full flex justify-center mb-2">
+              <h1 className="mt-4 max-w-[36rem] xl:text-5xl lg:text-4xl font-bold tracking-tight text-white sm:text-2xl md:text-3xl xl:max-w-[43.5rem]">
+                או להצטרף לאחת מהקבוצות הבאות{" "}
+              </h1>
+            </div>
+          </div>{" "}
+          <FacebookGroupsTable data={facebookGroups} />
+        </>
+      )}
     </div>
   );
 };

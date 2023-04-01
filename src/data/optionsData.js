@@ -1,6 +1,6 @@
 export const organizationOptions = [
   { label: "יד משהם" },
-  { label: "ארגון נוסף" },
+  /*{ label: "ארגון נוסף" },*/
 ];
 
 export const urgentOptions = [
@@ -40,8 +40,8 @@ export const seasonOptions = [
 
 export const donateOptions = [
   { value: "clothes", label: "בגדים" },
-  { value: "game", label: "משחק" },
-  { value: "book", label: "ספר" },
+  /*{ value: "game", label: "משחק" },
+  { value: "book", label: "ספר" },*/
 ];
 export const donateCondition = [
   { value: "2", label: "משומש" },

@@ -113,10 +113,6 @@ const DonateRequest = (props) => {
                 buttonName="מעבר למילוי בקשה"
                 onClickButton={onSubmit}
               />
-              <GreenButton
-                onClickButton={props.onClickHide}
-                buttonName="חזור"
-              />
             </form>
           </>
         )}

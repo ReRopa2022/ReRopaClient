@@ -64,7 +64,7 @@ const Login = () => {
             required
             {...register("password")}
           />
-          <GreenButton type="submit" buttonName="התחבר" />
+          <GreenButton type="submit" buttonName="התחברות" />
         </form>
       </div>
     </Card>
