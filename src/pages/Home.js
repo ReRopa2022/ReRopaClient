@@ -8,7 +8,7 @@ import { GiReceiveMoney } from "react-icons/gi";
 const Home = () => {
   const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
-  const title = "ברוכים.ות הבאים.ות למחזורית יד משהם";
+  const title = "ברוכים.ות הבאים.ות לעמותת יד משהם";
 
   useEffect(() => {
     if (user?.isManager) {
