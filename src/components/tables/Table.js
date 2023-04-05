@@ -17,12 +17,12 @@ const Table = ({ data }) => {
                     תאריך
                   </th>
 
-                  <th
+                  {/*<th
                     scope="col"
                     className="px-6 py-3 xs:text-base text-xs font-bold text-center text-gray-500 uppercase "
                   >
                     מגזר
-                  </th>
+                  </th>*/}
                   <th
                     scope="col"
                     className="px-6 py-3 xs:text-base text-xs font-bold text-center text-gray-500 uppercase "
