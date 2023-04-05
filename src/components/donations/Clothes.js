@@ -111,7 +111,7 @@ const Clothes = (props) => {
           isRtl
         />
         {selectedGender?.label === "אחר" && (
-          <p className="p-3  rounded text-red-600  text-right">
+          <p className="p-3  rounded text-red-600  text-center">
             אחר מתייחס לשאר האפשרויות הקיימות לדוגמא: בגד שמתאים לזכר ולנקבה
           </p>
         )}
