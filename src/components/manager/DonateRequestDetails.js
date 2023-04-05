@@ -9,7 +9,7 @@ import {
 } from "../../features/manager/donationRequestSlice";
 import {
   sizeOptions,
-  sectorOptions,
+  //sectorOptions,
   genderOptions,
   seasonOptions,
 } from "../../data/optionsData";
@@ -18,7 +18,7 @@ import GreenButton from "../ui/GreenButton";
 const DonateRequestDetails = (props) => {
   const [selectedSeason, setSelectedSeason] = useState();
   const [selectedGender, setSelectedGender] = useState();
-  const [selectedSector, setSelectedSector] = useState();
+  //const [selectedSector, setSelectedSector] = useState();
   const [selectedSize, setSelectedSize] = useState();
 
   const { isSuccess, isError, message } = useSelector((state) => state.request);
@@ -35,9 +35,9 @@ const DonateRequestDetails = (props) => {
   const onSelectGender = (data) => {
     setSelectedGender(data);
   };
-  const onSelectSector = (data) => {
+  /*const onSelectSector = (data) => {
     setSelectedSector(data);
-  };
+  };*/
   const onSelectSize = (data) => {
     setSelectedSize(data);
   };
@@ -46,14 +46,14 @@ const DonateRequestDetails = (props) => {
     e.preventDefault();
     const seasons = selectedSeason.map(labelExtractor);
     const genders = selectedGender.label;
-    const sectors = selectedSector.map(labelExtractor);
+    //const sectors = selectedSector.map(labelExtractor);
     const sizes = selectedSize.map(labelExtractor);
 
     const formNeedyData = {
       ...props.needyData,
       seasons,
       genders,
-      sectors,
+      //sectors,
       sizes,
     };
     dispatch(donateRequest(formNeedyData));
@@ -93,7 +93,7 @@ const DonateRequestDetails = (props) => {
           isSearchable={true}
           isRtl
         />
-        <Select
+        {/*<Select
           className="p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
           options={sectorOptions}
           placeholder="מגזר"
@@ -102,7 +102,7 @@ const DonateRequestDetails = (props) => {
           isSearchable={true}
           isMulti
           isRtl
-        />
+        />*/}
 
         <Select
           className="p-3 my-2 bg-white-700 rounded text-gray-600  text-right"

@@ -12,9 +12,9 @@ const TableFilter = (props) => {
         return element;
       }
 
-      if (element?.sectors.includes(search)) {
+      /*if (element?.sectors.includes(search)) {
         return element;
-      }
+      }*/
       if (element?.sizes.includes(search)) {
         return element;
       }

@@ -139,9 +139,9 @@ const TableRow = ({ data }) => {
         {data?.user}
       </td>
 
-      <td className="rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+      {/*<td className="rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
         {data?.sectors}
-      </td>
+      </td>*/}
       <td className="rtl-grid px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
         {data?.sizes}
       </td>

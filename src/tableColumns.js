@@ -7,7 +7,7 @@ export const columns = {
 
   sizes: "מידה",
 
-  sectors: "מגזר",
+  //sectors: "מגזר",
 
   quantity: "כמות",
 

@@ -9,7 +9,7 @@ import GreenButton from "../ui/GreenButton";
 import { donate } from "../../features/donation/donationSlice";
 import {
   sizeOptions,
-  sectorOptions,
+  //sectorOptions,
   genderOptions,
   seasonOptions,
   donateCondition,
@@ -19,7 +19,7 @@ const Clothes = (props) => {
   const [selectedCondition, setSelectedCondition] = useState();
   const [selectedSeason, setSelectedSeason] = useState();
   const [selectedGender, setSelectedGender] = useState();
-  const [selectedSector, setSelectedSector] = useState();
+  //const [selectedSector, setSelectedSector] = useState();
   const [selectedSize, setSelectedSize] = useState();
   //const [image, setImage] = useState();
 
@@ -43,9 +43,9 @@ const Clothes = (props) => {
   const onSelectGender = (data) => {
     setSelectedGender(data);
   };
-  const onSelectSector = (data) => {
+  /*const onSelectSector = (data) => {
     setSelectedSector(data);
-  };
+  };*/
   const onSelectSize = (data) => {
     setSelectedSize(data);
   };
@@ -58,7 +58,7 @@ const Clothes = (props) => {
 
     const seasons = selectedSeason?.map(labelExtractor);
     const genders = selectedGender?.label;
-    const sectors = selectedSector?.map(labelExtractor);
+    //const sectors = selectedSector?.map(labelExtractor);
     const sizes = selectedSize?.map(labelExtractor);
 
     const donationData = {
@@ -67,7 +67,7 @@ const Clothes = (props) => {
       condition: selectedCondition ? selectedCondition : null,
       seasons,
       genders,
-      sectors,
+      //sectors,
       sizes,
       status: "לא עודכן סטטוס",
       //image,
@@ -110,8 +110,13 @@ const Clothes = (props) => {
           isSearchable={true}
           isRtl
         />
+        {selectedGender?.label === "אחר" && (
+          <p className="p-3  rounded text-red-600  text-right">
+            אחר מתייחס לשאר האפשרויות הקיימות לדוגמא: בגד שמתאים לזכר ולנקבה
+          </p>
+        )}
       </div>
-      <div className="w-full  ">
+      {/*<div className="w-full  ">
         <Select
           className="p-3  bg-white-700 rounded text-gray-600  text-right"
           options={sectorOptions}
@@ -122,7 +127,7 @@ const Clothes = (props) => {
           isMulti
           isRtl
         />
-      </div>
+      </div>*/}
       <div className="w-full  ">
         <Select
           className="p-3  bg-white-700 rounded text-gray-600  text-right"

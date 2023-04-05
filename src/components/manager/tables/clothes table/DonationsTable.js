@@ -75,12 +75,12 @@ function Table({ data }) {
                 תורמ.ת
               </th>
 
-              <th
+              {/*<th
                 scope="col"
                 className="xs:px-1 xs:text-base xs:py-2 px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
               >
                 מגזר
-              </th>
+              </th>*/}
               <th
                 scope="col"
                 className="xs:px-1 xs:text-base xs:py-2 px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "

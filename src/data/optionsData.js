@@ -23,14 +23,15 @@ export const sizeOptions = [
   { value: "XL", label: "XL" },
 ];
 
-export const sectorOptions = [
+/*export const sectorOptions = [
   { value: "religious", label: "דתי" },
   { value: "secular", label: "חילוני" },
-];
+];*/
 
 export const genderOptions = [
   { value: "male", label: "זכר" },
   { value: "female", label: "נקבה" },
+  { value: "other", label: "אחר" },
 ];
 
 export const seasonOptions = [

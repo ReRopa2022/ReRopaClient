@@ -10,7 +10,7 @@ import {
 import {
   organizationOptions,
   sizeOptions,
-  sectorOptions,
+  //sectorOptions,
   genderOptions,
   seasonOptions,
 } from "../../data/optionsData";
@@ -21,9 +21,9 @@ const ExcessesReport = () => {
   const [selectedOrganization, setSelectedOrganization] = useState();
   const [selectedSeason, setSelectedSeason] = useState();
   const [selectedGender, setSelectedGender] = useState();
-  const [selectedSector, setSelectedSector] = useState();
+  //const [selectedSector, setSelectedSector] = useState();
   const [selectedSize, setSelectedSize] = useState();
-  const [quantity, setQuantity] = useState(0);
+  //const [quantity, setQuantity] = useState(0);
 
   const { isSuccess, isError, message } = useSelector((state) => state.report);
 
@@ -43,29 +43,29 @@ const ExcessesReport = () => {
   const onSelectGender = (data) => {
     setSelectedGender(data);
   };
-  const onSelectSector = (data) => {
+  /*const onSelectSector = (data) => {
     setSelectedSector(data);
-  };
+  };*/
   const onSelectSize = (data) => {
     setSelectedSize(data);
   };
-  const onSelectQuantity = (e) => {
+  /*const onSelectQuantity = (e) => {
     setQuantity(e.target.value);
-  };
+  };*/
   const onSubmit = (e) => {
     e.preventDefault();
     const organization = selectedOrganization.label;
     const seasons = selectedSeason.map(labelExtractor);
     const genders = selectedGender.label;
-    const sectors = selectedSector.map(labelExtractor);
+    //const sectors = selectedSector.map(labelExtractor);
     const sizes = selectedSize.map(labelExtractor);
     const formNeedyData = {
       organization,
       seasons,
       genders,
-      sectors,
+      //sectors,
       sizes,
-      quantity,
+      //quantity,
     };
     console.log(formNeedyData);
     dispatch(excessReport(formNeedyData));
@@ -115,7 +115,7 @@ const ExcessesReport = () => {
             isSearchable={true}
             isRtl
           />
-          <Select
+          {/* <Select
             className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
             options={sectorOptions}
             placeholder="מגזר"
@@ -124,7 +124,7 @@ const ExcessesReport = () => {
             isSearchable={true}
             isMulti
             isRtl
-          />
+          />*/}
 
           <Select
             className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
@@ -137,14 +137,14 @@ const ExcessesReport = () => {
             isRtl
           />
 
-          <input
+          {/*<input
             className="rtl-grid p-3 my-2 bg-white-700 rounded text-gray-600  text-right"
             type="number"
             min={1}
             value={quantity}
             placeholder="כמות בגדים"
             onChange={onSelectQuantity}
-          />
+          />*/}
 
           <GreenButton buttonName="דווח על עודפים" onClickButton={onSubmit} />
         </form>
