@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { GiClothes, GiBookshelf, GiFullFolder } from "react-icons/gi";
 import { FaHands, FaDumpster } from "react-icons/fa";
+import { GoGraph } from "react-icons/go";
 
 //For locally running const LOCALHOST_API_URL = "http://localhost:5000/api/donate";
 const Queries = () => {
@@ -14,6 +15,21 @@ const Queries = () => {
       </div>
       <div className=" bg-white w-full  ">
         <div className="flex flex-row items-center justify-evenly flex-wrap pb-5">
+          <div>
+            <div className="w-full flex justify-center ">
+              <h2 className=" text-5xl pt-6 pb-5  font-bold text-green-600">
+                סטטיסטיקות{" "}
+              </h2>
+            </div>
+            <div className="flex flex-col">
+              <button className="flex justify-center rounded-full px-5 py-5 shadow-md">
+                <GoGraph className="text-green-500 text-5xl " />
+                <Link to="/stats" className="text-green-500 text-3xl font-bold">
+                  גרפים
+                </Link>
+              </button>
+            </div>
+          </div>
           <div>
             <div className="w-full flex justify-center   ">
               <h2 className="text-5xl pt-6 pb-5 font-bold text-green-600">

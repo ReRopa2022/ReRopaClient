@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 //import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
-import RecycleTable from "../components/tables/RecycleTable";
-import FacebookGroupsTable from "../components/tables/FacebookGroupsTable";
-import { locationsData } from "../data/locationsData";
-import { facebookGroups } from "../data/facebookGroups";
+import RecycleTable from "../../components/tables/RecycleTable";
+import FacebookGroupsTable from "../../components/tables/FacebookGroupsTable";
+import { locationsData } from "../../data/locationsData";
+import { facebookGroups } from "../../data/facebookGroups";
 
 //const API_URL = "https://reropa-server.onrender.com/api/location";
 //For locally running const LOCALHOST_API_URL = "http://localhost:5000/api/location";

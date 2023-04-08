@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-import { addLocation, reset } from "../../features/manager/addLocationSlice";
-import GreenButton from "../../components/ui/GreenButton";
-import Spinner from "../../components/ui/Spinner";
+import { addLocation, reset } from "../../../features/manager/addLocationSlice";
+import GreenButton from "../../../components/ui/GreenButton";
+import Spinner from "../../../components/ui/Spinner";
 const DonateLocation = () => {
   const { register, handleSubmit } = useForm({
     defaultValues: {
