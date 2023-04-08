@@ -3,9 +3,9 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
-import { login, reset } from "../features/auth/authSlice";
-import Card from "../components/ui/Card";
-import GreenButton from "../components/ui/GreenButton";
+import { login, reset } from "../../features/auth/authSlice";
+import Card from "../../components/ui/Card";
+import GreenButton from "../../components/ui/GreenButton";
 
 const Login = () => {
   const { register, handleSubmit } = useForm({

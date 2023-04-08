@@ -5,14 +5,14 @@ import Select from "react-select";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 //import GameOrBook from "../components/donations/GameOrBook";
-import Clothes from "../components/donations/Clothes";
-import Spinner from "../components/ui/Spinner";
+import Clothes from "../../components/donations/Clothes";
+import Spinner from "../../components/ui/Spinner";
 
-import { reset } from "../features/donation/donationSlice";
+import { reset } from "../../features/donation/donationSlice";
 
-import Card from "../components/ui/Card";
+import Card from "../../components/ui/Card";
 
-import { donateOptions } from "../data/optionsData";
+import { donateOptions } from "../../data/optionsData";
 
 const Donate = (props) => {
   const [selectedType, setSelectedType] = useState();

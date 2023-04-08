@@ -1,5 +1,5 @@
 import React from "react";
-import GreenButton from "../components/ui/GreenButton";
+import GreenButton from "../../components/ui/GreenButton";
 
 const Contact = () => {
   return (

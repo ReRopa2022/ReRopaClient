@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import DonationsTable from "../../components/manager/tables/clothes table/DonationsTable";
-import TableFilter from "../../components/manager/tables/clothes table/TableFilter";
+import DonationsTable from "../../../components/manager/tables/clothes-table/DonationsTable";
+import TableFilter from "../../../components/manager/tables/clothes-table/TableFilter";
 const API_URL = "https://reropa-server.onrender.com/api/donate";
 const ClothesTable = () => {
   const [data, setData] = useState();

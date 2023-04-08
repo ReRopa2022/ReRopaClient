@@ -7,26 +7,47 @@ import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/Footer";
 import Spinner from "./components/ui/Spinner";
 
-const Home = lazy(() => import("./pages/Home"));
-const Test = lazy(() => import("./pages/Test"));
+//Guest - Pages
+const Home = lazy(() => import("./pages/guest/Home"));
+const Login = lazy(() => import("./pages/guest/Login"));
+const About = lazy(() => import("./pages/guest/About"));
+const Donate = lazy(() => import("./pages/guest/Donate"));
+const DonatePoints = lazy(() => import("./pages/guest/DonatePoints"));
+const DefienciesExcesses = lazy(() =>
+  import("./pages/guest/DefienciesExcesses")
+);
+const NotFound = lazy(() => import("./pages/guest/NotFound"));
+const Contact = lazy(() => import("./pages/guest/Contact"));
+
+//Manager - Pages
 const ManagerHome = lazy(() => import("./pages/manager/ManagerHome"));
-const ClothesTable = lazy(() => import("./pages/manager/ClothesTable"));
-//const BooksOrGamesPage = lazy(() => import("./pages/manager/BooksOrGamesPage"));
-const ExcessesReport = lazy(() => import("./pages/manager/ExcessesReport"));
-const NotFound = lazy(() => import("./pages/NotFound"));
-const Login = lazy(() => import("./pages/Login"));
-//const Signup = lazy(() => import("./pages/Signup"));
-const About = lazy(() => import("./pages/About"));
-const Donate = lazy(() => import("./pages/Donate"));
-const DonatePoints = lazy(() => import("./pages/DonatePoints"));
-const DonateRequest = lazy(() => import("./pages/manager/DonateRequest"));
-const DonateLocation = lazy(() => import("./pages/manager/AddDonateLocation"));
-const DefienciesExcesses = lazy(() => import("./pages/DefienciesExcesses"));
-const ExcessesTable = lazy(() => import("./pages/manager/ExcessesTable"));
-const DefienciesTable = lazy(() => import("./pages/manager/DefienciesTable"));
-const PointsTable = lazy(() => import("./pages/manager/PointsTable"));
-const Contact = lazy(() => import("./pages/Contact"));
 const Queries = lazy(() => import("./pages/manager/Queries"));
+const ClothesTable = lazy(() =>
+  import("./pages/manager/tables-pages/ClothesTable")
+);
+//const BooksOrGamesPage = lazy(() => import("./pages/manager/BooksOrGamesPage"));
+const ExcessesReport = lazy(() =>
+  import("./pages/manager/posts/ExcessesReport")
+);
+//const Signup = lazy(() => import("./pages/Signup"));
+
+const DonateRequest = lazy(() => import("./pages/manager/posts/DonateRequest"));
+const DonateLocation = lazy(() =>
+  import("./pages/manager/posts/AddDonateLocation")
+);
+
+const ExcessesTable = lazy(() =>
+  import("./pages/manager/tables-pages/ExcessesTable")
+);
+const DefienciesTable = lazy(() =>
+  import("./pages/manager/tables-pages/DefienciesTable")
+);
+const PointsTable = lazy(() =>
+  import("./pages/manager/tables-pages/PointsTable")
+);
+
+//Developers - Pages
+const Test = lazy(() => import("./pages/developers/Test"));
 
 const URL = "https://reropa-server.onrender.com/api/ping";
 function App() {

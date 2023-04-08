@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import RecycleTable from "../components/tables/RecycleTable";
+import RecycleTable from "../../components/tables/RecycleTable";
 
 const API_URL = "https://reropa-server.onrender.com/api/location";
 

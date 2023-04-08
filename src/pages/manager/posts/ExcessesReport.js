@@ -6,16 +6,16 @@ import { toast } from "react-toastify";
 import {
   excessReport,
   reset,
-} from "../../features/manager/donationExcessesSlice";
+} from "../../../features/manager/donationExcessesSlice";
 import {
   organizationOptions,
   sizeOptions,
   //sectorOptions,
   genderOptions,
   seasonOptions,
-} from "../../data/optionsData";
-import GreenButton from "../../components/ui/GreenButton";
-import Card from "../../components/ui/Card";
+} from "../../../data/optionsData";
+import GreenButton from "../../../components/ui/GreenButton";
+import Card from "../../../components/ui/Card";
 
 const ExcessesReport = () => {
   const [selectedOrganization, setSelectedOrganization] = useState();

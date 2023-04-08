@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Table from "../components/tables/Table";
+import Table from "../../components/tables/Table";
 
 const DefienciesExcesses = () => {
   const API_URL = "https://reropa-server.onrender.com/api/";
