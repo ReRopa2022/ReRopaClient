@@ -10,6 +10,7 @@ import Spinner from "./components/ui/Spinner";
 //Guest - Pages
 const Home = lazy(() => import("./pages/guest/Home"));
 const Login = lazy(() => import("./pages/guest/Login"));
+//const Signup = lazy(() => import("./pages/Signup"));
 const About = lazy(() => import("./pages/guest/About"));
 const Donate = lazy(() => import("./pages/guest/Donate"));
 const DonatePoints = lazy(() => import("./pages/guest/DonatePoints"));
@@ -29,7 +30,6 @@ const ClothesTable = lazy(() =>
 const ExcessesReport = lazy(() =>
   import("./pages/manager/posts/ExcessesReport")
 );
-//const Signup = lazy(() => import("./pages/Signup"));
 
 const DonateRequest = lazy(() => import("./pages/manager/posts/DonateRequest"));
 const DonateLocation = lazy(() =>
@@ -45,6 +45,7 @@ const DefienciesTable = lazy(() =>
 const PointsTable = lazy(() =>
   import("./pages/manager/tables-pages/PointsTable")
 );
+const StatsGraphs = lazy(() => import("./pages/manager/stats/StatsGraphs"));
 
 //Developers - Pages
 const Test = lazy(() => import("./pages/developers/Test"));
@@ -98,10 +99,10 @@ function App() {
                 <Route path="/info-tables" element={<Queries />} />
                 <Route path="/excesses-report" element={<ExcessesReport />} />
                 <Route path="/clothes-table" element={<ClothesTable />} />
-
                 <Route path="/excesses-table" element={<ExcessesTable />} />
                 <Route path="/defiencies-table" element={<DefienciesTable />} />
                 <Route path="/locataions-table" element={<PointsTable />} />
+                <Route path="/stats" element={<StatsGraphs />} />
               </>
             )}
             <Route path="*" element={<NotFound />} />

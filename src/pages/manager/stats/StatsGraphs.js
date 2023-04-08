@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 //import axios from "axios";
-import Chart from "../../components/manager/stats/Chart";
+import Chart from "../../../components/manager/stats/Chart";
 
 const API_URL = "https://reropa-server.onrender.com/api/stats/clothes";
-const Test = () => {
+
+const StatsGraphs = () => {
   const [data, setdata] = useState();
 
   useEffect(() => {
     const fetchDatas = async () => {
       const res = await fetch(API_URL);
       const data = await res.json();
-      console.log(data);
+      //console.log(data);
       setdata(data);
     };
     fetchDatas();
@@ -22,4 +23,4 @@ const Test = () => {
   );
 };
 
-export default Test;
+export default StatsGraphs;
