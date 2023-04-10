@@ -1,26 +1,26 @@
 import React, { useState, useEffect } from "react";
 //import axios from "axios";
 import Chart from "../../../components/manager/stats/Chart";
-
+import DateRangeFilter from "../../../components/manager/stats/DateRangeFilter";
 const API_URL = "https://reropa-server.onrender.com/api/stats/clothes";
-
 const StatsGraphs = () => {
   const [data, setdata] = useState();
+  const [filteredData, setFilteredData] = useState();
 
   useEffect(() => {
     const fetchDatas = async () => {
       const res = await fetch(API_URL);
       const data = await res.json();
-      //console.log(data);
       setdata(data);
+      setFilteredData(data);
     };
     fetchDatas();
   }, []);
   return (
     <div>
-      <Chart data={data} />
+      <DateRangeFilter data={data} setFilteredData={setFilteredData} />
+      <Chart data={filteredData} />
     </div>
   );
 };
-
 export default StatsGraphs;
