@@ -22,6 +22,14 @@ const Footer = () => {
               ?מי אנחנו{" "}
             </Link>
           </div>
+          <div className="px-5 py-2">
+            <Link
+              className="text-base leading-6 font-bold text-green-100 hover:text-green-900"
+              to="/login"
+            >
+              התחברות מנהל
+            </Link>
+          </div>
         </nav>
       </div>
     </section>
