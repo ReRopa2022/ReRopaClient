@@ -15,8 +15,12 @@ const DonateLocation = () => {
       street_no: "",
       type: "",
       info: "",
+      lat: "",
+      long: "",
+      display: true,
     },
   });
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -80,6 +84,7 @@ const DonateLocation = () => {
                 {...register("street")}
                 required
               />
+
               <input
                 className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
                 placeholder="מספר רחוב"
@@ -87,6 +92,7 @@ const DonateLocation = () => {
                 {...register("street_no")}
                 required
               />
+
               <select
                 className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right rtl-grid "
                 type="text"
@@ -104,6 +110,20 @@ const DonateLocation = () => {
                 placeholder="מידע"
                 type="text"
                 {...register("info")}
+                required
+              />
+              <input
+                className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
+                placeholder="קו אורך"
+                type="text"
+                {...register("lat")}
+                required
+              />
+              <input
+                className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
+                placeholder="קו רוחב"
+                type="text"
+                {...register("long")}
                 required
               />
 
