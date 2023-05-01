@@ -1,9 +1,25 @@
-import React from "react";
-import useGeoLocation from "../../hooks/useGeoLocation";
+import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-const position = [51.505, -0.09];
+import axios from "axios";
+import useGeoLocation from "../../hooks/useGeoLocation";
+
+import PointsCreator from "./PointsCreator";
+const position = [31.998125, 34.945494];
+const API_URL = "https://reropa-server.onrender.com/api/location";
 const Map = () => {
+  const [points, setPoints] = useState([]);
   const location = useGeoLocation();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios(API_URL);
+      setPoints(response.data);
+      console.log(response.data);
+    };
+    fetchData();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <div className="leaflet-container">
       <MapContainer center={position} zoom={13} scrollWheelZoom={true}>
@@ -12,15 +28,13 @@ const Map = () => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        <Marker position={position}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
-        </Marker>
+        {points && <PointsCreator points={points} />}
         {location && (
           <Marker
             position={[location.coordinates.lat, location.coordinates.lng]}
-          />
+          >
+            <Popup>המיקום שלך</Popup>
+          </Marker>
         )}
       </MapContainer>
     </div>
