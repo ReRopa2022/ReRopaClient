@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import axios from "axios";
+//import axios from "axios";
 import useGeoLocation from "../../hooks/useGeoLocation";
 
 import PointsCreator from "./PointsCreator";
 const position = [31.998125, 34.945494];
-const API_URL = "https://reropa-server.onrender.com/api/location";
-const Map = () => {
-  const [points, setPoints] = useState([]);
+//const API_URL = "https://reropa-server.onrender.com/api/location";
+const Map = ({ points }) => {
+  //const [points, setPoints] = useState([]);
   const location = useGeoLocation();
 
-  useEffect(() => {
+  /*useEffect(() => {
     const fetchData = async () => {
       const response = await axios(API_URL);
       setPoints(response.data);
@@ -19,7 +19,7 @@ const Map = () => {
     fetchData();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, []);*/
   return (
     <div className="leaflet-container">
       <MapContainer center={position} zoom={13} scrollWheelZoom={true}>

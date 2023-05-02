@@ -1,55 +1,54 @@
 import React, { useState, useEffect } from "react";
-//import axios from "axios";
+import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import RecycleTable from "../../components/tables/RecycleTable";
 import FacebookGroupsTable from "../../components/tables/FacebookGroupsTable";
-import { locationsData } from "../../data/locationsData";
+import Map from "../../components/map/Map";
+//import { locationsData } from "../../data/locationsData";
 import { facebookGroups } from "../../data/facebookGroups";
 
-//const API_URL = "https://reropa-server.onrender.com/api/location";
+const API_URL = "https://reropa-server.onrender.com/api/location";
 //For locally running const LOCALHOST_API_URL = "http://localhost:5000/api/location";
 
 const DonatePoints = () => {
-  //const [data, setData] = useState();
+  const [data, setData] = useState();
   const [title, setTitle] = useState(
     "נשמח שתשאיר/י את השקית באחת מנקודות המיחזור הבאות"
   );
-  const [filterTable, setFilterTable] = useState();
+  const [filterData, setfilterData] = useState();
   const [isNotNeed, setIsNotNeed] = useState(false);
   const location = useLocation();
   const [condition] = useState(location.state?.condition);
   //const [isDataLoaded, setIsDataLoaded] = useState(false);
   const navigate = useNavigate();
 
-  /* useEffect(() => {
+  useEffect(() => {
     const fetchData = () => {
       axios.get(API_URL).then((response) => {
         setData(response.data);
-        setIsDataLoaded(true);
+        //setIsDataLoaded(true);
       });
     };
     fetchData();
     // eslint-disable-next-line
-  }, []);*/
+  }, []);
 
   useEffect(() => {
     // Use the data variable here
 
     // ...
     if (condition === "noNeed") {
-      const filterData = locationsData.filter((row) => row.type === "מיחזור");
+      const filterData = data?.filter((row) => row.type === "מיחזור");
       setIsNotNeed(true);
 
-      setFilterTable(filterData);
+      setfilterData(filterData);
       /* } else if (condition === "faulty") {
       const filterData = locationsData.filter((row) => row.type === "מיחזור");
 
-      setFilterTable(filterData);*/
+      setfilterData(filterData);*/
     } else {
-      const filterData = locationsData.filter(
-        (row) => row.type === "איסוף בגדים"
-      );
-      setFilterTable(filterData);
+      const filterData = data?.filter((row) => row.type === "איסוף בגדים");
+      setfilterData(filterData);
       setTitle("נשמח שתשאיר/י את השקית באחת מנקודות האיסוף הבאות");
       setIsNotNeed(false);
     }
@@ -67,7 +66,8 @@ const DonatePoints = () => {
         </div>
       </div>{" "}
       <div className="mb-2">
-        <RecycleTable data={filterTable} />
+        <RecycleTable data={filterData} />
+        <Map points={filterData} />
       </div>
       {isNotNeed && (
         <>
