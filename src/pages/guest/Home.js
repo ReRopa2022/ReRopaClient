@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { FaEnvira, FaHandsHelping } from "react-icons/fa";
 import { GiReceiveMoney } from "react-icons/gi";
+import { onMovingDonation } from "../../utils";
 
 const Home = () => {
   const { user } = useSelector((state) => state.auth);
@@ -34,7 +35,22 @@ const Home = () => {
 
       <div className="bg-white w-full xs:mt-1 xs:mb-4 mt-6  mb-10">
         <div className="flex flex-wrap justify-evenly">
-          <div className="flex flex-col w-full justify-center p-10">
+          <div className="flex flex-col items-center w-full justify-center p-10">
+            <Link className=" w-[25%] justify-center items-center" to="/donate">
+              {" "}
+              <button
+                onClick={onMovingDonation}
+                className="bg-green-600 flex flex-row w-full justify-center pb-20  hover:bg-green-700 hover:shadow-lg
+          focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 rounded"
+              >
+                <h1
+                  className=" rtl-grid mt-4 text-8xl md:text-5x xs:text-2xl font-bold text-white
+         "
+                >
+                  תרומה
+                </h1>
+              </button>
+            </Link>
             <div className="flex flex-row w-full justify-center ">
               <h1 className="flex justify-center w-full">
                 <FaEnvira className="text-green-500 xs:text-4xl  text-7xl" />
@@ -43,6 +59,7 @@ const Home = () => {
                 </span>
               </h1>
             </div>
+
             <div className="flex flex-row justify-center text-center text-green-600 font-bold text-xl mt-3">
               שימוש חוזר בחפצים והפחתה בפסולת מזהמת
             </div>
