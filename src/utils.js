@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_URL = "https://reropa-server.onrender.com/api/stats-donations";
+const API_URL = "https://reropa-server.onrender.com/api/ping/donations";
+//const API_URL = "http://localhost:5000/api/ping/donations";
 
 export function extractErrorMessage(error) {
   return error.response?.data?.message || error.message || error.toString();
@@ -29,8 +30,7 @@ export function distance(lat1, lon1, lat2, lon2) {
 export const onMovingDonation = async () => {
   try {
     const response = await axios.get(API_URL);
-    const data = await response.json();
-    console.log(data);
+    console.log(response.data);
   } catch (error) {
     console.error(error);
   }
