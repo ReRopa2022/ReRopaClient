@@ -152,8 +152,8 @@ const Clothes = (props) => {
             className=""
             src={process.env.PUBLIC_URL + "/assets/SohamWarehouse.jfif"}
             alt="condition"
-            height={100}
-            width={100}
+            height={300}
+            width={300}
           />
 
           <GreenButton buttonName="לתרומה" onClickButton={onSubmit} />
