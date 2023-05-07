@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Footer = () => {
+const Footer = (props) => {
   return (
     <section className="w-full bottom-0 fixed flex justify-center h-[7%] bg-green-600 ">
       <div className="max-w-screen-xl px-4  mx-auto space-y-4 overflow-hidden sm:px-6 lg:px-8">
@@ -23,12 +23,14 @@ const Footer = () => {
             </Link>
           </div>
           <div className="px-5 py-2">
-            <Link
-              className="text-base leading-6 font-bold text-green-100 hover:text-green-900"
-              to="/login"
-            >
-              התחברות מנהל
-            </Link>
+            {!props.isUser && (
+              <Link
+                className="text-base leading-6 font-bold text-green-100 hover:text-green-900"
+                to="/login"
+              >
+                התחברות מנהל
+              </Link>
+            )}
           </div>
         </nav>
       </div>

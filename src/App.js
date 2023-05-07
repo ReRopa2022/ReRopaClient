@@ -51,22 +51,31 @@ const StatsGraphs = lazy(() => import("./pages/manager/stats/StatsGraphs"));
 const Test = lazy(() => import("./pages/developers/Test"));
 
 const URL = "https://reropa-server.onrender.com/api/ping";
+const USER_URL = "https://reropa-server.onrender.com/api/ping/with-user";
+// const URL = "http://localhost:5000/api/ping";
+// const USER_URL = "http://localhost:5000/api/ping/with-user";
 function App() {
   const { user } = useSelector((state) => state.auth);
 
   useEffect(() => {
     const makePingRequest = async () => {
       try {
-        const response = await fetch(URL);
-        const data = await response.json();
-        console.log(data);
+        if (!user) {
+          const response = await fetch(URL);
+          const data = await response.json();
+          console.log(data);
+        } else {
+          const response = await fetch(USER_URL);
+          const data = await response.json();
+          console.log(data);
+        }
       } catch (error) {
         console.error(error);
       }
     };
 
     makePingRequest();
-  }, []);
+  }, [user]);
 
   return (
     <>
@@ -110,7 +119,7 @@ function App() {
           </Routes>
         </Suspense>
       </div>
-      <Footer />
+      <Footer isUser={user} />
       <ToastContainer />
     </>
   );

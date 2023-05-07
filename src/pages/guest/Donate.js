@@ -60,8 +60,8 @@ const Donate = (props) => {
             className="xs:w-[75%]"
             src={process.env.PUBLIC_URL + "/assets/BlauUsedNew.jfif"}
             alt="condition"
-            height={350}
-            width={500}
+            height={600}
+            width={800}
           />
         </div>
 
