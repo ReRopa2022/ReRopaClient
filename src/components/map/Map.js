@@ -8,7 +8,10 @@ const position = [31.998125, 34.945494];
 //const API_URL = "https://reropa-server.onrender.com/api/location";
 const Map = ({ points }) => {
   //const [points, setPoints] = useState([]);
-  const location = useGeoLocation();
+  const location = useGeoLocation({
+    loaded: true,
+    coordinates: { lat: null, lng: null },
+  });
 
   /*useEffect(() => {
     const fetchData = async () => {
