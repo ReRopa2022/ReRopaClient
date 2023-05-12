@@ -23,6 +23,17 @@ export const addLocation = createAsyncThunk(
   }
 );
 
+export const updateLocation = createAsyncThunk(
+  "updateLocation",
+  async (locationData, thunkAPI) => {
+    try {
+      return await addLocationService.updateLocation(locationData);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(extractErrorMessage(error));
+    }
+  }
+);
+
 export const addLocationSlice = createSlice({
   name: "location",
   initialState,
@@ -45,6 +56,20 @@ export const addLocationSlice = createSlice({
         state.request = action.payload;
       })
       .addCase(addLocation.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+        state.request = null;
+      })
+      .addCase(updateLocation.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(updateLocation.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.request = action.payload;
+      })
+      .addCase(updateLocation.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;

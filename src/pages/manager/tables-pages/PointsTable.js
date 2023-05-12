@@ -1,15 +1,16 @@
 import React from "react";
-//import axios from "axios";
-import RecycleTable from "../../../components/tables/RecycleTable";
-import { locationsData } from "../../../data/locationsData";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import RecycleTableManager from "../../../components/manager/tables/locations/RecycleTableManager";
+//import { locationsData } from "../../../data/locationsData";
 
-//const API_URL = "https://reropa-server.onrender.com/api/location";
+const API_URL = "https://reropa-server.onrender.com/api/location";
 //For locally running const LOCALHOST_API_URL = "http://localhost:5000/api/location";
 
 const PointsTable = () => {
-  //const [data, setData] = useState();
+  const [data, setData] = useState();
 
-  /*useEffect(() => {
+  useEffect(() => {
     const fetchData = () => {
       axios.get(API_URL).then((response) => {
         setData(response.data);
@@ -17,7 +18,7 @@ const PointsTable = () => {
     };
     fetchData();
     // eslint-disable-next-line
-  }, []);*/
+  }, []);
 
   return (
     <div>
@@ -29,7 +30,7 @@ const PointsTable = () => {
         </div>
       </div>{" "}
       <div className="mt-2">
-        <RecycleTable data={locationsData} />
+        <RecycleTableManager data={data} />
       </div>
     </div>
   );
