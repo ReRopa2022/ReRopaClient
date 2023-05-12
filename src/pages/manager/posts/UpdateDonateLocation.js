@@ -1,23 +1,28 @@
-import React, { useEffect } from "react";
-
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-import { addLocation, reset } from "../../../features/manager/addLocationSlice";
+import {
+  updateLocation,
+  reset,
+} from "../../../features/manager/addLocationSlice";
 import GreenButton from "../../../components/ui/GreenButton";
 import Spinner from "../../../components/ui/Spinner";
 const DonateLocation = () => {
+  const location = useLocation();
+  const [data] = useState(location.state?.data);
   const { register, handleSubmit } = useForm({
     defaultValues: {
-      city: "",
-      street: "",
-      street_no: "",
-      type: "",
-      info: "",
-      lat: "",
-      long: "",
-      display: true,
+      id: data?._id,
+      city: data?.city ? data?.city : "",
+      street: data?.street ? data?.street : "",
+      street_no: data?.street_no ? data?.street_no : "",
+      type: data?.type ? data?.type : "",
+      info: data?.info ? data?.info : "",
+      lat: data?.lat ? data?.lat : "",
+      long: data?.long ? data?.long : "",
+      display: data?.display ? data?.display : true,
     },
   });
 
@@ -29,7 +34,7 @@ const DonateLocation = () => {
   );
 
   const onSubmit = async (data) => {
-    await dispatch(addLocation(data));
+    await dispatch(updateLocation(data));
   };
   useEffect(() => {
     if (isError) {
@@ -62,24 +67,24 @@ const DonateLocation = () => {
         <div className="max-w-[450px] h-[700px] mx-auto bg-black/75 text-white">
           <div className="max-w-[320px]  mx-auto ">
             <h1 className="text-3xl font-bold pt-5 text-center">
-              הוספת נקודת איסוף חדשה
+              עדכון נקודת איסוף
             </h1>
 
             <form
               className="w-full flex flex-col py-4"
-              method="POST"
+              method="PUT"
               onSubmit={handleSubmit(onSubmit)}
             >
               <input
                 className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
-                placeholder="עיר"
+                placeholder={data?.city}
                 type="text"
                 {...register("city")}
                 required
               />
               <input
                 className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
-                placeholder="רחוב"
+                placeholder={data?.street}
                 type="text"
                 {...register("street")}
                 required
@@ -87,7 +92,7 @@ const DonateLocation = () => {
 
               <input
                 className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
-                placeholder="מספר רחוב"
+                placeholder={data?.street_no}
                 type="text"
                 {...register("street_no")}
                 required
@@ -100,34 +105,47 @@ const DonateLocation = () => {
                 required
               >
                 <option default selected="selected" disabled>
-                  סוג נקודה
+                  {data?.type}
                 </option>
                 <option>איסוף בגדים</option>
                 <option>מיחזור</option>
               </select>
               <textarea
                 className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
-                placeholder="מידע"
+                placeholder={data?.info}
                 type="text"
                 {...register("info")}
                 required
               />
               <input
                 className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
-                placeholder="קו אורך"
+                placeholder={data?.lat}
                 type="text"
                 {...register("lat")}
                 required
               />
               <input
                 className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right"
-                placeholder="קו רוחב"
+                placeholder={data?.long}
                 type="text"
                 {...register("long")}
                 required
               />
+              <select
+                className="p-3 my-2 bg-white-700 rouded text-gray-600  text-right rtl-grid "
+                type="text"
+                {...register("display")}
+                required
+              >
+                <option selected={data?.display} value={true}>
+                  מוצגת
+                </option>
+                <option selected={!data?.display} value={false}>
+                  לא מוצגת
+                </option>
+              </select>
 
-              <GreenButton type="submit" buttonName="הוספה" />
+              <GreenButton type="submit" buttonName="עדכון" />
             </form>
           </div>
         </div>

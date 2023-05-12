@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { DateRangePicker } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
@@ -12,8 +12,9 @@ const DateRangeFilter = (props) => {
   };
 
   const handleSelect = (date) => {
-    let filtered = props.data?.filter((product) => {
-      let productDate = removeTime(new Date(product.date));
+    let filtered = props.data[2]?.filter((product) => {
+      let productDate = removeTime(new Date(product?.date));
+      console.log(props.data[2]);
 
       return (
         productDate >= date.selection.startDate &&

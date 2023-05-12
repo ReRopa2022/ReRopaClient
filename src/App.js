@@ -35,7 +35,9 @@ const DonateRequest = lazy(() => import("./pages/manager/posts/DonateRequest"));
 const DonateLocation = lazy(() =>
   import("./pages/manager/posts/AddDonateLocation")
 );
-
+const UpdateDonateLocation = lazy(() =>
+  import("./pages/manager/posts/UpdateDonateLocation")
+);
 const ExcessesTable = lazy(() =>
   import("./pages/manager/tables-pages/ExcessesTable")
 );
@@ -104,6 +106,10 @@ function App() {
               <>
                 <Route path="/manager-home" element={<ManagerHome />} />
                 <Route path="/add-location" element={<DonateLocation />} />
+                <Route
+                  path="/update-location"
+                  element={<UpdateDonateLocation />}
+                />
                 <Route path="/donate-request" element={<DonateRequest />} />
                 <Route path="/info-tables" element={<Queries />} />
                 <Route path="/excesses-report" element={<ExcessesReport />} />

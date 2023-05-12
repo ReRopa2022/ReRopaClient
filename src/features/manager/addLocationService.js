@@ -11,8 +11,21 @@ const addLocation = async (locationData) => {
   }
 };
 
+const updateLocation = async (locationData) => {
+  const res = await axios.put(API_URL, locationData);
+  if (res.data) {
+    return res.data;
+  }
+};
+
+const deleteLocation = async (locationId) => {
+  await axios.delete(API_URL, locationId);
+};
+
 const addLocationService = {
   addLocation,
+  updateLocation,
+  deleteLocation,
 };
 
 export default addLocationService;
