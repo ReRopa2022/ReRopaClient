@@ -3,7 +3,10 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-import { addLocation, reset } from "../../../features/manager/addLocationSlice";
+import {
+  updateLocation,
+  reset,
+} from "../../../features/manager/addLocationSlice";
 import GreenButton from "../../../components/ui/GreenButton";
 import Spinner from "../../../components/ui/Spinner";
 const DonateLocation = () => {
@@ -31,7 +34,7 @@ const DonateLocation = () => {
   );
 
   const onSubmit = async (data) => {
-    await dispatch(addLocation(data));
+    await dispatch(updateLocation(data));
   };
   useEffect(() => {
     if (isError) {
@@ -134,14 +137,15 @@ const DonateLocation = () => {
                 {...register("display")}
                 required
               >
-                <option default selected="selected" disabled>
-                  {data?.display ? "מוצגת" : "לא מוצגת"}
+                <option selected={data?.display} value={true}>
+                  מוצגת
                 </option>
-                <option>מוצגת</option>
-                <option>לא מוצגת</option>
+                <option selected={!data?.display} value={false}>
+                  לא מוצגת
+                </option>
               </select>
 
-              <GreenButton type="submit" buttonName="הוספה" />
+              <GreenButton type="submit" buttonName="עדכון" />
             </form>
           </div>
         </div>

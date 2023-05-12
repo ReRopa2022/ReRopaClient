@@ -14,6 +14,12 @@ const RecycleTableManager = ({ data }) => {
                     scope="col"
                     className="xs:px-1 px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase "
                   >
+                    מחיקה
+                  </th>
+                  <th
+                    scope="col"
+                    className="xs:px-1 px-6 py-3 text-xs font-bold text-center text-gray-500 uppercase "
+                  >
                     עדכון נקודה
                   </th>
                   <th
