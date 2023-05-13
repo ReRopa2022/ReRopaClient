@@ -2,6 +2,7 @@ import React from "react";
 import PointCreator from "./PointCreator";
 
 const PointsCreator = (props) => {
+  console.log(props?.points);
   return (
     <div>
       {props.points &&
