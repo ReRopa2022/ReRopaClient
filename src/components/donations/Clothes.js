@@ -56,7 +56,7 @@ const Clothes = (props) => {
       return navigate("/donate-points", { state: { condition: "noNeed" } });
     }
 
-    const seasons = selectedSeason?.map(labelExtractor);
+    const seasons = selectedSeason?.label;
     const genders = selectedGender?.label;
     //const sectors = selectedSector?.map(labelExtractor);
     const sizes = selectedSize?.map(labelExtractor);
@@ -72,7 +72,6 @@ const Clothes = (props) => {
       status: "לא עודכן סטטוס",
       //image,
     };
-    //console.log(donationData);
     dispatch(donate(donationData));
   };
 
@@ -96,7 +95,6 @@ const Clothes = (props) => {
           value={selectedSeason}
           onChange={onSelectSeason}
           isSearchable={true}
-          isMulti
           isRtl
         />
       </div>

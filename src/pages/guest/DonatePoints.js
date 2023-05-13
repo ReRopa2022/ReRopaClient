@@ -7,7 +7,8 @@ import Map from "../../components/map/Map";
 //import { locationsData } from "../../data/locationsData";
 import { facebookGroups } from "../../data/facebookGroups";
 
-const API_URL = "https://reropa-server.onrender.com/api/location";
+//const API_URL = "https://reropa-server.onrender.com/api/location/users";
+const API_URL = "http://localhost:5000/api/location/users";
 //For locally running const LOCALHOST_API_URL = "http://localhost:5000/api/location";
 
 const DonatePoints = () => {
@@ -23,39 +24,60 @@ const DonatePoints = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchData = () => {
-      axios.get(API_URL).then((response) => {
+    const fetchData = async () => {
+      await axios.get(API_URL).then((response) => {
         setData(response.data);
         //setIsDataLoaded(true);
+        if (condition === "noNeed") {
+          const filterData = data?.filter((row) => row.type === "מיחזור");
+          console.log(filterData);
+          setIsNotNeed(true);
+
+          setfilterData(filterData);
+          /* } else if (condition === "faulty") {
+          const filterData = locationsData.filter((row) => row.type === "מיחזור");
+    
+          setfilterData(filterData);*/
+        } else {
+          const filterData = data?.filter((row) => row.type === "איסוף בגדים");
+          console.log(filterData);
+          setfilterData(filterData);
+          setTitle("נשמח שתשאיר/י את השקית באחת מנקודות האיסוף הבאות");
+          setIsNotNeed(false);
+        }
       });
     };
     fetchData();
-    // eslint-disable-next-line
-  }, []);
-
-  useEffect(() => {
-    // Use the data variable here
-
-    // ...
-    if (condition === "noNeed") {
-      const filterData = data?.filter((row) => row.type === "מיחזור");
-      setIsNotNeed(true);
-
-      setfilterData(filterData);
-      /* } else if (condition === "faulty") {
-      const filterData = locationsData.filter((row) => row.type === "מיחזור");
-
-      setfilterData(filterData);*/
-    } else {
-      const filterData = data?.filter((row) => row.type === "איסוף בגדים");
-      setfilterData(filterData);
-      setTitle("נשמח שתשאיר/י את השקית באחת מנקודות האיסוף הבאות");
-      setIsNotNeed(false);
-    }
     navigate("", { state: {} });
 
     // eslint-disable-next-line
   }, []);
+
+  // useEffect(() => {
+  //   // Use the data variable here
+
+  //   // ...
+  //   if (condition === "noNeed") {
+  //     const filterData = data?.filter((row) => row.type === "מיחזור");
+  //     console.log(filterData);
+  //     setIsNotNeed(true);
+
+  //     setfilterData(filterData);
+  //     /* } else if (condition === "faulty") {
+  //     const filterData = locationsData.filter((row) => row.type === "מיחזור");
+
+  //     setfilterData(filterData);*/
+  //   } else {
+  //     const filterData = data?.filter((row) => row.type === "איסוף בגדים");
+  //     console.log(filterData);
+  //     setfilterData(filterData);
+  //     setTitle("נשמח שתשאיר/י את השקית באחת מנקודות האיסוף הבאות");
+  //     setIsNotNeed(false);
+  //   }
+  //   navigate("", { state: {} });
+
+  //   // eslint-disable-next-line
+  // }, []);
   return (
     <div>
       <div className="text-center bg-green-500 xs:h-12  h-36 xs:mb-4 mb-10 ">
