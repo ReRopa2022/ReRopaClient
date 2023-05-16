@@ -12,7 +12,7 @@ const DateRangeFilter = (props) => {
   };
 
   const handleSelect = (date) => {
-    let filtered = props.data[2]?.filter((product) => {
+    let filtered = props.data?.filter((product) => {
       let productDate = removeTime(new Date(product?.date));
       console.log(props.data[2]);
 

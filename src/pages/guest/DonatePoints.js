@@ -7,9 +7,8 @@ import Map from "../../components/map/Map";
 //import { locationsData } from "../../data/locationsData";
 import { facebookGroups } from "../../data/facebookGroups";
 
-//const API_URL = "https://reropa-server.onrender.com/api/location/users";
-const API_URL = "http://localhost:5000/api/location/users";
-//For locally running const LOCALHOST_API_URL = "http://localhost:5000/api/location";
+const API_URL = "https://reropa-server.onrender.com/api/location/users";
+//const API_URL = "http://localhost:5000/api/location/users";
 
 const DonatePoints = () => {
   const [data, setData] = useState();

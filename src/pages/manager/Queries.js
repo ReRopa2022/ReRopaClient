@@ -25,7 +25,18 @@ const Queries = () => {
               <button className="flex justify-center rounded-full px-5 py-5 shadow-md">
                 <GoGraph className="text-green-500 text-5xl " />
                 <Link to="/stats" className="text-green-500 text-3xl font-bold">
-                  גרפים
+                  גרף תרומות
+                </Link>
+              </button>
+            </div>
+            <div className="flex flex-col">
+              <button className="flex justify-center rounded-full px-5 py-5 shadow-md">
+                <GoGraph className="text-green-500 text-5xl " />
+                <Link
+                  to="/stats-entries"
+                  className="text-green-500 text-3xl font-bold"
+                >
+                  גרף כניסות לאתר
                 </Link>
               </button>
             </div>

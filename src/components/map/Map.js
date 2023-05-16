@@ -32,7 +32,7 @@ const Map = ({ points }) => {
         />
 
         {points && <PointsCreator points={points} />}
-        {location && (
+        {location.coordinates && (
           <Marker
             position={[location.coordinates.lat, location.coordinates.lng]}
           >
