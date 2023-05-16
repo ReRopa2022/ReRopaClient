@@ -48,6 +48,7 @@ const PointsTable = lazy(() =>
   import("./pages/manager/tables-pages/PointsTable")
 );
 const StatsGraphs = lazy(() => import("./pages/manager/stats/StatsGraphs"));
+const StatsEntries = lazy(() => import("./pages/manager/stats/StatsEntries"));
 
 //Developers - Pages
 const Test = lazy(() => import("./pages/developers/Test"));
@@ -118,6 +119,7 @@ function App() {
                 <Route path="/defiencies-table" element={<DefienciesTable />} />
                 <Route path="/locataions-table" element={<PointsTable />} />
                 <Route path="/stats" element={<StatsGraphs />} />
+                <Route path="/stats-entries" element={<StatsEntries />} />
               </>
             )}
             <Route path="*" element={<NotFound />} />
