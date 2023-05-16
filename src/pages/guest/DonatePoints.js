@@ -8,14 +8,14 @@ import Map from "../../components/map/Map";
 import { facebookGroups } from "../../data/facebookGroups";
 
 const API_URL = "https://reropa-server.onrender.com/api/location/users";
-//const API_URL = "http://localhost:5000/api/location/users";
+//For locally running const LOCALHOST_API_URL = ""http://localhost:5000/api/location/users"";
 
 const DonatePoints = () => {
-  const [data, setData] = useState();
+  //const [data, setData] = useState();
   const [title, setTitle] = useState(
     "נשמח שתשאיר/י את השקית באחת מנקודות המיחזור הבאות"
   );
-  const [filterData, setfilterData] = useState();
+  const [filterData, setFilterData] = useState();
   const [isNotNeed, setIsNotNeed] = useState(false);
   const location = useLocation();
   const [condition] = useState(location.state?.condition);
@@ -25,22 +25,21 @@ const DonatePoints = () => {
   useEffect(() => {
     const fetchData = async () => {
       await axios.get(API_URL).then((response) => {
-        setData(response.data);
+        //setData(response.data);
         //setIsDataLoaded(true);
         if (condition === "noNeed") {
-          const filterData = data?.filter((row) => row.type === "מיחזור");
-          console.log(filterData);
+          setFilterData(response?.data?.filter((row) => row.type === "מיחזור"));
           setIsNotNeed(true);
 
-          setfilterData(filterData);
+          //setfilterData(filterPoints);
           /* } else if (condition === "faulty") {
           const filterData = locationsData.filter((row) => row.type === "מיחזור");
     
           setfilterData(filterData);*/
         } else {
-          const filterData = data?.filter((row) => row.type === "איסוף בגדים");
-          console.log(filterData);
-          setfilterData(filterData);
+          setFilterData(
+            response?.data?.filter((row) => row.type === "איסוף בגדים")
+          );
           setTitle("נשמח שתשאיר/י את השקית באחת מנקודות האיסוף הבאות");
           setIsNotNeed(false);
         }
